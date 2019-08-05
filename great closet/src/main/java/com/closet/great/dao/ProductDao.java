@@ -1,5 +1,5 @@
 package com.closet.great.dao;
 
-public interface MypageDao {
+public interface ProductDao {
 
 }

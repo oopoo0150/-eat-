@@ -1,5 +1,5 @@
 package com.closet.great.service;
 
-public class Menagerment {
+public class ClosetManagement {
 
 }
