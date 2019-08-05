@@ -29,9 +29,9 @@
 	<!-- DB 커넥션 관련 설정 = DataSource -->
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
-		<beans:property name="url" value="jdbc:log4jdbc:oracle:thin:@아이피:1521:XE"/>
-		<beans:property name="username" value="서버 이름"/>
-		<beans:property name="password" value="서버 비번"/>
+		<beans:property name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.0.167:1521:XE"/>
+		<beans:property name="username" value="FINALPRO"/>
+		<beans:property name="password" value="1234"/>
 	</beans:bean>
 	
 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -42,8 +42,8 @@
 	<!-- mybatis 관련 객채 설정 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="configLocation" value="classpath:com/lgy/board/dao/mybatis-conf.xml"/>
-		<beans:property name="mapperLocations" value="classpath:com/lgy/board/dao/mapper/*.xml"/>
+		<beans:property name="configLocation" value="classpath:com/closet/great/dao/mybatis-conf.xml"/>
+		<beans:property name="mapperLocations" value="classpath*:com/closet/great/dao/mapper/*.xml"/>
 	</beans:bean>
 	
 	
