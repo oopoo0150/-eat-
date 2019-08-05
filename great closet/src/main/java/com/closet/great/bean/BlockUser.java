@@ -1,7 +1,8 @@
 package com.closet.great.bean;
 
+import org.apache.ibatis.type.Alias;
 
-
+@Alias("Block")
 public class BlockUser {
 	//차단한 사용자 목록 출력을 위한 bean
 	private int block_num;

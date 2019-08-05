@@ -45,11 +45,5 @@ public class HomeController {
 		return "signup";
 	}
 	
-	//로그인 화면
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login() {
-		
-		
-		return mav;
-	}
+	
 }

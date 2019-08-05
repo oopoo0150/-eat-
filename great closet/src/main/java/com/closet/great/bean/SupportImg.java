@@ -1,5 +1,8 @@
 package com.closet.great.bean;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("supportimg")
 public class SupportImg {
 	private int noi_num; 
 	private String noi_sysname; //고객지원 게시판 파일 sysname
