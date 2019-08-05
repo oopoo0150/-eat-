@@ -1,19 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: oopoo
 Build-Jdk: 1.8.0_201
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-Built-By: oopoo
-Build-Jdk: 1.8.0_201
-=======
-<<<<<<< HEAD
->>>>>>> d8cfabc8fe7f4f5bc658f2be911771849c326cb8
-Built-By: 20
-Build-Jdk: 1.8.0_211
->>>>>>> 66c46d40dfc1df2da3b8c5174f20a4ae4a6057cb
->>>>>>> 6106b9f6201ece4a554f02949126c78312494686
 Created-By: Maven Integration for Eclipse
 
