@@ -1,5 +1,5 @@
 package com.closet.great.dao;
 
-public class ClosetDao {
+public interface ClosetDao {
 
 }
