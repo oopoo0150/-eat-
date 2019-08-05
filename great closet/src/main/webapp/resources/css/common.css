@@ -1,1 +1,94 @@
-@charset "EUC-KR";
+/* CSS Document */
+*{ padding: 0px; margin: 0px; }
+
+/* monospace - 글자폭과 간격이 일정한 글꼴 */
+*{ font-family:'Nanum Gothic',monospace; font-size: 12px; color: #666666; }
+
+img{ border: none; }
+li{ list-style: none; }
+a{ text-decoration: none; }
+table{ border-spacing: 0px; border-collapse: none; }
+header, section, footer, nav, article, aside, figure{ padding: 0px; margin: 0px; display: block; }
+
+header{ height: 160px; }
+footer{ height: 180px; background-color: #ff6a89; margin-top: 5%; }
+
+
+
+/*header의 행간 레이아웃*/
+div#h_top{ width: 1000px; height: 120px; margin: 0px auto; }
+
+
+/*h_top의 내부구성요소*/
+div#h_top > h1{ text-align: center; padding-top: 23px; }
+
+
+nav {
+    background: #ff6a89;
+    width: 100%;
+  
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    padding: 10px 30px;
+}
+    nav ul li:hover {
+        background: #E86356;
+    }
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+}
+    nav ul li a:hover {
+        color: #fff;
+        text-decoration: none;
+   }
+   
+nav ul li.parent ul.child {
+    display: none;
+}
+nav ul li.parent:hover ul.child {
+    display: block;
+    position: absolute;
+    top: 35px;
+    background: #E86356;
+}
+
+nav ul li.parent ul.child li {
+    width: 9em;
+    padding: 0;
+    text-align: center;
+}
+nav ul li.parent ul.child li:hover {
+    background: #FF845E;
+}
+nav ul li.parent ul.child li a {
+    display: block;
+}
+
+
+
+/*f_top의 내부구성요소*/
+div#f_top { width: 1000px; height: 100px; margin: 0px auto; }
+div#f_top > h1{ text-align: center; padding: 20px; }
+
+/*f_mail*/
+div#f_mail { width: 1000px; height: 20px; margin: 0px auto; }
+div#f_mail > p{ font-size: 16px; color: #fff; text-align: center; font-style: bold;}
+
+/* f_bottom의 내부구성요소 */
+div#f_bottom { width: 1000px; height: 40px; margin: 0px auto; }
+div#f_bottom > p{ font-size: 16px; color: #fff; text-align: center; }
+
+    
+ 
