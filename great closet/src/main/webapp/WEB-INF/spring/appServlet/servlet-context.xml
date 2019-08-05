@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 		
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+	<context:component-scan base-package="com.jooni.nol2.service" />
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -42,8 +42,15 @@
 	<!-- mybatis 관련 객채 설정 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="configLocation" value="classpath:com/lgy/board/dao/mybatis-conf.xml"/>
-		<beans:property name="mapperLocations" value="classpath:com/lgy/board/dao/mapper/*.xml"/>
+		<beans:property name="configLocation" value="classpath:com/closet/greeat/dao/mybatis-conf.xml"/>
+		<beans:property name="mapperLocations" value="classpath:com/closet/greea/dao/mapper/*.xml"/>
+	</beans:bean>
+	
+	<!-- Multipart 처리용 빈 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="UTF-8"/>
+		<beans:property name="maxUploadSize" value="10000000"/>
+		<beans:property name="maxInMemorySize" value="10000000"/>
 	</beans:bean>
 	
 	
