@@ -28,10 +28,6 @@ public class HomeController {
 	//모델뷰 전역
 	ModelAndView mav;
 	
-	//회원 정보 저장
-	@Autowired
-	HttpSession session;
-	
 	
 	//홈 메인 화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)

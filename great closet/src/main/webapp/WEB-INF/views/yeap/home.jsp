@@ -8,10 +8,8 @@
 	<title>Home</title>
 	<link type="text/css" rel="stylesheet" href="resources/css/common.css">
 	
-=======
 <title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
->>>>>>> 2e1e6beb27537f9eb019a442a560de619ecc4281
 </head>
 <body>
 <<<<<<< HEAD
@@ -67,7 +65,6 @@
                 <p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
             </div>
         </footer>
-=======
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
@@ -121,6 +118,5 @@
 			<p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
 		</div>
 	</footer>
->>>>>>> 7e43cc519a440556f22dacb0188475139cf015ff
 </body>
 </html>
