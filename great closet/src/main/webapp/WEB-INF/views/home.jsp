@@ -4,8 +4,14 @@
 <%@ page session="false"%>
 <html>
 <head>
+<<<<<<< HEAD
+	<title>Home</title>
+	<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+	
+=======
 <title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+>>>>>>> 2e1e6beb27537f9eb019a442a560de619ecc4281
 </head>
 <body>
 	<header>
