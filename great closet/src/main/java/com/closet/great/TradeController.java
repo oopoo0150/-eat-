@@ -8,8 +8,6 @@ import com.closet.great.service.ProductManagement;
 
 @Controller
 public class TradeController {
-	ModelAndView mav;
 	
-	@Autowired
-	ProductManagement pm;
+
 }

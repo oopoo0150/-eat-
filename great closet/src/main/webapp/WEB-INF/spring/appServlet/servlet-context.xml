@@ -33,7 +33,7 @@
 		<beans:property name="username" value="FINALPRO"/>
 		<beans:property name="password" value="1234"/>
 	</beans:bean>
-	
+		
 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<beans:property name="dataSource" ref="dataSource"/>
 	</beans:bean>
@@ -45,6 +45,15 @@
 		<beans:property name="configLocation" value="classpath:com/closet/great/dao/mybatis-conf.xml"/>
 		<beans:property name="mapperLocations" value="classpath*:com/closet/great/dao/mapper/*.xml"/>
 	</beans:bean>
-	
+	<!-- DAO 객체 설정 -->
+	<beans:bean id="mDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<beans:property name="mapperInterface" value="com.closet.great.dao.MemberDao"/>
+	</beans:bean>
+	<!-- DAO 객체 설정 -->
+	<beans:bean id="bDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<beans:property name="mapperInterface" value="com.closet.great.dao."/>
+	</beans:bean>
 	
 </beans:beans>

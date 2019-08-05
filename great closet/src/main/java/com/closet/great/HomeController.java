@@ -20,8 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
  * Handles requests for the application home page.
  */
 @Controller
-
-
 public class HomeController {
 	
 	
@@ -29,10 +27,6 @@ public class HomeController {
 	
 	//모델뷰 전역
 	ModelAndView mav;
-	
-	//회원 정보 저장
-	@Autowired
-	HttpSession session;
 	
 	
 	//홈 메인 화면

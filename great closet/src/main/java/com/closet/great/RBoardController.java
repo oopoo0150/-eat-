@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes("request")
 public class RBoardController {
 	
 	ModelAndView mav;
