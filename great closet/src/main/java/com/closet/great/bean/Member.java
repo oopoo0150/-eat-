@@ -1,6 +1,6 @@
 package com.closet.great.bean;
 
-import java.sql.Date;
+import java.security.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
@@ -11,7 +11,7 @@ public class Member {
 	private String snick;       //-> 회원 닉네임
 	private String spass;       //-> 회원 비밀번호
 	private String smail;       //-> 회원 메일
-	private Date sbirth;   	    //-> 회원 생년월일
+	private Timestamp sbirth;   	    //-> 회원 생년월일
 	private String ssysname;    //-> 회원 사진 저장파일 이름
 	private String soriname;    //-> 회원 실제 이름
 	private int scomplain;    	//-> 회원 신고 횟수
@@ -48,10 +48,10 @@ public class Member {
 	public void setSmail(String smail) {
 		this.smail = smail;
 	}
-	public Date getSbirth() {
+	public Timestamp getSbirth() {
 		return sbirth;
 	}
-	public void setSbirth(Date sbirth) {
+	public void setSbirth(Timestamp sbirth) {
 		this.sbirth = sbirth;
 	}
 	public String getSsysname() {
