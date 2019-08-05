@@ -6,6 +6,7 @@
 <head>
 	<title>Home</title>
 	<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+	
 </head>
 <body>
 <header>
