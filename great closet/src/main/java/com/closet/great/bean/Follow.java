@@ -1,5 +1,8 @@
 package com.closet.great.bean;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("follow")
 public class Follow {
 	//팔로우, 팔로잉을 위한 bean
 	private String f_following; //내가 팔로우 하는 유저

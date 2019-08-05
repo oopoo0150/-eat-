@@ -3,6 +3,9 @@ package com.closet.great.bean;
 
 import java.sql.Timestamp;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("suport")
 public class Support {
   //고객지원 게시판 관리를 위한 bean
 	private int no_num;
