@@ -14,7 +14,7 @@
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
 	
-	<!-- 오라클 드라이버 다운로드영 사설 저장소 등록 -->
+	<!-- 오라클 드라이버 다운로드 용 사설 저장소 등록 -->
 	<repositories>
 		<repository>
 			<id>Oracle</id>
