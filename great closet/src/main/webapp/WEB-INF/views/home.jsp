@@ -22,6 +22,7 @@
 			</h1>
 		</div>
 		<!-- 메인/서브네비게이션 -->
+		hi
 		<center>
 			<div id="h_bottom">
 				<nav class="main_nav">
