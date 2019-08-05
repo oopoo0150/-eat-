@@ -1,37 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: 20
-=======
-<<<<<<< HEAD
-Built-By: 70
-=======
-<<<<<<< HEAD
-Built-By: 20
-=======
-<<<<<<< HEAD
-Built-By: 54
-=======
-<<<<<<< HEAD
-Built-By: 70
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-Built-By: 70
-=======
-<<<<<<< HEAD
-Built-By: 54
-=======
-<<<<<<< HEAD
->>>>>>> d345f6b6f7a1ce327109ad80cceb6655551f17a2
-Built-By: 20
->>>>>>> 2ea657f4f56e0bb293afa005f157530423b607c8
->>>>>>> e29538dd17d52e5c6cecc8cb5eaf47c83b1f72cd
->>>>>>> 6478d1177401df7b20f62d0a93f95c5526fc35b1
->>>>>>> 1b39f4793a1ccec62d4dcdfb77e133488d0fb93b
->>>>>>> cb8b0f02f261b218fa6a44a28d6f54ae8434c564
->>>>>>> 2e1e6beb27537f9eb019a442a560de619ecc4281
->>>>>>> b0bf1e9f0b06bd50461d5168dcf2e17f1a5467d1
 Build-Jdk: 1.8.0_211
 Created-By: Maven Integration for Eclipse
 
