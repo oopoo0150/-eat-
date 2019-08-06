@@ -24,11 +24,11 @@ public class HomeController {
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
+	
 	//모델뷰 전역
 	ModelAndView mav;
-
-
+	
+	
 	//홈 메인 화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -43,7 +43,10 @@ public class HomeController {
 		logger.info("회원가입 페이지를 열었음");
 
 		return "signup";
+	
 	}
-
-
 }
+	
+	
+	
+	
