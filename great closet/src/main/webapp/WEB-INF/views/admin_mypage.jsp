@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet"
-	href="resources/css/mypage/mypage.css">
+<link type="text/css" rel="stylesheet"href="resources/css/mypage/mypage.css">
 </head>
 <body>
 	<header>
@@ -39,11 +38,7 @@
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
 							</ul></li>
-						<li class="parent"><a href="./mypage" title="Mypage">My page</a>
-							<ul class="child">
-								<li><a href="./adminpage" title="관리자페이지">관리자 페이지</a></li>
-							</ul>
-						</li>
+						<li><a href="./mypage" title="Mypage">My page</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -79,44 +74,46 @@
 						</div>
 						<div id="uinfo_bottom">
 							<a href="./mSelction"><div class="sel_count">
-								<p>채택</p>
-								<p>count</p>
-							</div></a>
-							<a href="./mFollower"><div class="follwer_count">
-								<p>팔로워</p>
-								<p>count</p>
-							</div></a>
-							<a href="./mFollowing"><div class="following_count">
-								<p>팔로잉</p>
-								<p>count</p>
-							</div></a>
+									<p>채택</p>
+									<p>count</p>
+								</div></a> <a href="./mFollower"><div class="follwer_count">
+									<p>팔로워</p>
+									<p>count</p>
+								</div></a> <a href="./mFollowing"><div class="following_count">
+									<p>팔로잉</p>
+									<p>count</p>
+								</div></a>
 						</div>
 					</div>
 				</div>
 				<div id="mypage_bottom">
 					<div class="s_box1">
-						<a href="./mCloset"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./adminSup"><img src="resources/image/mypage/ad_box.png"></a>
 					</div>
 					<div class="s_box2">
 						<a href="./mCal"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box3">
-						<a href="./mBoard"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mBoard"><img
+							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box4">
-						<a href="./mLookbook"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mLookbook"><img
+							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box5">
 						<a href="./mlog"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box6">
-						<a href="./mStatistics"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mStatistics"><img
+							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box7">
 						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./mSupport"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mSupport"><img
+							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 				</div>
 			</div>

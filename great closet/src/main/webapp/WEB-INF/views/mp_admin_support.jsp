@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<form action="./spWrite">
+  <button>글쓰기</button>
+</form>
+
 </body>
 </html>

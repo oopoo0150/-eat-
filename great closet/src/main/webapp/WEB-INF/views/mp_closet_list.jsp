@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
+
 <header>
 <!-- 헤더로고 -->
 <div id="h_top">
@@ -31,20 +33,28 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
+			
 			<li class="parent"><a href="#" title= "중고거래">Deal</a>
 				<ul class="child">
 					<li><a href="#" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-			<li><a href="./mypage" title= "Mypage">My page</a></li>
-		</ul>
+			<li  class="parent"><a href="#" title= "Mypage">My page</a>
+				<ul class="child">
+					<li><a href="#" title="Contest">Closet</a></li>
+				</ul>
+				</li>
 	</nav>
 </div>
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+옷장을 만들자!
+
+
+
+
 </section>
 <footer>
 <!-- 풋터로고 -->
@@ -59,6 +69,5 @@
 	<p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
 </div>
 </footer>	
-
 </body>
 </html>
