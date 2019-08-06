@@ -46,14 +46,7 @@
 </center>
 </header>
 <section>
-
-<!-- 이부분은 화면구성 -->
-<div class="">
-	<input type="button" value="회원가입" onclick="location.href='./signup'">
-	
-	
-</div>
-
+내용을 입력해 주세요
 </section>
 <footer>
 <!-- 풋터로고 -->

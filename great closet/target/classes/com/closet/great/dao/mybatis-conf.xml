@@ -4,7 +4,11 @@
 <!-- 공통 환경 설정 -->
 <configuration>
 	<typeAliases>
-		<!-- <package name="com.closet.great.bean"/> -->
-		<typeAlias type="com.closet.great.bean.Member" alias="member"/>
+		<package name="com.closet.great.bean"/>
+		<!-- <typeAlias type="com.lgy.board.bean.Member" alias="member"/>
+		<typeAlias type="com.lgy.board.bean.Board" alias="board"/> -->
+		<!-- 더추가하고싶을때 주소와 얼리어스 만 바꾸어 사용 
+		ex)<typeAlias type="com.lgy.Board.bean.Board" alias="bord"/>
+		-->
 	</typeAliases>
 </configuration> 	
