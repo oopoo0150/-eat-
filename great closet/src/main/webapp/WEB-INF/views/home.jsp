@@ -33,7 +33,6 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
-<<<<<<< HEAD
 			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 			
 			<li class="parent"><a href="#" title= "중고거래">Deal</a>
@@ -42,7 +41,6 @@
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-<<<<<<< HEAD
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
 		</ul>
 			<li  class="parent"><a href="#" title= "Mypage">My page</a>
@@ -55,7 +53,14 @@
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+
+<!-- 이부분은 화면구성 -->
+<div class="">
+    <input type="button" value="회원가입" onclick="location.href='./signup'">
+    
+    
+</div>
+
 </section>
 <footer>
 <!-- 풋터로고 -->

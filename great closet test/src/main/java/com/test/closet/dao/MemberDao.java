@@ -1,6 +1,6 @@
-package com.closet.great.dao;
+package com.test.closet.dao;
 
-import com.closet.great.bean.Member;
+import com.test.closet.bean.Member;
 
 public interface MemberDao {
 
