@@ -1,0 +1,12 @@
+/*전체 구성요소 설정*/
+ section{width: 1000px; margin: 0 auto;}
+ 
+ /*상품 추가 왼쪽 화면. 파일 추가해서 이미지 미리보기 하는 공간*/
+ .pregist_left{max-width: 500px;}
+ 
+ 
+ /*상품 추가 오른쪽 화면. 제목 내용 등 작성하는 공간*/
+ .pregist_right{max-width: 500px;}
+ 
+ /*상품 게시글 등록/취소 버튼*/
+ .pregist_btn{float: left;}
