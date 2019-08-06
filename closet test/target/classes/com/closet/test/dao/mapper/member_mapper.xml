@@ -2,20 +2,34 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.closet.great.dao.MemberDao">
+
+    <!-- 회원가입 중복 -->
     <insert id="MemberInsert" parameterType="member">
         INSERT INTO sign VALUES (#{s_name}, #{s_nick}, #{s_id}, #{s_pass}, #{s_mail}, #{s_birth}, DEFAULT, DEFAULT, DEFAULT, DEFAULT)
     </insert>
 
+    <!-- 아이디 중복 -->
     <select id="checkOverId" parameterType="String" resultType="int">
         SELECT count(*) FROM sign WHERE S_ID = #{s_id}
     </select>
     
+    <!-- 닉네임 중복 -->
     <select id="checkOvernick" parameterType="String" resultType="int">
         SELECT count(*) FROM sign WHERE S_NICK = #{s_nick}
     </select>
     
+    <!-- 메일 중복 -->
     <select id="checkOvermail" parameterType="String" resultType="int">
         SELECT count(*) FROM sign WHERE S_MAIL = #{s_mail}
     </select>
+    
+    <!-- 암호화 비번 확인 -->
+	<select id="getSecurityPwd" parameterType="String" resultType="String">
+		SELECT S_PASS FROM SIGN WHERE S_ID=#{s_id}
+	</select>
+    
+    <select id="getMemberInfo" resultType="member" parameterType="String" >
+		SELECT * FROM SIGN WHERE S_ID=#{s_id}
+	</select>
     
 </mapper>

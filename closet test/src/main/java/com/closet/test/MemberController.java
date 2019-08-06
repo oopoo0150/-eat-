@@ -64,5 +64,14 @@ public class MemberController extends HttpServlet {
                     
         return mm.usermailCheck(s_mail);
     }
+    
+    //로그인 
+    @RequestMapping(value = "/login_Access", method = RequestMethod.POST)
+	public ModelAndView login(Member mb) {
+
+		mav = mm.memberLogin(mb);
+		return mav;
+	}
+	
 
 }

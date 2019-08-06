@@ -1,5 +1,7 @@
 package com.closet.test.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ public class MemberManagerment {
     @Autowired
     private MemberDao mDao;
 
+    @Autowired
+    private HttpSession session;
     
     //로그인시 세션에 로그인 정보 저장할거임
     
@@ -61,6 +65,38 @@ public class MemberManagerment {
             // TODO Auto-generated method stub
             return mDao.checkOvermail(s_mail);
         }
+
+
+		public ModelAndView memberLogin(Member mb) {
+
+			mav = new ModelAndView();
+			String view = null;
+			
+			BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
+			
+			String endpwd = mDao.getSecurityPwd(mb.getS_id());
+			
+			if(endpwd != null) {
+				if(pwdEncoder.matches(mb.getS_pass(), endpwd)) {
+					session.setAttribute("id", mb.getS_id());
+					//메인 화면으로 전환
+					// -> 게시판 목록 (이후 처리)
+					// 로그인한 회원의 일부 정보
+					mb = mDao.getMemberInfo(mb.getS_id());
+					mav.addObject("mb", mb);
+					view = "redirect:/home";
+				}else {
+					view = "home";
+					mav.addObject("check", 2);
+				}
+			}else {
+				view = "home";
+				mav.addObject("check", 2);
+			}
+			
+			mav.setViewName(view);
+			return mav;
+		}
     
     
 }

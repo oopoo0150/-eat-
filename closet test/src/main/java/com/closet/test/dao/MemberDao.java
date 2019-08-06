@@ -11,5 +11,9 @@ public interface MemberDao {
 	boolean MemberInsert(Member mb);
 
 	int checkOvermail(String s_mail);
+
+	String getSecurityPwd(String s_id);
+
+	Member getMemberInfo(String s_id);
 	
 }
