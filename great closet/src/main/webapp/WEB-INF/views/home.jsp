@@ -39,7 +39,7 @@
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-			<li><a href="#" title= "Mypage">My page</a></li>
+			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
 		</ul>
 	</nav>
 </div>
