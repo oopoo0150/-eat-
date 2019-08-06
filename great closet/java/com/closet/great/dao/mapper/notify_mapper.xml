@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<<<<<<< HEAD:great closet/src/main/java/com/closet/great/dao/mapper/lookbook_mapper.xml
+<mapper namespace="com.closet.great.dao.LookbookDao">
+=======
+<mapper namespace="com.closet.great.dao.NotifyDao">
+>>>>>>> e36c0513289350a1e93027fb53f6e746122ba9c5:great closet/java/com/closet/great/dao/mapper/notify_mapper.xml
+
+</mapper>
