@@ -47,4 +47,14 @@ public class HomeController {
 
 		return "signup";
 	}
+<<<<<<< HEAD:great closet/src/main/java/com/closet/great/HomeController.java
+	
+
+	
+	
+		
+=======
+
+
+>>>>>>> e36c0513289350a1e93027fb53f6e746122ba9c5:great closet/java/com/closet/great/HomeController.java
 }
