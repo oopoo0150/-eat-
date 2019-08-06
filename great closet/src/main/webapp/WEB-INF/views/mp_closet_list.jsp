@@ -6,6 +6,7 @@
 <head>
 <title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<link type="text/css" rel="stylesheet" href="resources/css/closet.css">
 </head>
 <body>
 
@@ -50,10 +51,43 @@
 </center>
 </header>
 <section>
-옷장을 만들자!
+
+<div class = "add">
+<button onclick="closetAdd(${Closet.c_sid})">
+	<img src = "resources/image/icon/plus.png" alt= 추가 width = "50" height = "50" />
+	</button>
+</div>
+
+<div class = "div">
+
+<c:forEach var="Closet" items="${cList}">
+
+<div class = "div2">
+
+	<div>
+	<input type = "checkbox" class = "check"/>
+	</div>	
+	<form action="#">
+	<button name = "del" value = ${Closet.c_num}>
+	<img src = "resources/image/icon/closet.png" alt= {Closet.c_name} width = "100" height = "100" />
+	</button>
+	</form>
+	
+	<div>
+	<center>
+	<a href="#">${Closet.c_name}</a>
+	</center>
+	</div>
+	</div>
+
+</c:forEach>
 
 
+</div>
 
+<div>
+<input type = "button" value = "삭제" class = "btn"/>
+</div>
 
 </section>
 <footer>
@@ -70,4 +104,21 @@
 </div>
 </footer>	
 </body>
+
+
+</script>
+function insertAdd(user){
+
+	$.ajax({
+		type:'post',
+		url: 'insertAdd',
+		data: user,
+		dataType:'json',
+		success: function(data, status, xhr){
+
+
+}
+
+
+
 </html>

@@ -42,7 +42,7 @@
 			</li>
 			<li  class="parent"><a href="#" title= "Mypage">My page</a>
 				<ul class="child">
-					<li><a href="./closetList" title="Contest">Closet</a></li>
+					<li><a href="./closetList?user=tami" title="Contest">Closet</a></li>
 				</ul>
 				</li>
 	</nav>
