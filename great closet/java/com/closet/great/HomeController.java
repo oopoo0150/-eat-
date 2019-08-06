@@ -24,11 +24,25 @@ public class HomeController {
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+<<<<<<< HEAD:great closet/java/com/closet/great/HomeController.java
 	//모델뷰 전역
 
 	//모델뷰 전역
 	ModelAndView mav;
 	
+=======
+<<<<<<< HEAD:great closet/java/com/closet/great/HomeController.java
+
+	//모델뷰 전역
+
+=======
+	
+	//모델뷰 전역
+	ModelAndView mav;
+	
+	
+>>>>>>> parent of 9a29efc... no message:great closet/src/main/java/com/closet/great/HomeController.java
+>>>>>>> 929f3a20ef4fb426ca99b68cbb83f3eaa51469b3:great closet/java/com/closet/great/HomeController.java
 	//홈 메인 화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -43,8 +57,15 @@ public class HomeController {
 		logger.info("회원가입 페이지를 열었음");
 
 		return "signup";
+<<<<<<< HEAD:great closet/java/com/closet/great/HomeController.java
 	
 	}
 }
 	
 	
+=======
+	
+	
+}
+}	
+>>>>>>> 929f3a20ef4fb426ca99b68cbb83f3eaa51469b3:great closet/java/com/closet/great/HomeController.java
