@@ -2,9 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <mapper namespace="com.closet.great.dao.ClosetDao">
 	<select id="getClosetList" resultType="closet" parameterType="String" >
 		SELECT * FROM closet where c_sid = #{user}
 	</select>
+=======
+<mapper namespace="com.closet.dao.ClosetDao">
+>>>>>>> parent of 9a29efc... no message
 
 </mapper>

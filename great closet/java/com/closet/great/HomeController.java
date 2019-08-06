@@ -13,13 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.closet.great.bean.Member;
-import com.closet.great.service.MemberManagerment;
 
 /**
  * Handles requests for the application home page.
@@ -29,9 +24,17 @@ public class HomeController {
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+<<<<<<< HEAD:great closet/java/com/closet/great/HomeController.java
 
 	//모델뷰 전역
 
+=======
+	
+	//모델뷰 전역
+	ModelAndView mav;
+	
+	
+>>>>>>> parent of 9a29efc... no message:great closet/src/main/java/com/closet/great/HomeController.java
 	//홈 메인 화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -47,9 +50,6 @@ public class HomeController {
 
 		return "signup";
 	
-
 	
-	
-		
 }
 }	

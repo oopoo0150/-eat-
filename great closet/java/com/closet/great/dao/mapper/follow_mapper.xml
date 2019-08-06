@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD:great closet/java/com/closet/great/dao/mapper/follow_mapper.xml
 <mapper namespace="com.closet.great.dao.FollowDao">
+=======
+<mapper namespace="com.closet.dao.ClosetDao">
+>>>>>>> parent of 9a29efc... no message:great closet/src/main/java/com/closet/great/dao/mapper/closet_mapper.xml
 
 </mapper>

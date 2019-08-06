@@ -4,82 +4,79 @@ import java.security.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Alias("member")
 public class Member {
-	private String s_id;         //-> 회원 아이디
-	private String s_name;       //-> 회원 실명이름
-	private String s_nick;       //-> 회원 닉네임
-	private String s_pass;       //-> 회원 비밀번호
-	private String s_mail;       //-> 회원 메일
-	//@JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
-	private String s_birth;   //-> 회원 생년월일
-	private String s_sysname;    //-> 회원 사진 저장파일 이름
-	private String s_oriname;    //-> 회원 실제 이름
-	private int s_complain;    	//-> 회원 신고 횟수
-	private String s_notify;  	//-> 회원 제재여부 (제재가 되었나 안되었나 확인)
+	private String sid;         //-> 회원 아이디
+	private String sname;       //-> 회원 실명이름
+	private String snick;       //-> 회원 닉네임
+	private String spass;       //-> 회원 비밀번호
+	private String smail;       //-> 회원 메일
+	private Timestamp sbirth;   	    //-> 회원 생년월일
+	private String ssysname;    //-> 회원 사진 저장파일 이름
+	private String soriname;    //-> 회원 실제 이름
+	private int scomplain;    	//-> 회원 신고 횟수
+	private String snotify;  	//-> 회원 제재여부 (제재가 되었나 안되었나 확인)
 	
-	
-	public String getS_id() {
-		return s_id;
+	//getter and setter
+	public String getSid() {
+		return sid;
 	}
-	public void setS_id(String s_id) {
-		this.s_id = s_id;
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
-	public String getS_name() {
-		return s_name;
+	public String getSname() {
+		return sname;
 	}
-	public void setS_name(String s_name) {
-		this.s_name = s_name;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
-	public String getS_nick() {
-		return s_nick;
+	public String getSnick() {
+		return snick;
 	}
-	public void setS_nick(String s_nick) {
-		this.s_nick = s_nick;
+	public void setSnick(String snick) {
+		this.snick = snick;
 	}
-	public String getS_pass() {
-		return s_pass;
+	public String getSpass() {
+		return spass;
 	}
-	public void setS_pass(String s_pass) {
-		this.s_pass = s_pass;
+	public void setSpass(String spass) {
+		this.spass = spass;
 	}
-	public String getS_mail() {
-		return s_mail;
+	public String getSmail() {
+		return smail;
 	}
-	public void setS_mail(String s_mail) {
-		this.s_mail = s_mail;
+	public void setSmail(String smail) {
+		this.smail = smail;
 	}
-	public String getS_birth() {
-		return s_birth;
+	public Timestamp getSbirth() {
+		return sbirth;
 	}
-	public void setS_birth(String s_birth) {
-		this.s_birth = s_birth;
+	public void setSbirth(Timestamp sbirth) {
+		this.sbirth = sbirth;
 	}
-	public String getS_sysname() {
-		return s_sysname;
+	public String getSsysname() {
+		return ssysname;
 	}
-	public void setS_sysname(String s_sysname) {
-		this.s_sysname = s_sysname;
+	public void setSsysname(String ssysname) {
+		this.ssysname = ssysname;
 	}
-	public String getS_oriname() {
-		return s_oriname;
+	public String getSoriname() {
+		return soriname;
 	}
-	public void setS_oriname(String s_oriname) {
-		this.s_oriname = s_oriname;
+	public void setSoriname(String soriname) {
+		this.soriname = soriname;
 	}
-	public int getS_complain() {
-		return s_complain;
+	public int getScomplain() {
+		return scomplain;
 	}
-	public void setS_complain(int s_complain) {
-		this.s_complain = s_complain;
+	public void setScomplain(int scomplain) {
+		this.scomplain = scomplain;
 	}
-	public String getS_notify() {
-		return s_notify;
+	public String getSnotify() {
+		return snotify;
 	}
-	public void setS_notify(String s_notify) {
-		this.s_notify = s_notify;
+	public void setSnotify(String snotify) {
+		this.snotify = snotify;
 	}
 	
 	
