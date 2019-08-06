@@ -22,7 +22,7 @@
 			<li class="parent"><a href="#" title= "LookBook">LookBook</a>
 				<ul class="child">
 					<li><a href="#" title="lookbook">Look Book</a></li>
-					<li><a href="#" title="Contest">Contest</a></li>
+					<li><a href="./contest_main" title="Contest">Contest</a></li>
 				</ul>
 			</li>
 			<li  class="parent"><a href="#" title= "게시판">Board</a>
@@ -33,7 +33,7 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
-			<li class="parent"><a href="#" title= "중고거래">Deal</a>
+			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 				<ul class="child">
 					<li><a href="#" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -51,7 +51,7 @@
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">
-<h1><a href="index.html" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
+<h1><a href="./" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
 </div>
 <div id="f_mail">
 	<P>문의 사항은  great@service.com 로 보내주세요</P>
