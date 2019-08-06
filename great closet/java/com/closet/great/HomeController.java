@@ -46,15 +46,10 @@ public class HomeController {
 		logger.info("회원가입 페이지를 열었음");
 
 		return "signup";
-	}
-<<<<<<< HEAD:great closet/src/main/java/com/closet/great/HomeController.java
 	
 
 	
 	
 		
-=======
-
-
->>>>>>> e36c0513289350a1e93027fb53f6e746122ba9c5:great closet/java/com/closet/great/HomeController.java
 }
+}	
