@@ -13,12 +13,12 @@ import com.closet.great.dao.MemberDao;
 public class MemberManagerment {
 	
 	private ModelAndView mav;
-	//서블릿 콘텍스트.xml의mDao 객체와 연결
+	//?�블�?콘텍?�트.xml?�mDao 객체?� ?�결
 	@Autowired
 	private MemberDao mDao;
 
 	
-	//로그인시 세션에 로그인 정보 저장할거임
+	//로그?�시 ?�션??로그???�보 ?�?�할거임
 	
 	public ModelAndView MemberInsert(Member mb) {
 		mav = new ModelAndView();
@@ -26,7 +26,7 @@ public class MemberManagerment {
 		
 		BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 		
-		//비밃너호 암호화
+		//비밃?�호 ?�호??
 		mb.setS_pass(pwdEncoder.encode(mb.getS_pass()));
 		//DB처리
 		if(mDao.MemberInsert(mb)) {
@@ -34,7 +34,7 @@ public class MemberManagerment {
 			view = "home";
 			mav.addObject("check", 1);
 		}else {
-			//가입 실패
+			//가???�패
 			view = "/signup";
 		}
 		
@@ -44,14 +44,14 @@ public class MemberManagerment {
 	}
 	
 	
-		// 중복 아이디 체크
+		// 중복 ?�이??체크
 		public int userIdCheck(String s_id) {
 			
 			return mDao.checkOverId(s_id);
 		}
 
 
-		//닉네임 중복 체크
+		//?�네??중복 체크
 		public int usernickCheck(String s_nick) {
 			
 			return mDao.checkOvernick(s_nick);

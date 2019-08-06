@@ -22,7 +22,7 @@
 			<li class="parent"><a href="#" title= "LookBook">LookBook</a>
 				<ul class="child">
 					<li><a href="#" title="lookbook">Look Book</a></li>
-					<li><a href="#" title="Contest">Contest</a></li>
+					<li><a href="./contest_main" title="Contest">Contest</a></li>
 				</ul>
 			</li>
 			<li  class="parent"><a href="#" title= "게시판">Board</a>
@@ -33,32 +33,34 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
+<<<<<<< HEAD
+			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
+			
 			<li class="parent"><a href="#" title= "중고거래">Deal</a>
 				<ul class="child">
 					<li><a href="#" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-			<li><a href="#" title= "Mypage">My page</a></li>
+<<<<<<< HEAD
+			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
 		</ul>
+			<li  class="parent"><a href="#" title= "Mypage">My page</a>
+				<ul class="child">
+					<li><a href="./closetList" title="Contest">Closet</a></li>
+				</ul>
+				</li>
 	</nav>
 </div>
 </center>
 </header>
 <section>
-
-<!-- 이부분은 화면구성 -->
-<div class="">
-	<input type="button" value="회원가입" onclick="location.href='./signup'">
-	
-	
-</div>
-
+내용을 입력해 주세요
 </section>
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">
-<h1><a href="index.html" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
+<h1><a href="./" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
 </div>
 <div id="f_mail">
 	<P>문의 사항은  great@service.com 로 보내주세요</P>
