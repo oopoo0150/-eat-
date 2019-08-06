@@ -43,5 +43,11 @@ public class HomeController {
 		return "signup";
 	}
 	
-	
+	//회원가입 화면
+		@RequestMapping(value = "/login")
+		public String login(Model model) {
+			logger.info("로그인 페이지를 열었음");
+			
+			return "login";
+		}
 }
