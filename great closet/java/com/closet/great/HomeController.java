@@ -29,15 +29,8 @@ public class HomeController {
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-<<<<<<< HEAD:great closet/src/main/java/com/closet/great/HomeController.java
-	
-	
-=======
 
 	//모델뷰 전역
->>>>>>> e36c0513289350a1e93027fb53f6e746122ba9c5:great closet/java/com/closet/great/HomeController.java
-	ModelAndView mav;
-
 
 	//홈 메인 화면
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -54,14 +47,4 @@ public class HomeController {
 
 		return "signup";
 	}
-<<<<<<< HEAD:great closet/src/main/java/com/closet/great/HomeController.java
-	
-
-	
-	
-		
-=======
-
-
->>>>>>> e36c0513289350a1e93027fb53f6e746122ba9c5:great closet/java/com/closet/great/HomeController.java
 }
