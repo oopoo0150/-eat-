@@ -1,4 +1,26 @@
 /*전체 구성요소 설정*/
  section{width: 1000px; margin: 0 auto;} 
  
+ /*프포필 이미지, 아이디, 날짜 공간*/
+ #proId > div{float: left; width: 450px;}
+ 
+ /*좋아요와 신고가 있는 div*/
+ .click > div{float: left; width: 450px;}
+ 
+ /*좋아요 이미지*/
+ #heart{width: 30px; height: 30px; margin-right: 10px;}
+ #heart > img{max-width: 100%; height: auto !important;}
+ 
+ /*좋아요 카운트 숫자*/
+ #likeCnt{width:50px; margin-right: 300px;}
+ 
+ /*신고하기 버튼 이미지*/
+ #notify{width: 30px; height: 30px;}
+ #notify > img{max-width: 100%; height: auto !important;}
+ 
+ /*콘테스트 상세보기 작성자 프로필 이미지*/
+ #contestD_img{width: 50px; height: 50px;}
+ #contestD_img > img {max-width:100%; border-radius: 25px;}
+ 
+ 
  

@@ -4,11 +4,17 @@
 <!-- 공통 환경 설정 -->
 <configuration>
 	<typeAliases>
+<<<<<<< HEAD:great closet test/src/main/java/com/test/closet/dao/mybatis-conf.xml
 		<package name="com.test.closet.bean"/>
 		<!-- <typeAlias type="com.lgy.board.bean.Member" alias="member"/>
 		<typeAlias type="com.lgy.board.bean.Board" alias="board"/> -->
 		<!-- 더추가하고싶을때 주소와 얼리어스 만 바꾸어 사용 
 		ex)<typeAlias type="com.lgy.Board.bean.Board" alias="bord"/>
 		-->
+=======
+		<package name="com.closet.great.bean"/>
+	
+		
+>>>>>>> 8bc1eb0b85c88ce315b2d6ee5070e53575657017:great closet/target/classes/com/closet/great/dao/mybatis-conf.xml
 	</typeAliases>
 </configuration> 	

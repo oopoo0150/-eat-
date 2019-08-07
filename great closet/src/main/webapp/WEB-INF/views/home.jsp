@@ -12,7 +12,7 @@
 <header>
 <!-- 헤더로고 -->
 <div id="h_top">
-	<h1><img src="resources/image/common/panda.png"/></h1>
+	<h1><a href="./"><img src="resources/image/common/panda.png"/></a></h1>
 </div>
 <!-- 메인/서브네비게이션 -->
 <center>
@@ -33,14 +33,20 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
+<<<<<<< HEAD
 			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 			
 			<li class="parent"><a href="#" title= "중고거래">Deal</a>
+=======
+
+			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
+>>>>>>> 8bc1eb0b85c88ce315b2d6ee5070e53575657017
 				<ul class="child">
-					<li><a href="#" title="Contest">거래공간</a></li>
+					<li><a href="./product_main" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
+<<<<<<< HEAD
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
 		</ul>
 			<li  class="parent"><a href="#" title= "Mypage">My page</a>
@@ -48,6 +54,16 @@
 					<li><a href="./closetList" title="Contest">Closet</a></li>
 				</ul>
 				</li>
+=======
+
+			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
+				<ul class="child">
+					<li><a href="./closetList" title="Contest">Closet</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+>>>>>>> 8bc1eb0b85c88ce315b2d6ee5070e53575657017
 	</nav>
 </div>
 </center>
