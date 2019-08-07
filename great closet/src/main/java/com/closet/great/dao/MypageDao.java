@@ -8,4 +8,9 @@ public interface MypageDao {
 
 	List<Support> getSupportList(int num);
 
+	int getSpBoardCount();
+
+	boolean spBoardInsert(Support support);
+
+	
 }

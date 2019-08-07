@@ -103,11 +103,7 @@ public class MPMainController {
 		return "mp_sale";
 	}
 	
-	@RequestMapping(value = "/mSupport")
-	public String moveSupport(Model modle) {
-		
-		return "mp_support";
-	}
+
 	
 
 	

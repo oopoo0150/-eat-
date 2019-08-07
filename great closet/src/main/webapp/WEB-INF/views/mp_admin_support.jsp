@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +69,17 @@
  				<ht>날짜</th>
  				<ht>조회수</th>				
  			</tr>
+ 			<c:forEach var="support" items="${spList}">
+ 				<tr>
+ 					<td align="center">${support.spnum}</td>
+ 					<td align="center">${support.sptitle}</td>
+ 					<td align="center"><a href="./spcontents?spnum=${support.spnum}">${support.spcontent}</a></td>
+ 					<td align="center">${support.spdate}</td>
+ 					<td align="center">${support.spviews}</td>
+ 					<td align="center">${support.spcate}</td>
+ 					<td align="center">${support.spsid}</td>					
+ 				</tr>
+ 			</c:forEach>
  		</table>
  	</div>
  	<div id="support_bottom">

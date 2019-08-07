@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ftr<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -116,7 +116,7 @@
 						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./mSupport"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./supportList"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 				</div>
 			</div>

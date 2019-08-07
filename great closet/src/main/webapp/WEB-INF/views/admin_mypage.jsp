@@ -112,7 +112,7 @@
 						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./adminSup"><img
+						<a href="./adminSpList"><img
 							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 				</div>

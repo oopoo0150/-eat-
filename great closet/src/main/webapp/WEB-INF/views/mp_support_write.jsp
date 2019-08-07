@@ -4,7 +4,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Support Write</title>
+<title>info add</title>
 <!-- ckediter -->
 <script src="resources/ckeditor/ckeditor.js"></script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
@@ -15,7 +15,7 @@
 		<!-- 헤더로고 -->
 		<div id="h_top">
 			<h1>
-				<a href="./"><img src="resources/image/common/panda.png" /></a>
+				<img src="resources/image/common/panda.png" />
 			</h1>
 		</div>
 		<!-- 메인/서브네비게이션 -->
@@ -50,40 +50,34 @@
 		<h1 align="center">글쓰기</h1>
 		<br> <br>
 		<div align="center">
-			<form action="" enctype="">
+			<form action="spBoardInsert" name="mp_support_write">
+			<!-- enctype="multipart/form-data">  -->
 				<table>
 					<tr height="35">
 						<td width="100">카테고리</td>
-						<td width="700" name="icate"><select>
+						<td width="700">
+						<select name="spcate">
 								<option value="공지사항">공지사항</option>
 								<option value="콘테스트">콘테스트</option>
-						</select></td>
+						</select></td> 
 					</tr>
 					<tr height="35">
 						<td>제목</td>
-						<td><input type="text" name="ititle" placeholder="제목 입력"
+						<td><input type="text" name="sptitle" placeholder="제목 입력"
 							required="requred"></td>
 					</tr>
 
 					<tr>
 						<td>내용</td>
-						<td><textarea id="icontent" name="i_content" rows="15"
-								cols="80" required="required" autocomplete="off"></textarea> 
-								<!-- 해당 에디터 적용 -->
-								<script>
-									CKEDITOR.replace('i_content');
-								</script>
-						</td>    
+						<td><textarea id="in_content" name="spcontent" rows="15"
+								cols="80" required="required"></textarea> <!-- 해당 에디터 적용 --> <script>
+									CKEDITOR.replace('in_content');
+								</script></td>
 					</tr>
-					<tr>
-						<td>파일업로드</td>
-						<td>
-							<input type="file" name="files" id="files" onchange="fileChk(this)" multiple/>
-					         <input type="hidden" id="fileCheck" value="0" name="fileCheck"/>		
-						</td>
-					</tr>
+
 				</table>
-				<input type="button" value="저장">
+				
+				<input type="submit" value="저장">
 			</form>
 		</div>
 
@@ -92,7 +86,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="./" title="메인페이지 바로가기"><img
+				<a href="index.html" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>

@@ -40,26 +40,14 @@
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-<<<<<<< HEAD
 
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
 				<ul class="child">
 					<li><a href="./closetList" title="Contest">Closet</a></li>
 				</ul>
-				</li>
-			
-		</ul>
-
-		
-			
-=======
-			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
-			<ul class="child">
-					<li><a href="./closetList" title="Contest">Closet</a></li>
-			</ul>
 			</li>
+			
 		</ul>
->>>>>>> 3dcdae22a848467227bd58498dc9e1b90ad7304d
 	</nav>
 </div>
 </center>
