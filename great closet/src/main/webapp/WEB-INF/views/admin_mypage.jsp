@@ -12,8 +12,8 @@
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
-			<h1>
-				<img src="resources/image/common/panda.png" />
+			<h1><a href="./">
+				<img src="resources/image/common/panda.png" /></a>
 			</h1>
 		</div>
 		<!-- 메인/서브네비게이션 -->
@@ -88,7 +88,7 @@
 				</div>
 				<div id="mypage_bottom">
 					<div class="s_box1">
-						<a href="./adminSup"><img src="resources/image/mypage/ad_box.png"></a>
+						<a href="#"><img src="resources/image/mypage/ad_box.png"></a>
 					</div>
 					<div class="s_box2">
 						<a href="./mCal"><img src="resources/image/mypage/s_box1.png"></a>
@@ -112,7 +112,7 @@
 						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./mSupport"><img
+						<a href="./adminSup"><img
 							src="resources/image/mypage/s_box1.png"></a>
 					</div>
 				</div>
@@ -123,7 +123,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="#" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>

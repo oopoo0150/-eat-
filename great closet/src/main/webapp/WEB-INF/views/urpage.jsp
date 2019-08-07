@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 <header>
 <!-- 헤더로고 -->
 <div id="h_top">
-	<h1><img src="resources/image/common/panda.png"/></h1>
+	<h1><a href="./"><img src="resources/image/common/panda.png"/></a></h1>
 </div>
 <!-- 메인/서브네비게이션 -->
 <center>
@@ -49,7 +51,7 @@
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">
-<h1><a href="index.html" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
+<h1><a href="./" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
 </div>
 <div id="f_mail">
 	<P>문의 사항은  great@service.com 로 보내주세요</P>

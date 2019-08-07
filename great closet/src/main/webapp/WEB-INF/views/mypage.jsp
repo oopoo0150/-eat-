@@ -13,8 +13,8 @@
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
-			<h1>
-				<img src="resources/image/common/panda.png" />
+			<h1><a href="./">
+				<img src="resources/image/common/panda.png" /></a>
 			</h1>
 		</div>
 		<!-- 메인/서브네비게이션 -->
@@ -126,7 +126,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="#" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>
