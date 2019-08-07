@@ -1,0 +1,15 @@
+/*전체 구성요소 설정*/
+ section{width: 1000px; margin: 0 auto;}
+ 
+ /*중고거래 상세 보기에 등록한 이미지*/
+ .productD_img{width: 300px;}
+ .productD_img > img{ max-width: 100%; height: auto !important;}
+ 
+ /*중고거래 상세 보기 > 댓글을 작성자 프로필 사진*/
+ .productR_img{width: 30px; height: 30px; margin-right: 800px;}
+ .productR_img > img{max-width:100%; border-radius: 15px;}
+ 
+ /*중고거래 상세보기 댓글에 있는 쪽지 보내기 아이콘*/
+ .note_img{width: 30px; height: 30px;}
+ .note_img > img{max-width: 100%; max-height: 100%;}
+ 

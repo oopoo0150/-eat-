@@ -22,7 +22,7 @@
 			<li class="parent"><a href="#" title= "LookBook">LookBook</a>
 				<ul class="child">
 					<li><a href="#" title="lookbook">Look Book</a></li>
-					<li><a href="#" title="Contest">Contest</a></li>
+					<li><a href="./contest_main" title="Contest">Contest</a></li>
 				</ul>
 			</li>
 			<li  class="parent"><a href="#" title= "게시판">Board</a>
@@ -33,13 +33,14 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
-			
-			<li class="parent"><a href="#" title= "중고거래">Deal</a>
+
+			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 				<ul class="child">
-					<li><a href="#" title="Contest">거래공간</a></li>
+					<li><a href="./product_main" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
+<<<<<<< HEAD
 
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
 				<ul class="child">
@@ -51,6 +52,14 @@
 
 		
 			
+=======
+			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
+			<ul class="child">
+					<li><a href="./closetList" title="Contest">Closet</a></li>
+			</ul>
+			</li>
+		</ul>
+>>>>>>> 3dcdae22a848467227bd58498dc9e1b90ad7304d
 	</nav>
 </div>
 </center>

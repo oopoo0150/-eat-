@@ -46,7 +46,12 @@
 		</center>
 	</header>
 	<section>
-	
+		<input type="radio">
+		
+		<input type="text">
+		
+		<button>신고 취소</button>
+		<button>신고 하기</button>
 	
 	</section>
 

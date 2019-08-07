@@ -24,8 +24,8 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="#" title="lookbook">Look Book</a></li>
-								<li><a href="#" title="Contest">Contest</a></li>
+								<li><a href="./lookbook_main" title="lookbook">Look Book</a></li>
+								<li><a href="./contest_main" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -34,7 +34,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="#" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -54,7 +54,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="index.html" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>
