@@ -70,7 +70,6 @@
 	</header>
 
 	<section>
-	<!-- 
 		<div align="center">
 			<br><h1>정보 게시판</h1><br>
 		</div>
@@ -99,7 +98,7 @@
 				<br><a href="./iWrite">글쓰기</a>
 
 		</div>
- -->
+ 
 	</section>
 
 	<footer>

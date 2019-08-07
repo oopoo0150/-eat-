@@ -4,9 +4,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>info add</title>
-<!-- ckediter -->
-<script src="resources/ckeditor/ckeditor.js"></script>
+<title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
@@ -47,40 +45,9 @@
 		</center>
 	</header>
 	<section>
-		<h1 align="center">글쓰기</h1>
-		<br> <br>
-		<div align="center">
-			<form action="iwriteInsert" method="post" name="infoAdd">
-			<!-- enctype="multipart/form-data">  -->
-				<table>
-					<tr height="35">
-						<td width="100">카테고리</td>
-						<td width="700" name="in_cate"><select>
-								<option value="도움">도움</option>
-								<option value="정보">정보</option>
-								<option value="기타">기타</option>
-						</select></td>
-					</tr>
-					<tr height="35">
-						<td>제목</td>
-						<td><input type="text" name="in_title" placeholder="제목 입력"
-							required="requred"></td>
-					</tr>
-
-					<tr>
-						<td>내용</td>
-						<td><textarea id="in_content" name="in_content" rows="15"
-								cols="80" required="required"></textarea> <!-- 해당 에디터 적용 --> <script>
-									CKEDITOR.replace('in_content');
-								</script></td>
-					</tr>
-
-				</table>
-
-				<input type="submit" value="저장">
-			</form>
-		</div>
-
+		<form action="./request">
+			<input type="submit" href="./request" value="뒤로가기">
+		</form>
 	</section>
 	<footer>
 		<!-- 풋터로고 -->

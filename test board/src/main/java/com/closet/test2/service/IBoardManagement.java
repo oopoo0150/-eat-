@@ -1,14 +1,13 @@
 package com.closet.test2.service;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.closet.test2.bean.InfoBoard;
 import com.closet.test2.dao.IBoardDao;
 
+@Service
 public class IBoardManagement {
 
 	private ModelAndView mav;
