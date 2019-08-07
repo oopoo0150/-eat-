@@ -126,7 +126,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="#" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>
