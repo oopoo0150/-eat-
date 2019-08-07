@@ -69,39 +69,13 @@
 	</header>
 
 	<section>
-	<!-- 
-		<div align="center">
-			<br><h1>요청 게시판</h1><br>
-		</div>
-		<div align="center">
-			<table>
-				<tr  bgcolor="black" height="35">
-					<th width="200"></th>
-					<th width="100">No</th>
-					<th width="100"></th>
-					<th width="300">title</th>
-					<th width="200">name</th>
-					<th width="250">date</th>
-					<th width="150">view</th>
-				</tr>
-				<c:forEach var="board" items="${request}">
-					<tr bgcolor="white" height="40">
-						<td align="center">${request.reb_cate}</td>
-						<td align="center">${request.reb_num}</td>
-						<td align="center">날씨</td>
-						<td align="center"><a href="./contents?bnum=${request.reb_num}">${request.reb_title}</a></td>
-						<td align="center">${request.reb_sid}</td>
-						<td align="center">${request.reb_date}</td>
-						<td align="center">${request.reb_views}</td>
-					</tr>
-				</c:forEach>
-			</table>
 			
-			<br><a href="./iWrite">글쓰기</a>
+			<br><a href="./sWrite">글쓰기</a>
 
 		</div>
 
- -->
+
+
 	</section>
 
 	<footer>

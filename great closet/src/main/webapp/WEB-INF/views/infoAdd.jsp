@@ -4,34 +4,13 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Request</title>
+<title>info add</title>
+<!-- ckediter -->
+<script src="/bbs/resources/ckeditor/ckeditor.js"></script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<script>
-	window.onload = function() {
-		var chk = $
-		{
-			param.check
-		}
-		;
-
-		if (chk == 1) {
-			alert("저장되었습니다.");
-		}
-		if (chk == 2) {
-			alert("수정되었습니다");
-		}
-		if (chk == 3) {
-			alert("삭제되었습니다");
-		}
-		if (chk == 4) {
-			alert("실패했습니다");
-		}
-		//url에서 파라미터를 제거
-		history.replaceState({}, null, location.pathname);
-	}
-</script>
 </head>
 <body>
+
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
@@ -52,8 +31,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="./share" title="Share">자랑게시판</a></li>
-								<li><a href="./info" title="info">정보게시판</a></li>
+								<li><a href="#" title="Share">자랑게시판</a></li>
+								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
@@ -67,43 +46,44 @@
 			</div>
 		</center>
 	</header>
-
 	<section>
-	<!-- 
+		<h1 align="center">글쓰기</h1>
+		<br> <br>
 		<div align="center">
-			<br><h1>요청 게시판</h1><br>
-		</div>
-		<div align="center">
-			<table>
-				<tr  bgcolor="black" height="35">
-					<th width="200"></th>
-					<th width="100">No</th>
-					<th width="100"></th>
-					<th width="300">title</th>
-					<th width="200">name</th>
-					<th width="250">date</th>
-					<th width="150">view</th>
-				</tr>
-				<c:forEach var="board" items="${request}">
-					<tr bgcolor="white" height="40">
-						<td align="center">${request.reb_cate}</td>
-						<td align="center">${request.reb_num}</td>
-						<td align="center">날씨</td>
-						<td align="center"><a href="./contents?bnum=${request.reb_num}">${request.reb_title}</a></td>
-						<td align="center">${request.reb_sid}</td>
-						<td align="center">${request.reb_date}</td>
-						<td align="center">${request.reb_views}</td>
+			<form action="iwriteInsert" method="post" enctype="multipart/form-data">
+				<table>
+					<tr height="35">
+						<td width="100">카테고리</td>
+						<td width="700" name="in_cate"><select>
+								<option value="도움">도움</option>
+								<option value="정보">정보</option>
+								<option value="기타">기타</option>
+						</select></td>
 					</tr>
-				</c:forEach>
-			</table>
-			
-			<br><a href="./iWrite">글쓰기</a>
+					<tr height="35">
+						<td>제목</td>
+						<td><input type="text" name="in_title" placeholder="제목 입력"
+							required="requred"></td>
+					</tr>
 
+					<tr>
+						<td>내용</td>
+						<td><textarea id="in_content" name="in_content" rows="15"
+								cols="80" required="required"></textarea> 
+								<!-- 해당 에디터 적용 -->
+								<script>
+									CKEDITOR.replace('in_content');
+								</script>
+						</td>
+					</tr>
+
+				</table>
+
+				<input type="button" value="저장">
+			</form>
 		</div>
 
- -->
 	</section>
-
 	<footer>
 		<!-- 풋터로고 -->
 		<div id="f_top">

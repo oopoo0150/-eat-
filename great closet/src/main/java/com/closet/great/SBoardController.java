@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class RBoardController {
+public class SBoardController {
 	
 	ModelAndView mav;
 	
-	@RequestMapping(value = "/request", method = RequestMethod.GET)
-	public String request(Model mode) {
+	@RequestMapping(value = "/share", method = RequestMethod.GET)
+	public String share(Model mode) {
 		
-		return "request";
+		return "share";
 	}
 	
-	@RequestMapping(value = "/rWrite", method = RequestMethod.GET)
-	public String rWrite(Model mode) {
+	@RequestMapping(value = "/sWrite", method = RequestMethod.GET)
+	public String sWrite(Model mode) {
 		
-		return "requestAdd";
+		return "shareAdd";
 	}
 
 }

@@ -4,34 +4,11 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Request</title>
+<title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<script>
-	window.onload = function() {
-		var chk = $
-		{
-			param.check
-		}
-		;
-
-		if (chk == 1) {
-			alert("저장되었습니다.");
-		}
-		if (chk == 2) {
-			alert("수정되었습니다");
-		}
-		if (chk == 3) {
-			alert("삭제되었습니다");
-		}
-		if (chk == 4) {
-			alert("실패했습니다");
-		}
-		//url에서 파라미터를 제거
-		history.replaceState({}, null, location.pathname);
-	}
-</script>
 </head>
 <body>
+
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
@@ -52,8 +29,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="./share" title="Share">자랑게시판</a></li>
-								<li><a href="./info" title="info">정보게시판</a></li>
+								<li><a href="#" title="Share">자랑게시판</a></li>
+								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
@@ -67,43 +44,11 @@
 			</div>
 		</center>
 	</header>
-
 	<section>
-	<!-- 
-		<div align="center">
-			<br><h1>요청 게시판</h1><br>
-		</div>
-		<div align="center">
-			<table>
-				<tr  bgcolor="black" height="35">
-					<th width="200"></th>
-					<th width="100">No</th>
-					<th width="100"></th>
-					<th width="300">title</th>
-					<th width="200">name</th>
-					<th width="250">date</th>
-					<th width="150">view</th>
-				</tr>
-				<c:forEach var="board" items="${request}">
-					<tr bgcolor="white" height="40">
-						<td align="center">${request.reb_cate}</td>
-						<td align="center">${request.reb_num}</td>
-						<td align="center">날씨</td>
-						<td align="center"><a href="./contents?bnum=${request.reb_num}">${request.reb_title}</a></td>
-						<td align="center">${request.reb_sid}</td>
-						<td align="center">${request.reb_date}</td>
-						<td align="center">${request.reb_views}</td>
-					</tr>
-				</c:forEach>
-			</table>
-			
-			<br><a href="./iWrite">글쓰기</a>
-
-		</div>
-
- -->
+		<form action="./request">
+			<input type="submit" href="./request" value="뒤로가기">
+		</form>
 	</section>
-
 	<footer>
 		<!-- 풋터로고 -->
 		<div id="f_top">
