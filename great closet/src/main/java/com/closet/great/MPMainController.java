@@ -11,6 +11,9 @@ public class MPMainController {
 	
 	ModelAndView mav;
 	
+	
+
+	
 	//페이지 구현을 위한 임시 페이지 넘김
 	@RequestMapping(value = "/mypage")
 	public String mypage(Model model) {

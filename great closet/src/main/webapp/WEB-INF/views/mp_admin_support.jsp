@@ -7,6 +7,19 @@
 <meta charset="UTF-8">
 <title>고객지원</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<script>
+window.onload=function(){
+	var chk=${param.check};
+	
+	if(chk==1){
+		alert("삭제 성공");
+	}
+	if(chk==2){
+		alert("삭제 실패");
+	}
+	history.replaceState({}, null, location.pathname);
+}
+</script>
 </head>
 <body>
 <header>
@@ -73,7 +86,7 @@
  				<tr>
  					<td align="center">${support.spnum}</td>
  					<td align="center">${support.sptitle}</td>
- 					<td align="center"><a href="./spcontents?spnum=${support.spnum}">${support.spcontent}</a></td>
+ 					<td align="center"><a href="./adSpContents?spnum=${support.spnum}">${support.spcontent}</a></td>
  					<td align="center">${support.spdate}</td>
  					<td align="center">${support.spviews}</td>
  					<td align="center">${support.spcate}</td>
@@ -83,7 +96,7 @@
  		</table>
  	</div>
  	<div id="support_bottom">
- 		페이지 출력		
+ 		<div align="center">${paging}</div>	
  	</div>
  	
  	<form action="./spWrite">

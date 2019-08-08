@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +47,21 @@
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+	<div><h1>내용 출력</h1></div>
+	<div id="sp_contents">
+		<div>
+			<div><h2>번호</h2> <p>${support.spnum}</p></div>
+			<div><h2>분류</h2> <p>${support.spcate}</p></div>
+			<div><h2>제목</h2> <p>${support.sptitle}</p></div>
+			<div><h2>내용</h2> <p>${support.spcontent}</p></div>
+			<div><h2>날짜</h2> <p>${support.spdate}</p></div>
+			<div><h2>조회수</h2> <p>${support.spviews}</p></div>			
+			<div><h2>작성자</h2> <p>${support.spsid}</p></div>		
+		</div>	
+	</div>
+			
+	</div>
+			
 </section>
 <footer>
 <!-- 풋터로고 -->

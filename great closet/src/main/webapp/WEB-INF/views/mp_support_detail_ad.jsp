@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 <header>
@@ -47,22 +47,26 @@
 </center>
 </header>
 <section>
-<div>
-	<div><h1>팔로워</h1></div>
-	<div>
-		<table>
-			<c:forEach var="follow" items="${followList}">			
-				<tr>
-					<td align="center">프로필 이미지</td>
-					<td align="center">${follow.f_following}</td>
-					<td align="center"><input type="button" value="팔로잉"></td>
-				<tr>
-			</c:forEach>		
-		</table>
-	
+	<div><h1>내용 출력</h1></div>
+	<div id="sp_contents">
+		<div>
+			<div><h2>번호</h2> <p>${support.spnum}</p></div>
+			<div><h2>분류</h2> <p>${support.spcate}</p></div>
+			<div><h2>제목</h2> <p>${support.sptitle}</p></div>
+			<div><h2>내용</h2> <p>${support.spcontent}</p></div>
+			<div><h2>날짜</h2> <p>${support.spdate}</p></div>
+			<div><h2>조회수</h2> <p>${support.spviews}</p></div>			
+			<div><h2>작성자</h2> <p>${support.spsid}</p></div>		
+		</div>	
 	</div>
-</div>
-
+		<div id="forAdmin">
+			<a href="/spDel?spnum=${support.spnum}">
+	 			<input type="submit" value="삭제"></a>
+	 		
+	 		<a href="mspUpdate?spnum=${support.spnum}">
+	 			<input type="button" value="수정" ></a>
+	 	</div>
+	 	
 </section>
 <footer>
 <!-- 풋터로고 -->
@@ -77,6 +81,5 @@
 	<p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
 </div>
 </footer>	
-
 </body>
 </html>

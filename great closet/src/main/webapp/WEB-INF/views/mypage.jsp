@@ -1,4 +1,4 @@
-ftr<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -56,9 +56,9 @@ ftr<%@ page language="java" contentType="text/html; charset=UTF-8"
 				<div id="mypage_top">
 					<!-- 이미지 편집 -->
 					<div class="edit_profile">
-						<img src="resources/image/mypage/yoon.jpg">
 						<form>
-							<botton>이미지 입력버튼</botton>
+							<div id='View_area' style='position:relative; width: 100px; height: 100px; color: black; border: 0px solid black; dispaly: inline; '></div>
+							<input type="file" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')">							
 						</form>
 					</div>
 					<div id="uinfo">
@@ -140,4 +140,5 @@ ftr<%@ page language="java" contentType="text/html; charset=UTF-8"
 	</footer>
 
 </body>
+
 </html>

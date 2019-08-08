@@ -15,4 +15,19 @@
 		INSERT INTO NOTICE (no_num, no_title, no_content, no_date, no_views, no_cate, no_sid)
 		 VALUES (notice_SEQ.NEXTVAL, #{sptitle}, #{spcontent}, default, default, #{spcate}, #{spsid})
 	</insert>
+	<select id="getSpContents" resultType="support" parameterType="int">
+		SELECT * FROM SPLIST_1 WHERE SPNUM=#{spnum}
+	</select>
+	<delete id="spBoardDel" parameterType="Integer">
+		DELETE FROM NOTICE WHERE NO_NUM=#{spnum}
+	</delete>
+	<update id="spBoardUpdate" parameterType="support">
+		UPDATE NOTICE SET NO_TITLE = {sptitle}, NO_CONTENT = {spcontent}, NO_CATE ={spcate} WHERE NO_NUM=#{spnum} 
+	</update>
+	<update id="profileUpdate" parameterType="hashmap">
+		UPDATE SIGN SET S_SYSNAME = {ssysname}, S_ORINAME = {soriname} WHERE S_ID=#{sid}
+	</update>
+	<select id="getFollowingList" resultType="follow" parameterType="String">
+		SELECT * FROM FOLLOW WHERE F_FOLLOWING=#{id}
+	</select>
 </mapper> 

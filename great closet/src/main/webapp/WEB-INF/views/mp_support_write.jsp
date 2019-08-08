@@ -50,7 +50,7 @@
 		<h1 align="center">글쓰기</h1>
 		<br> <br>
 		<div align="center">
-			<form action="spBoardInsert" name="mp_support_write">
+			<form action="spBoardInsert" name="mp_support_write" method="post">
 			<!-- enctype="multipart/form-data">  -->
 				<table>
 					<tr height="35">
@@ -64,7 +64,7 @@
 					<tr height="35">
 						<td>제목</td>
 						<td><input type="text" name="sptitle" placeholder="제목 입력"
-							required="requred"></td>
+							required="required"></td>
 					</tr>
 
 					<tr>
@@ -86,7 +86,7 @@
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="index.html" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>

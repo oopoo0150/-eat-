@@ -28,10 +28,21 @@ public class MPSupportController {
 	public ModelAndView supportList(Integer pageNum) {
 	
 		
-		mav = spm.getSupportList(pageNum);
+		mav = spm.getSupportList(pageNum,"supportList");
 		
 		return mav;
 	}
+	
+	//게시글 상세보기
+	@RequestMapping(value = "/spcontents")
+	public ModelAndView SpContents(Integer spnum) {
+		
+		 mav = spm.getSpContents(spnum,"mp_support_detail");
+		
+		return mav;
+	}
+	
+	
 	
 	
 	
@@ -42,7 +53,7 @@ public class MPSupportController {
 	@RequestMapping(value = "/adminSpList")
 	public ModelAndView adminSpList(Integer pageNum) {
 		
-		mav = spm.getAdminSupList(pageNum);
+		mav = spm.getAdminSupList(pageNum, "adminSpList");
 		
 		return mav;
 	}
@@ -56,10 +67,38 @@ public class MPSupportController {
 	}
 	
 	//작성 글 저장 처리를 위한 것
-	@RequestMapping(value = "/spBoardInsert")
+	@RequestMapping(value = "/spBoardInsert", method = RequestMethod.POST)
 	public ModelAndView spBoardInsert(Support support) {
 		
 		mav = spm.spBoardInsert(support);
+		
+		return mav;
+	}
+	
+	//게시글 상세보기
+	@RequestMapping(value = "/adSpContents")
+	public ModelAndView adSpContents(Integer spnum) {
+		
+		 mav = spm.getSpContents(spnum,"mp_support_detail_ad");
+		
+		return mav;
+	}
+	
+	//게시물 삭제
+	@RequestMapping(value = "/spDel")
+	public ModelAndView spBoardDel(Integer spnum) throws RuntimeException {
+		
+		mav = spm.spBoardDel(spnum);
+		
+		return mav;
+		
+	}
+	
+	//게시물 수정하기
+	@RequestMapping(value = "/mspUpdate")
+	public ModelAndView moveSpUpdate(Integer spnum) {
+		
+		mav = spm.moveSpUpdate(spnum);
 		
 		return mav;
 	}
