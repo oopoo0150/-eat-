@@ -14,7 +14,7 @@ public class InfoBoard {
 	private String in_cate;
 	private String in_title;
 	private String in_content;
-	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
+	//@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
 	private Timestamp in_date;
 	private int in_views;
 	private int in_complain;

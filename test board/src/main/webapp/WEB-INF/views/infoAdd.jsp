@@ -55,11 +55,12 @@
 				<table>
 					<tr height="35">
 						<td width="100">카테고리</td>
-						<td width="700" name="in_cate"><select>
+						<td width="700">
+						<select name="in_cate">
 								<option value="도움">도움</option>
 								<option value="정보">정보</option>
 								<option value="기타">기타</option>
-						</select></td>
+						</select></td> 
 					</tr>
 					<tr height="35">
 						<td>제목</td>
@@ -76,7 +77,7 @@
 					</tr>
 
 				</table>
-
+				
 				<input type="submit" value="저장">
 			</form>
 		</div>

@@ -4,9 +4,31 @@
 
 <mapper namespace="com.closet.test2.dao.IBoardDao">
 
+	<!-- 리스트 가져오기 -->
+	<select id="getBoardList" resultType="info"
+		parameterType="int">
+	<![CDATA[
+		SELECT * FROM INFO WHERE IN_RONUM>=#{num}*10-9
+		AND IN_RONUM<=#{num}*10
+	]]>
+	</select>
+	
+	<select id="getBoardCount" resultType="int">
+		SELECT COUNT(*) FROM INFOBOARD
+	</select>
+	
+	<select id="getContents" resultType="info" parameterType="int">
+		SELECT * FROM INFOBOARD WHERE IN_NUM=#{inum}
+	</select>	
+
 	<!-- insert -->
 	<insert id="writeInsert" parameterType="info">
 			INSERT INTO INFOBOARD(IN_NUM, IN_CATE, IN_TITLE, IN_CONTENT, IN_SID) VALUES (INFOBOARD_SEQ.NEXTVAL, #{in_cate}, #{in_title}, #{in_content}, #{in_sid})
+	</insert>
+	
+	<!-- insert -->
+	<insert id="update" parameterType="info">
+			UPDATE INFOBOARD SET IN_CATE = #{in_cate}, IN_TITLE = #{in_title}, IN_CONTENT = #{in_content} WHERE IN_NUM = #{in_num}
 	</insert>
 	
 </mapper>

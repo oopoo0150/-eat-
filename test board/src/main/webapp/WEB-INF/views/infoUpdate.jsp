@@ -4,29 +4,13 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Request</title>
+<title>info add</title>
+<!-- ckediter -->
+<script src="resources/ckeditor/ckeditor.js"></script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet" href="resources/css/board/board.css">
-<script>
-	window.onload = function() {
-		var chk = ${check};
-
-		if (chk == 1) {
-			alert("저장되었습니다.");
-		}
-		if (chk == 2) {
-			alert("수정되었습니다");
-		}
-		if (chk == 3) {
-			alert("삭제되었습니다");
-		}
-		if (chk == 4) {
-			alert("실패했습니다");
-		}
-	}
-</script>
 </head>
 <body>
+
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
@@ -47,8 +31,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="./share" title="Share">자랑게시판</a></li>
-								<li><a href="./info" title="info">정보게시판</a></li>
+								<li><a href="#" title="Share">자랑게시판</a></li>
+								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
@@ -62,41 +46,62 @@
 			</div>
 		</center>
 	</header>
-
 	<section>
+		<h1 align="center">글쓰기</h1>
+		<br> <br>
 		<div align="center">
-			<br><h1>정보 게시판</h1><br>
-		</div>
-		<div align="center">
-			<table>
-				<tr  bgcolor="black" height="35">
-					<th width="200"></th>
-					<th width="100">No</th>
-					<th width="300">title</th>
-					<th width="200">name</th>
-					<th width="250">date</th>
-					<th width="150">view</th>
-				</tr>
-				<c:forEach var="info" items="${iList}">
-					<tr bgcolor="white" height="40">
-						<td align="center">${info.in_cate}</td>
-						<td align="center">${info.in_num}</td>
-						<td align="center"><a href="./infoDetail?inum=${info.in_num}">${info.in_title}</a></td>
-						<td align="center">${info.in_sid}</td>
-						<td align="center">${info.in_date}</td>
-						<td align="center">${info.in_views}</td>
+			<form action="updateInsert" method="post" name="infoAdd">
+			<!-- enctype="multipart/form-data">  -->
+				<table>
+					<tr height="35">
+						<td width="100">카테고리</td>
+						<td width="700">
+						<select name="in_cate">
+							<c:if test="${info.in_cate == '도움'}">
+								<option value="도움" selected>도움</option>
+							</c:if>
+							<c:if test="${info.in_cate != '도움'}">
+								<option value="도움">도움</option>
+							</c:if>
+							
+							<c:if test="${info.in_cate == '정보'}">
+								<option value="정보" selected>정보</option>
+							</c:if>
+							<c:if test="${info.in_cate != '정보'}">
+								<option value="정보">정보</option>
+							</c:if>
+							
+							<c:if test="${info.in_cate == '기타'}">
+								<option value="기타" selected>기타</option>
+							</c:if>
+							<c:if test="${info.in_cate != '기타'}">
+								<option value="기타">기타</option>
+							</c:if>
+						</select></td> 
 					</tr>
-				</c:forEach>
-			</table>
-			
-				<br><a href="./iWrite">글쓰기</a>
+					<tr height="35">
+						<td>제목</td>
+						<td><input type="text" name="in_title"
+							required="requred" value=${info.in_title}></td>
+					</tr>
+
+					<tr>
+						<td>내용이다!</td>
+						<td><textarea id="in_content" name="in_content" rows="15"
+								cols="80" required="required">${info.in_content}</textarea> <!-- 해당 에디터 적용 --> <script>
+									CKEDITOR.replace('in_content');
+								</script></td>
+					</tr>
+
+				</table>
 				
-				<div align="center">${paging}</div>
-
+				<input type="hidden" name="in_num" value=${info.in_num}>
+				
+				<input type="submit" value="저장">
+			</form>
 		</div>
- 
-	</section>
 
+	</section>
 	<footer>
 		<!-- 풋터로고 -->
 		<div id="f_top">

@@ -19,10 +19,18 @@ public class IBoardController {
 	@Autowired
 	IBoardManagement ibm;
 	
-	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public String info(Model mode) {
+	@RequestMapping(value = "/goInfo", method = RequestMethod.GET)
+	public String goInfo(Model mode) {
 		
 		return "info";
+	}
+	
+	@RequestMapping(value = "/info")
+	public ModelAndView infoList(Integer pageNum) {
+		
+		mav = ibm.getBoardList(pageNum);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/iWrite", method = RequestMethod.GET)
@@ -35,6 +43,27 @@ public class IBoardController {
 	public ModelAndView iwriteInsert(InfoBoard board) {
 		mav = ibm.writeInsert(board);
 		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/infoUpdate", method = RequestMethod.GET)
+	public ModelAndView infoUpdate(Integer num) {
+		mav = ibm.infoUpdate(num);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/updateInsert", method = RequestMethod.POST)
+	public ModelAndView updateInsert(InfoBoard board) {
+		mav = ibm.infoUpdateInsert(board);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/infoDetail", method = RequestMethod.GET)
+	public ModelAndView contents(Integer inum) {
+		//ibm.ClickBoard(bnum);
+		mav = ibm.getContents(inum);
 		return mav;
 	}
 	
