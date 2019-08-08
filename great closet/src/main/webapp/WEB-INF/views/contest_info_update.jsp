@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
-<header>
+	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
 			<h1>
@@ -24,8 +24,8 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="#" title="lookbook">Look Book</a></li>
-								<li><a href="#" title="Contest">Contest</a></li>
+								<li><a href="./lookbook_mainGo" title="lookbook">Look Book</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -36,7 +36,7 @@
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
 							<ul class="child">
-								<li><a href="#" title="Contest">거래공간</a></li>
+								<li><a href="./product_mainGo" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
 							</ul></li>
 						<li><a href="#" title="Mypage">My page</a></li>
@@ -46,15 +46,39 @@
 		</center>
 	</header>
 	<section>
-	
-	
+		<center>
+			<div>
+				<!-- 제일 큰 공간 -->
+				<div>
+					<!-- 이미지 미리보기를 묶는 공간 -->
+					<a title="첫번째 "> <img src="resources/image/contest/banner.png"
+						alt="배너" /></a> <a title="두번째 "> <img
+						src="resources/image/contest/banner.png" alt="배너" /></a> <a
+						title="세번째 "> <img src="resources/image/contest/banner.png"
+						alt="배너" /></a>
+				</div>
+				<div>
+					<!-- 날짜 입력을 묶는 공간 -->
+					<h3>시작 날짜 :</h3>
+					<input type="date">
+					<h3>마감 날짜 :</h3>
+					<input type="date">
+				</div>
+				<div>
+					<!-- 취소 등록 버튼 공간 -->
+					<button>취소</button>
+					<button>수정</button>
+				</div>
+			</div>
+		</center>
+
 	</section>
 
 	<footer>
 		<!-- 풋터로고 -->
 		<div id="f_top">
 			<h1>
-				<a href="index.html" title="메인페이지 바로가기"><img
+				<a href="./" title="메인페이지 바로가기"><img
 					src="resources/image/common/panda.png" alt="로고" /></a>
 			</h1>
 		</div>

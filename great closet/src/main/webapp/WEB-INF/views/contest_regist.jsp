@@ -24,9 +24,9 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="./lookbook_main" title="lookbook">Look
+								<li><a href="./lookbook_mainGo" title="lookbook">Look
 										Book</a></li>
-								<li><a href="./contest_main" title="Contest">Contest</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -35,7 +35,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -58,10 +58,10 @@
 		</div>
 		<div>
 			<div class="ccancel_btn">
-				<a href="./contest_main"><button>참가 취소</button></a>
+				<a href="./contest_mainGo"><button>참가 취소</button></a>
 			</div>
 			<div class="cregist_btn">
-				<a href="./contest_main"><button>참가 하기</button></a>
+				<a href="./contest_mainGo"><button>참가 하기</button></a>
 			</div>
 		</div>
 </center>

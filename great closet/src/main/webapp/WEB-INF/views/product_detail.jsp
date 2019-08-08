@@ -7,8 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>중고거래 상세보기</title>
+
+<script>
+window.onload=function(){
+	var chk=${check};
+	
+	if(chk==1){
+		alert("삭제 성공!");
+	}
+	else if(chk==2){
+		alert("삭제 실패!");
+	}
+}
+
+</script>
+
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet" href="resources/css/product/product_detail.css">
+<link type="text/css" rel="stylesheet"
+	href="resources/css/product/product_detail.css">
 </head>
 <body>
 	<header>
@@ -25,8 +41,9 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="./lookbook_main" title="lookbook">Look Book</a></li>
-								<li><a href="./contest_main" title="Contest">Contest</a></li>
+								<li><a href="./lookbook_mainGo" title="lookbook">Look
+										Book</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -35,7 +52,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -47,35 +64,69 @@
 		</center>
 	</header>
 	<section>
-	<center>
-		<div>
-			<a href="#">프로필 사진이랑 아이디
-			
-		</div>
-		<div>2019-08-06 11:05</div>
-		<div class="productD_img"><img src="resources/image/product/one.jpg"/></div>
-		<div>말머리 제목</div>
-		<div>가격</div>
-		내용 조회수
-		<hr>
+		<center>
+			<div class="top">
+				<a href="#">
+					<div class="productR_img">
+						<img src="resources/image/product/cebu.jpg"/>
+					</div>
+					<div>${product.db_sid}</div>
+					<div>
+						<div>${product.db_date}</div>
+						<div id="up">
+							<input type="button" value="Update">
+						</div>
+						<div id="delete">
+							<a href="productDelete?db_num=${product.db_num}">
+							<input type="submit" value="Delete"></a>
+						</div>
+					</div>
+			</div>
+			<hr>
 
-		<div>
-		<h3>Comment</h3>
-		<a>Writer</a>
-		<a>s_id</a>
-			<form>
-				<input type="text" name="dbr_content" id="pReply">
-				<button type="button" onclick="replyInsert(${productReply.bdr_num})">댓글등록</button>
-			</form>
-		</div>
-		
-		<div class="reply_detail">
-			<div class="productR_img"><img src="resources/image/product/cebu.jpg"/>댓쓰니 아이디</div>
-			2019-08-06 17:55<br>
-			댓글 내용<br>
-			<div class="note_img"><img src="resources/image/product/note.png"/></div>
-		</div>
-		
+			<!-- 중간 -->
+			<div class="middle">
+				<div class="mtitle">
+					<div>${product.db_cate}</div>
+					<div>제목 : ${product.db_title}</div>
+				</div>
+				<div>${product.db_content}</div>
+				<div>가격 : ${product.db_price}</div>
+				<div>조회수</div>
+			</div>
+
+			<!-- 하단 -->
+			<hr>
+			<div class="replyWrite">
+				<div>
+					<h3>댓글 달기</h3>
+				</div>
+				<div>
+					<a>Writer</a>
+				</div>
+				<div>
+					<a>아이디</a>
+				</div>
+				<form name="pReplyInsert" id="pReplyInsert">
+					<input type="text" name="dbr_content" id="pReply">
+					<button type="button">댓글등록</button>
+				</form>
+			</div>
+
+			<div class="bottom">
+				<div class="productR_img">
+					<img src="resources/image/product/cebu.jpg" />
+				</div>
+				<div>댓쓰니 아이디</div>
+				<div>2019-08-06 17:55</div>
+				<br>
+				<div>댓글 내용</div>
+				<br>
+				<div class="note_img">
+					<img src="resources/image/product/note.png" />
+				</div>
+			</div>
+
 		</center>
 	</section>
 

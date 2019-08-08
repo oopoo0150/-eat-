@@ -26,8 +26,9 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="./lookbook_main" title="lookbook">Look Book</a></li>
-								<li><a href="./contest_main" title="Contest">Contest</a></li>
+								<li><a href="./lookbook_mainGo" title="lookbook">Look
+										Book</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -36,7 +37,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -48,27 +49,28 @@
 		</center>
 	</header>
 	<section width="1000">
-	
-		<div class="add_btn">
-			<form action="./product_regist">
-				<button>상품 등록</button>
-			</form>
-		</div>
-
-		<div class="product_list"><!-- 상품 게시글 목록 나타내는 공간 -->
-			<!--<c:forEach var="product" items="${productList}">	</c:forEach>-->
-			<div class="product_img">
-				<img src="resources/image/product/of.jpg" />
+		<!-- 전체 공간 -->
+		<div>
+			<div class="add_btn">
+				<form action="./product_registGo">
+					<button>상품 등록</button>
+				</form>
 			</div>
-			<div>
-				말머리임<a href="./product_detail">제목</a>
+
+			<div class="product_list">
+				<!-- 상품 게시글 목록 나타내는 공간 -->
+				<c:forEach var="product" items="${productList}">
+					<div>
+						${product.db_cate} <a
+							href="./product_detailGo?db_num=${product.db_num}">${product.db_title}</a>
+					</div>
+					<div>가격 ${product.db_price}</div>
+					<div>${product.db_content}</div>
+
+				</c:forEach>
 			</div>
-			<div>가격 20,000원</div>
-			<div>내용....집에 보내줘</div>
+			<div align="center">${paging}</div>
 		</div>
-
-		<!-- <div align="center">${paging}</div> -->
-
 	</section>
 
 	<footer>

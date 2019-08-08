@@ -9,20 +9,19 @@
 //import java.util.*;
 //
 //import javax.servlet.http.HttpServletResponse;
-//import javax.websocket.MessageHandler.Whole;
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Component;
 //import org.springframework.web.multipart.MultipartFile;
 //import org.springframework.web.multipart.MultipartHttpServletRequest;
 //
-////import com.closet.great.dao.MemberDao;
+//import com.closet.great.dao.ProductDao;
 //
 //@Component
 //public class FileProcess {
 //
 //	@Autowired
-//	//private MemberDao bDao;//파일 정보 저장을 위래 사용
+//	private ProductDao pDao; //첨부 파일이 정보를 저장하기 위해서 사용
 //
 //	public boolean upFile(MultipartHttpServletRequest multi, int bnum) {
 //		String root = multi.getSession().getServletContext().getRealPath("/");
@@ -40,7 +39,7 @@
 //		Map<String, String> fMap = new HashMap<String, String>();
 //		
 //		//글번호를 map에 저장
-//		fMap.put("bnum", String.valueOf(bnum));
+//		fMap.put("db_num", String.valueOf(bnum));
 //		
 //		boolean f = false;
 //		
@@ -60,7 +59,7 @@
 //				//파일업로드
 //				mf.transferTo(new File(path + sysName));
 //				//파일저장
-//				//f = bDao.fileInsert(fMap);
+//				f = pDao.fileInsert(fMap);
 //			} catch (IOException e) {
 //					e.printStackTrace();
 //			}
@@ -79,6 +78,7 @@
 //		InputStream is = new FileInputStream(file);
 //		resp.setContentType("application/octet-stream");
 //		resp.setHeader("content-Disposition", "attachment; filename=\""+downFiel+"\"");
+//		
 //		OutputStream os = resp.getOutputStream();
 //		//출력은 byte타입
 //		byte[] buffer = new byte[1024];
@@ -86,21 +86,11 @@
 //		while ((length = is.read(buffer)) != -1) {
 //			os.write(buffer,0,length);
 //		}
-//		
 //		os.flush();
 //		os.close();
 //		is.close();
-//	}
-//	
-//	
+//	}	
 //}
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //

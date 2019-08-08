@@ -25,9 +25,9 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="./lookbook_main" title="lookbook">Look
+								<li><a href="./lookbook_mainGo" title="lookbook">Look
 										Book</a></li>
-								<li><a href="./contest_main" title="Contest">Contest</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -36,7 +36,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -49,22 +49,26 @@
 	</header>
 	<section>
 		<div class="cmain_img">
-			<a href="./contest_info" title="콘테스트 참가 안내 바로가기"><img
+			<a href="./contest_infoGo" title="콘테스트 참가 안내 바로가기"><img
 				src="resources/image/contest/banner.png" alt="배너" />
 		</div>
 
 		<div>
 			<div class="add_btn">
-				<a href="./contest_info"><button>참가 안내</button></a>
+				<a href="./contest_infoGo"><button>참가 안내</button></a>
 
 			</div>
 
-			<div>
-				어쨋든 참여한 사람들의 콘테스트 리스트가 나오겠지
-				<div class="contestU_img">
-					<img src="resources/image/product/cebu.jpg"/>
-					<a href="./contest_detail">아이디입니다아아</a>
+			<div> <!-- 여기는 콘테스트에 참여한 룩북이 하나가 보이는 거 -->
+				<div>
+					<div  class="contestU_img"><img src="resources/image/product/cebu.jpg"/></div>
+					<div>2019-08-08</div>
 				</div>
+				<div>
+					<a href="./contest_detailGo">아이디입니다아아</a>
+				</div>
+				<div>좋아요랑 신고랑 그런ㄱ 있는 자리</div>
+				<div>#해시태그#자리#임</div>
 			</div>
 		</div>
 

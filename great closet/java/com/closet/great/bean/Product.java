@@ -7,7 +7,8 @@ import org.apache.ibatis.type.Alias;
 //중고 상품 거래를 위한 bean
 @Alias("product")
 public class Product {
-	private int db_num; //상품 게시글 번호
+	private int drownum; //상품 게시글 번호
+	private int db_num; //상품 게시글 고유 아이디
 	private String db_title; //상품 게시글 제목
 	private String db_content; //상품 게시글 내용
 	private Timestamp db_date; //상품 게시글 작성 날짜
@@ -17,6 +18,13 @@ public class Product {
 	private int db_price; //상품 가격
 	private int db_complain; //상품 게시글 신고 수
 	
+	
+	public int getDrownum() {
+		return drownum;
+	}
+	public void setDrownum(int drownum) {
+		this.drownum = drownum;
+	}
 	public int getDb_num() {
 		return db_num;
 	}

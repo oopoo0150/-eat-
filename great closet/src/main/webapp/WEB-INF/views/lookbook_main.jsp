@@ -24,8 +24,8 @@
 					<ul>
 						<li class="parent"><a href="#" title="LookBook">LookBook</a>
 							<ul class="child">
-								<li><a href="./lookbook_main" title="lookbook">Look Book</a></li>
-								<li><a href="./contest_main" title="Contest">Contest</a></li>
+								<li><a href="./lookbook_mainGo" title="lookbook">Look Book</a></li>
+								<li><a href="./contest_mainGo" title="Contest">Contest</a></li>
 							</ul></li>
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
@@ -34,7 +34,7 @@
 								<li><a href="#" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
-						<li class="parent"><a href="./product_main" title="중고거래">Deal</a>
+						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
 								<li><a href="#" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
@@ -46,8 +46,23 @@
 		</center>
 	</header>
 	<section>
-	
-	
+	<center>
+		<!-- 제일 큰 공간 -->
+		<div>
+			<div>
+				<button>추가</button>
+			</div>
+			<!-- 룩북 하나 공간 -->
+			<div>
+				<div>프로필 이미지 2019-08-08</div>
+				<hr>
+				<div>image</div>
+				<hr>
+				<div>heart 신고</div>
+				<div>#헬로#해시태그#자리</div>
+			</div>
+		</div>
+	</center>
 	</section>
 
 	<footer>
