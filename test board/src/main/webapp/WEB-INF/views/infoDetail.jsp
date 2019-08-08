@@ -6,6 +6,24 @@
 <head>
 <title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<script>
+	window.onload = function() {
+		var chk = ${param.check};
+
+		if (chk == 1) {
+			alert("저장되었습니다.");
+		}
+		if (chk == 2) {
+			alert("수정되었습니다");
+		}
+		if (chk == 3) {
+			alert("삭제되었습니다");
+		}
+		if (chk == 4) {
+			alert("실패했습니다");
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -49,6 +67,7 @@
 		<h1>요청 게시판 상세</h1>
 		
 		${compare}
+		<br><a href="./info">목록으로</a>
 
 		<table id="table">
 			<tr height="30">
@@ -88,11 +107,63 @@
 			</tr>
 		</table>
 		
-		<!-- 삭제 
+		<!-- 댓글 -->
+		<h2>댓글</h2>
+		<!-- 
+		<table>
+			<tr>
+				<td width="100" bgcolor=#e0ddd7 align="center">writer</td>
+				<td width="100" bgcolor="white">${reply.inr_sid}</td>
+			<tr>
+		</table>
+		 -->
+		
+		 
+		
+		<!-- 댓글 입력-->
+		<form name="rFrm" id="rFrm">
+			<table>
+				<tr height="30">
+					<td width="100" bgcolor="black" align="center">댓글</td>
+					<td><textarea type="text" name="inr_content"
+							rows="2" cols="70" required="required">
+				</textarea><br></td>
+				</tr>
+			</table>
+			
+			<br> <input id="log" type="button"
+				onclick="replyInsert(${info.in_num})" value="write"><br>
+			<br><br><br>
+			
+			 
+		</form>
+		<br>
+		
+		<!-- 댓글 출력 -->
+		
 		<div align="center">
-				<a href="./infoDelete?inum=${info.in_num}">delete</a>
-		</div>
-		-->
+		<table>
+			<tr align="center" height="30" bgcolor="black">
+				<th width="100">글쓴이</th>
+				<th width="500">내용</th>
+				<th width="200">날짜</th>
+				<th width="200"></th>
+			</tr>
+		</table>
+		<table id="rTable">
+			<c:forEach var="r" items="${rList}">
+				<tr height="40" align="center">
+					<td width="100">${r.inr_sid}</td>
+					<td width="500">${r.inr_content}</td>
+					<td width="200">${r.inr_date}</td>
+					<td width="100">
+					${r.compare}
+					 </td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+		
 
 	</section>
 	<footer>
@@ -112,4 +183,89 @@
 		</div>
 	</footer>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="resources/js/jquery.serializeObject.js"></script>
+<script>
+function replyInsert(num){
+	// form의 데이터를 javascript 객체화.
+	// -> json 객체
+	var obj=$("#rFrm").serializeObject();
+	obj.inr_innum=num;
+	console.log(obj);
+	
+	$.ajax({
+		type: 'post',
+		url: 'replyInsert',
+		data: obj,
+		dataType: 'json',
+		success: function(data, status, xhr){
+			console.log(status)
+			console.log(xhr); // XMLHttpRequest(객체의 폼형식 관련 API)
+			console.log(data);
+			
+			var rlist ='';
+		
+			for(var i=0; i < data.rList.length ; i++){
+				rlist += '<tr height="40" align="center">'
+				+ '<td width="100">' + data.rList[i].inr_sid + '</td>'
+				+ '<td width="500">' + data.rList[i].inr_content + '</td>'
+				+ '<td width="200">' + data.rList[i].inr_date + '</td>'
+				+ '<td width="100">' + data.rList[i].compare + '</td></tr>';
+				
+			}
+			$('#rTable').html(rlist);
+			alert("success!");
+		},
+		error: function(xhr, status){
+			alert("fail");
+			console.log(xhr);
+			console.log(status);
+		}
+	});
+}
+
+function replyDelete(num){
+	// form의 데이터를 javascript 객체화.
+	// -> json 객체
+	/*
+	var obj=$("#rrFrm").serializeObject();
+	obj.inr_num=num;
+	console.log(obj);
+	*/
+	
+	var no = {'num':num};
+	
+	
+	$.ajax({
+		url: 'replyDelete',
+		data: no,
+		dataType: 'json',
+		success: function(data, status, xhr){
+			console.log(status)
+			console.log(xhr); // XMLHttpRequest(객체의 폼형식 관련 API)
+			console.log(data);
+			
+			var rlist ='';
+		
+			for(var i=0; i < data.rList.length ; i++){
+				rlist += '<tr height="40" align="center">'
+				+ '<td width="100">' + data.rList[i].inr_sid + '</td>'
+				+ '<td width="500">' + data.rList[i].inr_content + '</td>'
+				+ '<td width="200">' + data.rList[i].inr_date + '</td>'
+				+ '<td width="100">' + data.rList[i].compare + '</td></tr>';
+			}
+			$('#rTable').html(rlist);
+			alert("success!");
+		},
+		error: function(xhr, status){
+			alert("fail");
+			console.log(xhr);
+			console.log(status);
+		}
+	});
+}
+
+
+</script>
 </html>

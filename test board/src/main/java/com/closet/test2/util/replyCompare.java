@@ -1,19 +1,21 @@
 package com.closet.test2.util;
 
-public class Compare {
+public class replyCompare {
 	
 	private String id;
 	private String writer; // 작성자
 	private String boardName;
 	private String boardDelName;
 	private int num;
+	private int rnum;
 	
-	public Compare(String id, String writer, String boardName,String boardDelName , int num) {
+	public replyCompare(String id, String writer, String boardName,String boardDelName , int num, int rnum) {
 		this.id = id;
 		this.writer = writer;
 		this.boardName = boardName;
 		this.boardDelName = boardDelName;
 		this.num = num;
+		this.rnum = rnum;
 	}
 	
 	
@@ -26,9 +28,8 @@ public class Compare {
 					"'>수정</a>");
 			
 			// 삭제
-			sb.append("<a href='" + boardDelName +
-					"?num=" + num +
-					"'>삭제</a>");
+			//sb.append("<input type=\"button\" onclick=\"replyDelete(${info.in_num})\" value=\"write\"><br>");
+			sb.append("<input type='button' onclick='replyDelete("+ rnum +")' value='삭제'><br>");
 		}
 		else if(id.equals("ADMIN")) { // 상세 화면에 글쓴이가 들어갈 때 (수정, 삭제)
 			
@@ -41,6 +42,8 @@ public class Compare {
 			sb.append("<a href='" + boardDelName +
 					"?num=" + num +
 					"'>삭제</a>");
+			
+			
 			
 
 			

@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="resources/css/board/board.css">
 <script>
 	window.onload = function() {
-		var chk = ${check};
+		var chk=${param.check};
 
 		if (chk == 1) {
 			alert("저장되었습니다.");
