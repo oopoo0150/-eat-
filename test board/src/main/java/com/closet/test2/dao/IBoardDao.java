@@ -1,5 +1,6 @@
 package com.closet.test2.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.closet.test2.bean.InfoBoard;
@@ -9,9 +10,10 @@ public interface IBoardDao {
 
 	boolean writeInsert(InfoBoard board);
 
-	List<InfoBoard> getBoardList(int num);
+	//List<InfoBoard> getBoardList(int num);
+	List<InfoBoard> getBoardList(HashMap<String, String> map);
 
-	int getBoardCount();
+	int getBoardCount(HashMap<String, String> table);
 
 	InfoBoard getContents(Integer inum);
 

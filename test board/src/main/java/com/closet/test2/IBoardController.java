@@ -32,9 +32,9 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value = "/info")
-	public ModelAndView infoList(Integer pageNum) {
+	public ModelAndView infoList(Integer pageNum, String in_cate) {
 		
-		mav = ibm.getBoardList(pageNum);
+		mav = ibm.getBoardList(pageNum, in_cate);
 		
 		return mav;
 	}

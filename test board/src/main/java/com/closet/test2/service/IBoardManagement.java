@@ -1,8 +1,11 @@
 package com.closet.test2.service;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,33 +34,63 @@ public class IBoardManagement {
 
 
 
-	public ModelAndView getBoardList(Integer pageNum) {
+	public ModelAndView getBoardList(Integer pageNum, String in_cate) {
 		mav = new ModelAndView();
 		String view = null;
 		List<InfoBoard> iList = null;
+
+		//String cate = null;
+		
+		String in_cate1 = in_cate;
+
 		// pageNum이 null(로그인 직후)이면 첫 페이지를 보이도록
 		int num = (pageNum == null) ? 1 : pageNum;
+		String in_num = ""+ num;
+		String cate = (in_cate1 == null) ? "전체" : in_cate;
+		
+		String table = null;
 
-		iList = iDao.getBoardList(num);
+		if(cate.equals("도움")) {
+			table = "INFOHELP";
+		}else if(cate.equals("정보")) {
+			table = "INFOINFO";
+		}else if(cate.equals("기타")) {
+			table = "INFOETC";
+		}else {
+			table = "INFO";
+		}
+
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("table", table);
+		map.put("num", in_num);		
+
+		iList = iDao.getBoardList(map);
+
 
 		mav.addObject("iList", iList);
-		mav.addObject("paging", getPaging(num));
+		mav.addObject("paging", getPaging(num, table, cate));
+		mav.addObject("in_cate", cate);
 		view = "info";
 		mav.setViewName(view);
 
 		return mav;
 	}
 
-	private Object getPaging(int num) {
+	private Object getPaging(int num, String table, String cate) {
 		// 전체 글 수
-		int maxNum = iDao.getBoardCount();
+		HashMap<String, String> tbl = new HashMap<String, String>();
+		
+		tbl.put("table", table);
+				
+		int maxNum = iDao.getBoardCount(tbl);
 		// 페이지당 글 수
 		int listCnt = 10;
 		// 그룹당 페이지 수
 		int pageCnt = 3;
 		// 게시판이 여러 종류가 있다면
 		String boardName = "info";
-		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName); 
+		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName, table, cate); 
 		return paging.makeHtmlpaging();
 	}
 

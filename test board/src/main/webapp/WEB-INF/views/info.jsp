@@ -6,7 +6,8 @@
 <head>
 <title>Request</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet" href="resources/css/board/board.css">
+<link type="text/css" rel="stylesheet"
+	href="resources/css/board/board.css">
 <script>
 	window.onload = function() {
 		var chk=${param.check};
@@ -65,11 +66,49 @@
 
 	<section>
 		<div align="center">
-			<br><h1>정보 게시판</h1><br>
+			<br>
+			<h1>정보 게시판</h1>
+			<br>
+		</div>
+		<div align="right">
+			<form action="info">
+				<select name="in_cate">
+					
+							<c:if test="${in_cate == '전체'}">
+								<option value="도움" selected>전체</option>
+							</c:if>
+							<c:if test="${in_cate != '전체'}">
+								<option value="전체">전체</option>
+							</c:if>
+							
+							<c:if test="${in_cate == '도움'}">
+								<option value="도움" selected>도움</option>
+							</c:if>
+							<c:if test="${in_cate != '도움'}">
+								<option value="도움">도움</option>
+							</c:if>
+							
+							<c:if test="${in_cate == '정보'}">
+								<option value="정보" selected>정보</option>
+							</c:if>
+							<c:if test="${in_cate != '정보'}">
+								<option value="정보">정보</option>
+							</c:if>
+							
+							<c:if test="${in_cate == '기타'}">
+								<option value="기타" selected>기타</option>
+							</c:if>
+							<c:if test="${in_cate != '기타'}">
+								<option value="기타">기타</option>
+							</c:if>
+
+				</select>
+				</td> <input type="submit" value="검색">
+			</form>
 		</div>
 		<div align="center">
 			<table>
-				<tr  bgcolor="black" height="35">
+				<tr bgcolor="black" height="35">
 					<th width="200"></th>
 					<th width="100">No</th>
 					<th width="300">title</th>
@@ -88,13 +127,14 @@
 					</tr>
 				</c:forEach>
 			</table>
-			
-				<br><a href="./iWrite">글쓰기</a>
-				
-				<div align="center">${paging}</div>
+
+			<br>
+			<a href="./iWrite">글쓰기</a>
+
+			<div align="center">${paging}</div>
 
 		</div>
- 
+
 	</section>
 
 	<footer>

@@ -23,13 +23,11 @@ public class replyCompare {
 		StringBuffer sb = new StringBuffer();
 		if(id.equals(writer)) { // 상세 화면에 글쓴이가 들어갈 때 (수정, 삭제)
 			// 수정
-			sb.append("<a href='" + boardName +
-					"?num=" + num +
-					"'>수정</a>");
+			sb.append("<input type='button' onclick='fn_editReply('"+ id +"')' value='수정'>");
 			
 			// 삭제
 			//sb.append("<input type=\"button\" onclick=\"replyDelete(${info.in_num})\" value=\"write\"><br>");
-			sb.append("<input type='button' onclick='replyDelete("+ rnum +")' value='삭제'><br>");
+			sb.append("<input type='button' onclick='replyDelete("+ rnum +")' value='삭제'>");
 		}
 		else if(id.equals("ADMIN")) { // 상세 화면에 글쓴이가 들어갈 때 (수정, 삭제)
 			

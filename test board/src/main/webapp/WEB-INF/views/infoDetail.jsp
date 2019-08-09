@@ -150,14 +150,14 @@
 				<th width="200"></th>
 			</tr>
 		</table>
-		<table id="rTable">
+		<table class="mediatext-muted pt-3" id="rTable">
 			<c:forEach var="r" items="${rList}">
 				<tr height="40" align="center">
 					<td width="100">${r.inr_sid}</td>
 					<td width="500">${r.inr_content}</td>
 					<td width="200">${r.inr_date}</td>
 					<td width="100">
-					${r.compare}
+					${r.compare}<br>
 					 </td>
 				</tr>
 			</c:forEach>
@@ -264,6 +264,61 @@ function replyDelete(num){
 			console.log(status);
 		}
 	});
+}
+
+
+
+function fn_editReply(id){
+
+	var htmls = "";
+
+	htmls += '<div class="media text-muted pt-3" id="rTable">';
+
+	//htmls += '<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:32x32">';
+
+	//htmls += '<title>Placeholder</title>';
+
+	//htmls += '<rect width="100%" height="100%" fill="#007bff"></rect>';
+
+	//htmls += '<text x="50%" fill="#007bff" dy=".3em">32x32</text>';
+
+	//htmls += '</svg>';
+
+	//htmls += '<p class="media-body pb-3 mb-0 small lh-125 border-bottom horder-gray">';
+
+	//htmls += '<span class="d-block">';
+
+	//htmls += '<strong class="text-gray-dark">' + writer + '</strong>';
+
+	//htmls += '<span style="padding-left: 7px; font-size: 9pt">';
+
+	//htmls += '<a href="javascript:void(0)" onclick="fn_updateReply(' + num + ', \'' + writer + '\')" style="padding-right:5px">저장</a>';
+
+	//htmls += '<a href="javascript:void(0)" onClick="showReplyList()">취소<a>';
+
+	//htmls += '</span>';
+
+	//htmls += '</span>';		
+
+	htmls += '<textarea name="editContent" id="editContent" class="form-control" rows="3">';
+
+	htmls += id;
+
+	htmls += '</textarea>';
+
+	
+
+	//htmls += '</p>';
+
+	htmls += '</div>';
+
+	
+
+	$('#rTable').replaceWith(htmls);
+
+	$('#rTable').focus();
+	
+
 }
 
 
