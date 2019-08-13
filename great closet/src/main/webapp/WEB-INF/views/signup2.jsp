@@ -5,6 +5,16 @@
 <!DOCTYPE html>
 <html>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<head>
+	<style type="text/css">
+	div.center {
+		margin: auto;
+	}
+	
+	input.center {
+		text-align: center;	
+	}
+	</style>
 </head>
 <body>
 
@@ -49,42 +59,60 @@
 </div>
 </center>
 </header>
-
-    <div class="center">
+    <div class="center" style="width: 1000px; height: 600px; margin-top: 50px; border: solid;">
         <form action="MemberInsert" method="post" onsubmit="return check()" name="signup2">
-        
-                        <label for="s_name">이름</label>
-                        <input type="text" id="s_name" name="s_name" placeholder="이름" required="이름"><br>
+        	<table style="margin: auto; margin-top: 160px;">
+                        <tr><td><label for="s_name">이름</label></td>
+                        <td><input class="center" type="text" id="s_name" name="s_name" placeholder="이름" required="이름"></td>
+                        <td></td>
+                        </tr>  
                         
-                    <div class="form-group">     
-                           <label for="s_nick">닉네임</label> 
-                        <input type="text" id="s_nick" name="s_nick" placeholder="닉네임" required="닉네임"><button type="button" id="niche" onclick="nickcheck()">중복확인</button><br>
-                        <div class="check_font" id="nick_check"></div>
-                    </div> 
-                        	
-                    <div class="form-group">
-                           <label for="s_id">아이디</label> 
-                           <input type="text" id="s_id" name="s_id" placeholder="아이디" required="아이디"><button type="button" id="idche" onclick="idcheck()">중복확인</button><br>
-                           <div class="check_font" id="id_check"></div>
-                    </div>
-                    
-                         <label for="s_pass">비밀번호</label> 
-                          <input type="password" id="s_pass" name="s_pass" placeholder="비밀번호" required="비밀번호"><br>
-                        <label for="spassCh">비밀번호 확인</label> 
-                           <input type="password" id="spassCh" name="spassCh" placeholder="비밀번호 확인" required="비밀번호 확인"><br>
-                           
-                     <div class="form-group">     
-                        <label for="s_mail">이메일</label> 
-                        <input type="email" id="s_mail" name="s_mail" placeholder="이메일" required="이메일"><button type="button" id="mache" onclick="mailcheck()">중복확인</button><br>
-                        <div class="check_font" id="mail_check"></div>
-                    </div>    
+                        <tr>
+                        <td><label for="s_nick">닉네임</label></td>
+                        <td><input class="center" type="text" id="s_nick" name="s_nick" placeholder="닉네임" required="닉네임"></td>
+                        <td><button type="button" id="niche" onclick="nickcheck()">중복확인</button></td>
+                    	</tr>
+                    	
+                    	<tr><td colspan="3"><div class="check_font" id="nick_check"></div></td></tr>
+                       	
+                       	<tr>
+                        <td><label for="s_id">아이디</label></td>
+                        <td><input class="center" type="text" id="s_id" name="s_id" placeholder="아이디" required="아이디"></td>
+                        <td><button type="button" id="idche" onclick="idcheck()">중복확인</button></td>
+                    	</tr>
+                    	
+                    	<tr><td colspan="3"><div class="check_font" id="id_check"></div></td></tr>
+                    	
+                    	<tr>
+                        <td><label for="s_pass">비밀번호</label></td>
+                        <td><input class="center" type="password" id="s_pass" name="s_pass" placeholder="비밀번호" required="비밀번호"></td>
+                        <td></td>
+                        </tr>
                         
-                        <label for="s_birth">생년월일</label> 
-                        <input type="text" id="s_birth" name="s_birth" placeholder="ex)20190101" required="생년월일"><br>
-                     
-                         
-                         <input type="submit" id="reg_submit" value="가입하기">
-
+                        <tr>
+                        <td><label for="spassCh">비밀번호 확인</label></td>
+                        <td><input class="center" type="password" id="spassCh" name="spassCh" placeholder="비밀번호 확인" required="비밀번호 확인"></td>
+                        <td></td>
+                       	</tr>
+                            
+                        <tr>  
+                        <td><label for="s_mail">이메일</label></td>
+                        <td><input class="center" type="email" id="s_mail" name="s_mail" placeholder="이메일" required="이메일"></td>
+                        <td><button type="button" id="mache" onclick="mailcheck()">중복확인</button></td>
+                   		</tr>
+                   		
+                   		<tr><td colspan="3"><div class="check_font" id="mail_check"></div></td></tr>
+                   
+                        <tr>
+                        <td><label for="s_birth">생년월일</label></td>
+                        <td><input class="center" type="text" id="s_birth" name="s_birth" placeholder="ex)20190101" required="생년월일"></td>
+                        <td></td>
+                     	</tr>
+                     	
+                        <tr>
+                        <td colspan="3" style="text-align: center;"><input class="center" type="submit" id="reg_submit" value="가입하기"></td>
+                        </tr>
+			</table>
         </form>
     </div> 
 <footer>

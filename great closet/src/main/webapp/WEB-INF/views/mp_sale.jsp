@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
 <header>
@@ -89,12 +89,12 @@
 					</c:if>		 				      				
 				</select></td> 							
 	 		<input type="submit" value="선택">
- 		</form>
- 		
- 		</div>
+ 		</form>		
+ 	</div>
+ 		<form action="checkedItemDel" method="post">
  		<table width="700px">
  			<tr>		
- 				<th bgcolor="#C5E5D4"><input id="allCheck" type="checkbox" onclick="allChk(this);"/></th>	
+ 				<th bgcolor="#C5E5D4"><input type="checkbox" id="allCheck"/></th>	
  				<th width="10%" bgcolor="#C5E5D4">번호</th>
  				<th width="15%" bgcolor="#C5E5D4">구분</th>
  				<th width="30%" bgcolor="#C5E5D4">제목</th>
@@ -104,7 +104,7 @@
  			</tr>
  			<c:forEach var="product" items="${mpList}">
  				<tr>
- 					<td><input type="checkbox" name="RowCheck"/></td>
+ 					<td><input type="checkbox" name="RowCheck" val="${product.db_num}"/></td>
  					<td align="center">${product.db_num}</td>
  					<td align="center">${product.db_cate}</td>
  					<td align="center"><a href="./product_detailGo?db_num=${product.db_title}">${product.db_title}</a></td>
@@ -117,9 +117,8 @@
  	</div>
  	<div id="product_bottom">
  		<div align="center">${paging}</div>	
- 		<div>
- 			<form>
- 				<input type="button" value="삭제" name="mpSaleDel" onclick="checkedDel()">
+ 		<div>			
+ 				<input type="submit" value="삭제" name="mp_sale" onclick="checkedDel()">
  			</form>
  		</div>
  	</div>
@@ -139,35 +138,27 @@
 	<p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
 </div>
 </footer>	
-</body>`	
-<script>
-
-//1.모두 체크
-function allChk(obj){
-    var chkObj = document.getElementsByName("RowCheck");
-    var rowCnt = chkObj.length - 1;
-    var check = obj.checked;
-    if (check) {﻿
-        for (var i=0; i<=rowCnt; i++){
-         if(chkObj[i].type == "checkbox")
-             chkObj[i].checked = true; 
-        }
-    } else {
-        for (var i=0; i<=rowCnt; i++) {
-         if(chkObj[i].type == "checkbox"){
-             chkObj[i].checked = false; 
-         }
-        }
-    }
-} 
-//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
-	function checkedDel() {
-		var check = document.getElementsByName("check");
+</body>
+<script type="text/javascript"> 
+//1. 전체선택 체크박스 클릭 
+ $(function(){
+	 $("#allCheck").click(function(){ 
+	 //만약 전체 선택 체크박스가 체크된상태일경우 
+	 if($("#allCheck").prop("checked")) { 
+		 //해당화면에 전체 checkbox들을 체크해준다
+		 $("input[type=checkbox]").prop("checked",true); 
+		 // 전체선택 체크박스가 해제된 경우 
+		 } else { 
+			 //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+			 $("input[type=checkbox]").prop("checked",false); } }) }) 
+//2. 체크박스 선택 값 삭제
+function checkedDel() {
+		var check = document.getElementsByName("RowCheck");
 		var checkList = "";
-		var	chk_check = false;
+		var chk_check = false;
 		var list = [];
 		var j = 0;
-		
+
 		for (var i = 0; i < check.length; i++) {
 			if (check[i].checked == true) {
 				list[j] = check[i].value;
@@ -175,7 +166,7 @@ function allChk(obj){
 				chk_check = true;
 			}
 		}
-		//var jsonList = JSON.stringify(list);
+
 		var jsonList = {
 			"ls" : list
 		};
@@ -187,12 +178,13 @@ function allChk(obj){
 
 				$.ajax({
 					type : 'post',
-					url : 'mpSaleDel',
+					url : 'checkedItemDel',
 					data : jsonList,
 					dataType : 'json',
+					contentType : "application/json; charset=UTF-8",
 					success : function(data, status, xhr) {
-						location.href = "./saleList?id=${id}";
-						alert("선택한값을 삭제하였습니다.");
+						location.href = "./saleList?UserId=${id}";
+						alert("선택한 게시물을 삭제하였습니다.");
 					},
 					error : function(xhr, status) {
 						alert("삭제실패");
@@ -204,8 +196,6 @@ function allChk(obj){
 		} else {
 			alert("하나 이상 선택해주세요.");
 		}
-	}   
-		
-	}
-</script>
+	}         
+</script> 
 </html>

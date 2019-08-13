@@ -80,7 +80,7 @@ public class MemberController extends HttpServlet {
 //             }
 
 
-            //mav = mm.UserInsert(us);
+            mav = mm.UserInsert(us);
         return mav;
     }
   //회원가입
@@ -197,7 +197,7 @@ public class MemberController extends HttpServlet {
 		sesstion.invalidate();
 		System.out.println(sesstion.getAttribute("id"));
 		
-		return "login";
+		return "home";
 	}
        
 }

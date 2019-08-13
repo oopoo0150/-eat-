@@ -47,7 +47,7 @@
 			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 				<ul class="child">
 					<li><a href="./product_main" title="Contest">거래공간</a></li>
-					<li><a href="#" title="Contest"> 쪽지함</a></li>
+					<li><a href="./letterbox?id=${id}" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
@@ -63,55 +63,42 @@
 	<c:set var="id" value="${id}"/>
 	<c:if test="${empty id}">
 		<center>
-		<div class="main" style="text-align: center;">
-			<table border="1" style="margin: auto;">
-				<tr>
-					<th>메인 페이지</th>
-				</tr>
-			</table>
-		</div>
-		<a href="./findid">아이디/비밀번호 찾기</a>
-		<div class="loginbox">
+		<div class="main" style="border: solid; width: 1000px; height: 600px;">
+		<div style="width: 200px; height: 120px; border: solid; float: right; margin-top: 20px; margin-right: 20px;">
+			<img src="resources/image/common/panda.png"><br>
+			<a href="./findid">아이디/비밀번호 찾기</a><br>
 			<input class="login" type="button" value="로그인" onclick="location.href='./login'">
 		    <input class="signup" type="button" value="회원가입" onclick="location.href='./signup2'">	
+		</div>
+		    
 	    </div>
 	    </center>
 	</c:if>
 	<c:if test="${!empty id}">
 		<center>
-		<div>
-		<img alt="" src="">
-		<table border="1">
+		<div style="border: solid; width: 1000px; height: 600px;">
+		
+		<div style="width: 200px; height: 120px; border: solid; float: right; margin-top: 20px; margin-right: 20px;">
+		<table style="margin: auto;">
 			<tr height="30">
-				<td width="80" bgcolor="pink" align="center">아이디</td>
-				<td>${mb.s_id},${id}</td>
+				<td>${id}</td>
 			</tr>
 			<tr height="30">
-				<td width="80" bgcolor="pink" 
-				align="center">이름</td>
 				<td>${mb.s_name}</td>
 			</tr>
 			<tr height="30">
-				<td width="80" bgcolor="pink" 
-				align="center">닉네임</td>
 				<td>${mb.s_nick}</td>
-			</tr>
-			<tr height="30">
-				<td width="80" bgcolor="pink" 
-				align="center">이메일</td>
-				<td>${mb.s_mail}</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<div align="center">
-						<form id="logoutFrm" action="./logout" method="post">
-							<a href="./logout">로그아웃</a>	
-						</form>
-						<button id="return checkid()">아이디 확인</button>
+						<input type="button" value="로그아웃" onclick="location.href='./logout'">
 					</div>
 				</td>
 			</tr>
 		</table>
+		</div>
+		
 		</div>
 		</center>
 	</c:if>

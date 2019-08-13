@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
@@ -47,59 +52,43 @@
 </div>
 </center>
 </header>
-<head>
-<meta charset="UTF-8">
-<title>great closet login</title>
-<script>
-	window.onload = function() {
-		var chk=${check};
-		if (chk==2) {
-			alert("로그인 성공.")
-		}
-		if (chk==3) {
-			alert("비밀번호가 다릅니다.")
-		}
-		if (chk==4) {
-			alert("가입돤 아이디가 아닙니다.")
-		}
+	<c:set var="id" value="${id}"></c:set>
+	<c:if test="${!empty id}">
+	<center>
+		<div style="border: solid; width: 1000px; height: 600px; margin-top: 50px;" >
 		
-	}
-</script>
-</head>
- 	<center>
-	<div style="width: 1000px; height: 600px; border: solid; margin-top: 50px;">
-	
-	<div style="margin-top: 210px;">
-	<form action="./login_Access"  method="post" name="home" onsubmit="return logincheck()">
-		<table border="1" style="align-content: center;">
-				<tr>	
-					<th colspan="2" style="text-align: center;"><h1>로그인</h1></th>
-				</tr>
+		<table border="1" style="margin-top: 50px;">
+			<tr>
+			<th width="360" height="40">제목</th>
+			<th width="180">가격</th>
+			<th colspan="2" width="362">대화상대</th>
+			</tr>
+		</table>
+		<c:forEach var="Letterbox" items="${LBList}">
+			<table border="1" style="text-align: center;">
 				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="s_id" id="s_id" placeholder="아이디 입력"></td>
-				</tr>
+				<td width="360">${Letterbox.BOX_TITLE}</td>
+				<td width="180">${Letterbox.BOX_PRICE}</td>
+				<td width="180">${Letterbox.BOX_BUYER}</td>
+				<td width="180"><input type="button" value="쪽지보기" onclick="location.href='./'"></input></td>
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="s_pass" id="s_pass" placeholder="비밀번호 입력 "></td>
-				</tr>
 			</table>
-			<a href="./findid">아이디/비밀번호 찾기</a><br>
-				    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="useCookie"> 로그인유지
-                        </label>
-                    </div>
-			<input type="submit" value="로그인">
-			<button>
-				<a href="./signup2">회원가입</a>
-			</button>
-	</form>
-	</div>
-	
-	</div>
+		</c:forEach>
+		
+		</div>
 	</center>
-	
+	</c:if>
+	<c:if test="${empty id}">
+		<center>
+		<div style="border: solid; width: 1000px; height: 600px; margin-top: 50px;">
+			<div style="margin-top: 255px;">
+			로그인 하시겠습니까?<br>
+			<input type="button" style="width: 60px;" value="예" onclick="location.href='./login'">
+			<input type="button" style="width: 60px;" value="아니요" onclick="location.href='./'">
+			</div>
+		</center>
+		</div>
+	</c:if>
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">
@@ -114,30 +103,7 @@
 </div>
 </footer>	
 </body>
-
 <script>
-	function logincheck() {
-		var login = document.home;
-		var length = home.length - 2;
-		for (var i = 0; i < length; i++) {
-			if (home[i].value == "" || home[i].value == null) {
-				alert(home[i].placeholder + "란을 입력하세요!!")
-				home[i].focus();
-				return false;
-			}
-		}
-		
-		
-		return true;
-	}
 	
-//	 $(function () {
-//	        $('input').iCheck({
-//	            checkboxClass: 'icheckbox_square-blue',
-//	            radioClass: 'iradio_square-blue',
-//	            increaseArea: '20%' // optional
-//	        });
-//	    });
-	 
 </script>
 </html>

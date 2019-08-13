@@ -67,13 +67,14 @@ public class HomeController {
 			return "login";
 		}
 		
+		
 		//마이페이지 이동
 		
 		//페이지 구현을 위한 임시 페이지 넘김
 		@RequestMapping(value = "/mypage")
 		public String mypage(Model model) {
-			System.out.println(session.getAttribute("id"));			
-			return "mypage";
 			
+			System.out.println(session.getAttribute("id"));			
+			return "mypage";		
 		}
 }

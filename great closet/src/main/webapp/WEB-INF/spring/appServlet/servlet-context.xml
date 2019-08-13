@@ -58,4 +58,10 @@
 		<beans:property name="mapperInterface" value="com.closet.great.dao.MypageDao"/>
 	</beans:bean>
 	
+	<!-- DAO 객체 설정 -->
+	<beans:bean id="ltDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<beans:property name="mapperInterface" value="com.closet.great.dao.LetterDao"/>
+	</beans:bean>
+	
 </beans:beans>
