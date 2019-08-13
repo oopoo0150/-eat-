@@ -1,5 +1,8 @@
 package com.closet.great.bean;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("clothes_detail")
 public class Clothes_Detail {
 	
 	private int cld_num;
