@@ -13,8 +13,8 @@
 	<header>
 		<!-- 헤더로고 -->
 		<div id="h_top">
-			<h1>
-				<img src="resources/image/common/panda.png" />
+			<h1><a href="./">
+				<img src="resources/image/common/panda.png" /></a>
 			</h1>
 		</div>
 		<!-- 메인/서브네비게이션 -->
@@ -50,21 +50,21 @@
 		</center>
 	</header>
 	<section>
-		<center>
+
 			<div id="mypage_total">
 				<!-- mypage profile -->
 				<div id="mypage_top">
 					<!-- 이미지 편집 -->
 					<div class="edit_profile">
-						<img src="resources/image/mypage/yoon.jpg">
 						<form>
-							<botton>이미지 입력버튼</botton>
+							<div id='View_area' style='position:relative; width: 100px; height: 100px; color: black; border: 0px solid black; dispaly: inline; '></div>
+							<input type="file" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')">							
 						</form>
 					</div>
 					<div id="uinfo">
 						<div id="uinfo_top">
 							<div class="access_id">
-								<p>아이디</p>
+								<p>${id}</p>
 							</div>
 							<div class="move_editprofile">
 								<form action="./mEditProfile">
@@ -82,13 +82,13 @@
 								<p>채택</p>
 								<p>count</p>
 							</div></a>
-							<a href="./mFollower"><div class="follwer_count">
+							<a href="./followerList"><div class="follwer_count">
 								<p>팔로워</p>
 								<p>count</p>
 							</div></a>
-							<a href="./mFollowing"><div class="following_count">
+							<a href="./followingList"><div class="following_count">
 								<p>팔로잉</p>
-								<p>count</p>
+								<p>${fingCnt}</p>
 							</div></a>
 						</div>
 					</div>
@@ -98,29 +98,30 @@
 						<a href="./mCloset"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box2">
-						<a href="./mCal"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mCal"><img src="resources/image/mypage/s_box2.png"></a>
 					</div>
 					<div class="s_box3">
-						<a href="./mBoard"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mBoard"><img src="resources/image/mypage/s_box3.png"></a>
 					</div>
 					<div class="s_box4">
-						<a href="./mLookbook"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mLookbook"><img src="resources/image/mypage/s_box4.png"></a>
 					</div>
 					<div class="s_box5">
-						<a href="./mlog"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mlog"><img src="resources/image/mypage/s_box5.png"></a>
 					</div>
 					<div class="s_box6">
-						<a href="./mStatistics"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mStatistics"><img src="resources/image/mypage/s_box6.png"></a>
 					</div>
 					<div class="s_box7">
-						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
+					
+						<a href="./saleList"><img src="resources/image/mypage/s_box7.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./mSupport"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./supportList"><img src="resources/image/mypage/s_box_8.png"></a>
 					</div>
 				</div>
 			</div>
-		</center>
+
 	</section>
 	<footer>
 		<!-- 풋터로고 -->
@@ -140,4 +141,5 @@
 	</footer>
 
 </body>
+
 </html>

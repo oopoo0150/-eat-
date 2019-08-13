@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 <header>
@@ -44,7 +47,26 @@
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+<div>
+	<div><h1>팔로워</h1></div>
+	<div>
+		<table>
+			<c:forEach var="follow" items="${fList}">			
+				<tr bgcolor="white" height="40">
+					<form action="unfollow" method="post">
+						<td align="center">프로필 이미지</td>
+						<td align="center"><a href="./urpage?uid=${follow.f_follower}">${follow.f_follower}</a></td>
+						<td align="center">				
+						<input type="submit" value="팔로잉">
+						<input type="hidden" name ="uid" value="${follow.f_follower}">
+					</td>
+					</form>
+				<tr>
+			</c:forEach>		
+		</table>	
+	</div>
+</div>
+
 </section>
 <footer>
 <!-- 풋터로고 -->

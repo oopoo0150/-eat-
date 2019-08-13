@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 <header>
@@ -44,7 +48,83 @@
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+<div id="product">
+<center>
+ 	<div id="product">
+ 		<div><h1>판매내역</h1></div>
+ 	</div>
+ 	<div id="product_list">
+ 		<div>
+ 		 	<form action="saleList" name="mp_sale">
+ 		 		<select name="cate">
+ 		 			<c:if test="${product.db_cate == '전체'}">
+						<option value="전체" selected>전체</option>
+					</c:if>
+					<c:if test="${product.db_cate != '전체'}">
+						<option value="전체">전체</option>
+					</c:if>
+					<c:if test="${product.db_cate == '거래가능'}">
+						<option value="거래가능" selected>거래가능</option>
+					</c:if>
+					<c:if test="${product.db_cate != '거래가능'}">
+						<option value="거래가능">거래가능</option>
+					</c:if>	
+					<c:if test="${product.db_cate == '거래중'}">
+						<option value="거래중" selected>거래중</option>
+					</c:if>
+					<c:if test="${product.db_cate != '거래중'}">
+						<option value="거래중">거래중</option>
+					</c:if>	
+					<c:if test="${product.db_cate == '거래완료'}">
+						<option value="거래완료" selected>거래완료</option>
+					</c:if>
+					<c:if test="${product.db_cate != '거래완료'}">
+						<option value="거래완료">거래완료</option>
+					</c:if>
+					<c:if test="${product.db_cate == '기간만료'}">
+						<option value="기간만료" selected>기간만료</option>
+					</c:if>
+					<c:if test="${product.db_cate != '기간만료'}">
+						<option value="기간만료">기간만료</option>
+					</c:if>		 				      				
+				</select></td> 							
+	 		<input type="submit" value="선택">
+ 		</form>
+ 		
+ 		</div>
+ 		<table width="700px">
+ 			<tr>		
+ 				<th bgcolor="#C5E5D4"><input id="allCheck" type="checkbox" onclick="allChk(this);"/></th>	
+ 				<th width="10%" bgcolor="#C5E5D4">번호</th>
+ 				<th width="15%" bgcolor="#C5E5D4">구분</th>
+ 				<th width="30%" bgcolor="#C5E5D4">제목</th>
+ 				<th width="20%" bgcolor="#C5E5D4">날짜</th>
+ 				<th width="15%" bgcolor="#C5E5D4">작성자</th>
+ 				<th width="10%" bgcolor="#C5E5D4">조회수</th>				
+ 			</tr>
+ 			<c:forEach var="product" items="${mpList}">
+ 				<tr>
+ 					<td><input type="checkbox" name="RowCheck"/></td>
+ 					<td align="center">${product.db_num}</td>
+ 					<td align="center">${product.db_cate}</td>
+ 					<td align="center"><a href="./product_detailGo?db_num=${product.db_title}">${product.db_title}</a></td>
+ 					<td align="center">${product.db_date}</td>
+ 					<td align="center">${product.db_sid}</td>
+ 					<td align="center">${product.db_views}</td>					
+ 				</tr>
+ 			</c:forEach>
+ 		</table>
+ 	</div>
+ 	<div id="product_bottom">
+ 		<div align="center">${paging}</div>	
+ 		<div>
+ 			<form>
+ 				<input type="button" value="삭제" name="mpSaleDel" onclick="checkedDel()">
+ 			</form>
+ 		</div>
+ 	</div>
+ </center>	
+ </div> 
 </section>
 <footer>
 <!-- 풋터로고 -->
@@ -59,6 +139,73 @@
 	<p>COPYRIGHT ⓒ 2019 Dev.Great Team ALL RIGHT RESERVED</p>
 </div>
 </footer>	
+</body>`	
+<script>
 
-</body>
+//1.모두 체크
+function allChk(obj){
+    var chkObj = document.getElementsByName("RowCheck");
+    var rowCnt = chkObj.length - 1;
+    var check = obj.checked;
+    if (check) {﻿
+        for (var i=0; i<=rowCnt; i++){
+         if(chkObj[i].type == "checkbox")
+             chkObj[i].checked = true; 
+        }
+    } else {
+        for (var i=0; i<=rowCnt; i++) {
+         if(chkObj[i].type == "checkbox"){
+             chkObj[i].checked = false; 
+         }
+        }
+    }
+} 
+//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
+	function checkedDel() {
+		var check = document.getElementsByName("check");
+		var checkList = "";
+		var	chk_check = false;
+		var list = [];
+		var j = 0;
+		
+		for (var i = 0; i < check.length; i++) {
+			if (check[i].checked == true) {
+				list[j] = check[i].value;
+				j++;
+				chk_check = true;
+			}
+		}
+		//var jsonList = JSON.stringify(list);
+		var jsonList = {
+			"ls" : list
+		};
+		console.log(jsonList);
+
+		if (chk_check) {
+			var con = confirm("선택한 값을 삭제하시겠습니까?");
+			if (con) {
+
+				$.ajax({
+					type : 'post',
+					url : 'mpSaleDel',
+					data : jsonList,
+					dataType : 'json',
+					success : function(data, status, xhr) {
+						location.href = "./saleList?id=${id}";
+						alert("선택한값을 삭제하였습니다.");
+					},
+					error : function(xhr, status) {
+						alert("삭제실패");
+						console.log(status);
+						console.log(xhr);
+					}
+				});
+			}
+		} else {
+			alert("하나 이상 선택해주세요.");
+		}
+	}   
+		
+	}
+</script>
 </html>

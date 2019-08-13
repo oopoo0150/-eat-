@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 <header>
 <!-- 헤더로고 -->
 <div id="h_top">
-	<h1><img src="resources/image/common/panda.png"/></h1>
+	<h1><a href="./"><img src="resources/image/common/panda.png"/></a></h1>
 </div>
 <!-- 메인/서브네비게이션 -->
 <center>
@@ -44,12 +47,26 @@
 </center>
 </header>
 <section>
-내용을 입력해 주세요
+	<div><h1>내용 출력</h1></div>
+	<div id="sp_contents">
+		<div>
+			<div><h2>번호</h2> <p>${support.spnum}</p></div>
+			<div><h2>분류</h2> <p>${support.spcate}</p></div>
+			<div><h2>제목</h2> <p>${support.sptitle}</p></div>
+			<div><h2>내용</h2> <p>${support.spcontent}</p></div>
+			<div><h2>날짜</h2> <p>${support.spdate}</p></div>
+			<div><h2>조회수</h2> <p>${support.spviews}</p></div>			
+			<div><h2>작성자</h2> <p>${support.spsid}</p></div>		
+		</div>	
+	</div>
+			
+	</div>
+			
 </section>
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">
-<h1><a href="index.html" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
+<h1><a href="./" title="메인페이지 바로가기"><img src="resources/image/common/panda.png" alt="로고" /></a></h1>
 </div>
 <div id="f_mail">
 	<P>문의 사항은  great@service.com 로 보내주세요</P>

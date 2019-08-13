@@ -51,37 +51,11 @@
 		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 		<beans:property name="mapperInterface" value="com.closet.great.dao.MemberDao"/>
 	</beans:bean>
-	<!-- DAO 객체 설정 -->
-	<beans:bean id="cDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<beans:property name="mapperInterface" value="com.closet.great.dao.ClosetDao"/>
-	</beans:bean>
-	<!-- DAO 객체 설정 -->
-	<beans:bean id="chDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<beans:property name="mapperInterface" value="com.closet.great.dao.ClothesDao"/>
-	</beans:bean>
 	
 	<!-- DAO 객체 설정 -->
 	<beans:bean id="myDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 		<beans:property name="mapperInterface" value="com.closet.great.dao.MypageDao"/>
 	</beans:bean>
-	<!-- DAO 객체 설정 -->
-	<beans:bean id="pDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<beans:property name="mapperInterface" value="com.closet.great.dao.ProductDao"/>
-	</beans:bean>
-	<!-- DAO 객체 설정 -->
-	<beans:bean id="rDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<beans:property name="mapperInterface" value="com.closet.great.dao.RequestBoardDao"/>
-	</beans:bean>
-	<!-- DAO 객체 설정 -->
-	<beans:bean id="lDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<beans:property name="mapperInterface" value="com.closet.great.dao.LookbookDao"/>
-	</beans:bean>
-	
 	
 </beans:beans>
