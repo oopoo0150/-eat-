@@ -6,6 +6,7 @@
 <head>
 <title>Request</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<link type="text/css" rel="stylesheet" href="resources/css/board/shareBoard.css">
 <script>
 	window.onload = function() {
 		var chk = $
@@ -68,16 +69,36 @@
 		</center>
 	</header>
 
+	<center>
 	<section>
+	<c:forEach var="share" items="${sList}">
+	
+				<div class="share_board">
+				<tr bgcolor="white" height="40">
+				<br><br><br><br><br>
+					<table width ="170" height ="280">
+					<tr>
+					<th>
+					<a  href="./shareDetail?num=${share.sb_num}"><img src="./resources/files/${share.sb_sysname}" width="200"/></a><br>
+					</th>
+					</tr>
+					</table>
+					<td align="center"><a href="./shareDetail?num=${share.sb_num}">${share.sb_title}</a></td><br>
+					<br><td align="center">${share.sb_sid}</td><br>
+					<td align="center">${share.sb_date}</td><br><br>
+					
+				</tr>
+				</div>
+			</c:forEach>
 			
-			<br><a href="./sWrite">글쓰기</a>
-
-		</div>
-
-
-
+		
 	</section>
-
+		</center>
+		
+		<center>
+<br><br><br><br><a href="./sWrite">글쓰기</a><br><br>
+		${paging}
+		</center>
 	<footer>
 		<!-- 풋터로고 -->
 		<div id="f_top">

@@ -4,11 +4,12 @@ import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
-/*
+
 @Alias("share")
 public class ShareBoard {
 	
 	private int sb_num;
+	private String sb_title;
 	private String sb_sysname;
 	private String sb_oriname;
 	private String sb_content;
@@ -23,6 +24,12 @@ public class ShareBoard {
 	}
 	public void setSb_num(int sb_num) {
 		this.sb_num = sb_num;
+	}
+	public String getSb_title() {
+		return sb_title;
+	}
+	public void setSb_title(String sb_title) {
+		this.sb_title = sb_title;
 	}
 	public String getSb_sysname() {
 		return sb_sysname;
@@ -74,5 +81,5 @@ public class ShareBoard {
 	}
 
 }
-*/
+
 

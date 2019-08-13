@@ -67,9 +67,9 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value = "/infoDetail", method = RequestMethod.GET)
-	public ModelAndView contents(Integer inum) {
-		//ibm.ClickBoard(bnum);
-		mav = ibm.getContents(inum);
+	public ModelAndView contents(Integer num) {
+		ibm.ClickBoard(num);
+		mav = ibm.getContents(num);
 		return mav;
 	}
 	
@@ -94,14 +94,23 @@ public class IBoardController {
 		return rMap;
 	}
 	
-//	@RequestMapping(value = "/replyDelete")
-//	public ModelAndView replyDelete(Integer num) throws RuntimeException {
-//		mav = ibm.replyDelete(num);
-//		
-//		
-//		return mav;
-//	}
-
+	@RequestMapping(value = "/replyUpdate")
+	public ModelAndView replyUpdate(InfoReply info) {
+		mav = ibm.replyUpdate(info);
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/replyUpdateIn")
+	public @ResponseBody Map<String, List<InfoReply>> replyUpdateIn(InfoReply r){ // json타입으로 변환
+		Map<String, List<InfoReply>> rMap = ibm.replyUpdateIn(r);
+		
+		return rMap;
+	}
+	
+	
+	
 	
 	
 

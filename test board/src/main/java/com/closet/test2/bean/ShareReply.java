@@ -4,16 +4,26 @@ import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
-/*
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 @Alias("shareReply")
 public class ShareReply {
 	private int sbr_num;
 	private String sbr_content;
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
 	private Timestamp sbr_date;
 	private int sbr_complain;
 	private int sbr_sbnum;
 	private String sbr_sid;
+	private String compare;
 	
+	public String getCompare() {
+		return compare;
+	}
+	public void setCompare(String compare) {
+		this.compare = compare;
+	}
 	public int getSbr_num() {
 		return sbr_num;
 	}
@@ -52,4 +62,4 @@ public class ShareReply {
 	}
 	
 }
-*/
+

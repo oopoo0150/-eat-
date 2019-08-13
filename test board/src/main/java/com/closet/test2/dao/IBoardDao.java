@@ -15,13 +15,13 @@ public interface IBoardDao {
 
 	int getBoardCount(HashMap<String, String> table);
 
-	InfoBoard getContents(Integer inum);
+	InfoBoard getContents(Integer num);
 
 	boolean update(InfoBoard board);
 
 	boolean delete(Integer num);
 
-	List<InfoReply> getReplyList(Integer inum);
+	List<InfoReply> getReplyList(Integer num);
 
 	boolean replyInsert(InfoReply r);
 
@@ -30,5 +30,10 @@ public interface IBoardDao {
 	int getBoardnum(Integer no);
 
 	boolean replyBoardDelete(Integer num);
+
+	boolean replyUpdate(InfoReply info);
+
+	void ClickBoard(Integer num);
+
 
 }

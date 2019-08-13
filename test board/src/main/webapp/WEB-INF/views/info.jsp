@@ -120,7 +120,7 @@
 					<tr bgcolor="white" height="40">
 						<td align="center">${info.in_cate}</td>
 						<td align="center">${info.in_num}</td>
-						<td align="center"><a href="./infoDetail?inum=${info.in_num}">${info.in_title}</a></td>
+						<td align="center"><a href="./infoDetail?num=${info.in_num}">${info.in_title}</a></td>
 						<td align="center">${info.in_sid}</td>
 						<td align="center">${info.in_date}</td>
 						<td align="center">${info.in_views}</td>

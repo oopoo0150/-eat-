@@ -40,14 +40,14 @@ public class IBoardManagement {
 		List<InfoBoard> iList = null;
 
 		//String cate = null;
-		
+
 		String in_cate1 = in_cate;
 
 		// pageNum이 null(로그인 직후)이면 첫 페이지를 보이도록
 		int num = (pageNum == null) ? 1 : pageNum;
 		String in_num = ""+ num;
 		String cate = (in_cate1 == null) ? "전체" : in_cate;
-		
+
 		String table = null;
 
 		if(cate.equals("도움")) {
@@ -80,9 +80,9 @@ public class IBoardManagement {
 	private Object getPaging(int num, String table, String cate) {
 		// 전체 글 수
 		HashMap<String, String> tbl = new HashMap<String, String>();
-		
+
 		tbl.put("table", table);
-				
+
 		int maxNum = iDao.getBoardCount(tbl);
 		// 페이지당 글 수
 		int listCnt = 10;
@@ -130,7 +130,7 @@ public class IBoardManagement {
 		return mav;
 	}
 
-	public ModelAndView getContents(Integer inum) {
+	public ModelAndView getContents(Integer num) {
 
 		mav = new ModelAndView();
 		String view = null;
@@ -139,31 +139,31 @@ public class IBoardManagement {
 		String id = "tami";
 		//String id = session.getAttribute("id").toString();
 
-		InfoBoard iboard = iDao.getContents(inum);
+		InfoBoard iboard = iDao.getContents(num);
 
 		//mav.addObject("compare", Compare(id, iboard.getIn_sid()));
 		String writer = iboard.getIn_sid();
 
 		String boardName = "infoUpdate";
 		String boardDelName = "infoDelete";
-		int num = inum;
-		//id(현재 아이디), writer(게시글 글쓴이), boardName(수정 uri), boardDelName(삭제 uri), num(게시글)
+		//id(현재 아이디), writer(게시글 글쓴이), boardName(수정 uri), boardDelName(삭제 uri), inum(게시글)
 		Compare compare = new Compare(id, writer, boardName, boardDelName, num);
+		String com = compare.makeHtmlcompare();
 
 		mav.addObject("info", iboard);
-		mav.addObject("compare", compare.makeHtmlcompare());
+		mav.addObject("compare", com);
 
 		// 댓글
-		List<InfoReply> rList = iDao.getReplyList(inum);
+		List<InfoReply> rList = iDao.getReplyList(num);
 
 		// 댓글용 수정 삭제
-		//id(현재 아이디), writer(댓글쓴이), boardName(수정 uri), boardDelName(삭제 uri), num(게시글 번호), num(게시글 번호), rnum(댓글 번호)
+		//id(현재 아이디), writer(댓글쓴이), boardName(수정 uri), boardDelName(삭제 uri), inum(게시글 번호), rnum(댓글 번호)
 		for(int i=0;i<rList.size();i++) {
 			writer = rList.get(i).getInr_sid();
 			boardName = ""; 
 			boardDelName = "replyDelete";
 			int rnum = rList.get(i).getInr_num();
-			replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum);
+			replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum, rList.get(i).getInr_content());
 			//rList.set(i, compare);
 			String rc = rcompare.makeHtmlcompare();
 			rList.get(i).setCompare(rc);
@@ -208,7 +208,7 @@ public class IBoardManagement {
 
 			view = "redirect:infoDetail";
 			mav.addObject("check", 2);
-			mav.addObject("inum", board.getIn_num());
+			mav.addObject("num", board.getIn_num());
 		}
 		else {
 			// 실패
@@ -225,20 +225,21 @@ public class IBoardManagement {
 		String view = null;
 
 		// DB에 글 수정
-		if(iDao.replyBoardDelete(num)) {
-			if(iDao.delete(num)) {
+		iDao.replyBoardDelete(num);
+
+		if(iDao.delete(num)) {
 
 
 
-				view = "redirect:info";
-				mav.addObject("check", 3);
-			}
-			else {
-				// 실패
-				view="info";
-				mav.addObject("check", 4);
-			}
+			view = "redirect:info";
+			mav.addObject("check", 3);
 		}
+		else {
+			// 실패
+			view="info";
+			mav.addObject("check", 4);
+		}
+
 		mav.setViewName(view);
 
 		return mav;
@@ -254,7 +255,7 @@ public class IBoardManagement {
 		int num = inum;
 
 		if(iDao.replyInsert(r)) {
-			List<InfoReply> rList = iDao.getReplyList(inum);
+			List<InfoReply> rList = iDao.getReplyList(num);
 
 			// 댓글출력용 수정 삭제
 			//id(현재 아이디), writer(댓글쓴이), boardName(수정 uri), boardDelName(삭제 uri), num(게시글 번호), num(게시글 번호), rnum(댓글 번호)
@@ -264,7 +265,7 @@ public class IBoardManagement {
 				String boardDelName = "replyDelete";
 
 				int rnum = rList.get(i).getInr_num();
-				replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum);
+				replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum, null);
 				String rc = rcompare.makeHtmlcompare();
 				rList.get(i).setCompare(rc);
 			}
@@ -299,7 +300,7 @@ public class IBoardManagement {
 				int num = no;
 
 				int rnum = rList.get(i).getInr_num();
-				replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum);
+				replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum, null);
 				String rc = rcompare.makeHtmlcompare();
 				rList.get(i).setCompare(rc);
 			}
@@ -312,6 +313,61 @@ public class IBoardManagement {
 		}
 		return jMap;
 	}
+
+	public ModelAndView replyUpdate(InfoReply info) {
+		ModelAndView mav = new ModelAndView();
+		if(iDao.replyUpdate(info)) {
+
+		}
+		String view = "redirect:infoDetail";
+		mav.addObject("num", info.getInr_innum());
+		mav.addObject("check", 2);
+		mav.setViewName(view);
+
+
+		return mav;
+	}
+
+
+	public Map<String, List<InfoReply>> replyUpdateIn(InfoReply r) {
+		Map<String, List<InfoReply>> jMap = null;
+
+		if(iDao.replyUpdate(r)) {
+
+			List<InfoReply> rList = iDao.getReplyList(r.getInr_innum());
+
+			// 댓글출력용 수정 삭제
+			//id(현재 아이디), writer(댓글쓴이), boardName(수정 uri), boardDelName(삭제 uri), num(게시글 번호), num(게시글 번호), rnum(댓글 번호)
+			for(int i=0;i<rList.size();i++) {
+				String writer = rList.get(i).getInr_sid();
+				String boardName = ""; 
+				String boardDelName = "replyDelete";
+				String id = "tami";
+				int num = rList.get(i).getInr_num();
+				int rnum = rList.get(i).getInr_num();
+				String content = rList.get(i).getInr_content();
+				replyCompare rcompare = new replyCompare(id, writer, boardName, boardDelName, num, rnum, content);
+				String rc = rcompare.makeHtmlcompare();
+				rList.get(i).setCompare(rc);
+			}
+
+			jMap = new HashMap<String, List<InfoReply>>();
+			jMap.put("rList", rList);
+		}
+		else {
+			jMap = null;
+		}
+		return jMap;
+	}
+
+	public void ClickBoard(Integer num) {
+		mav = new ModelAndView();
+
+		iDao.ClickBoard(num);
+
+
+	}
+
 
 	//	public Map<String, List<InfoReply>> replyDelete(Integer r) {
 	//		Map<String, List<InfoReply>> jMap = null;

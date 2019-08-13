@@ -23,6 +23,10 @@
 	]]>
 	</select>
 	
+	<update id="ClickBoard">
+		UPDATE INFOBOARD SET IN_VIEWS = IN_VIEWS + 1 WHERE IN_NUM = #{num}
+	</update>
+	
 	
 	<!-- 페이징 게시글 카운트 -->
 	<select id="getBoardCount" resultType="int" parameterType="HashMap">
@@ -31,7 +35,7 @@
 	
 	<!-- 게시글 상세보기 -->
 	<select id="getContents" resultType="info" parameterType="int">
-		SELECT * FROM INFOBOARD WHERE IN_NUM=#{inum}
+		SELECT * FROM INFOBOARD WHERE IN_NUM=#{num}
 	</select>	
 
 	<!-- 게시글 insert -->
@@ -51,7 +55,7 @@
 	
 	<!-- 댓글 출력 -->
 	<select id="getReplyList" parameterType="int" resultType="infoReply">
-		SELECT * FROM INFOBOARD_REPLY WHERE INR_INNUM=#{inum}
+		SELECT * FROM INFOBOARD_REPLY WHERE INR_INNUM=#{num}
 	</select>
 	
 	<!-- 댓글 입력 -->
@@ -64,6 +68,10 @@
 		SELECT INR_INNUM FROM INFOBOARD_REPLY WHERE INR_NUM=#{no}
 	</select>
 	
+	<!-- 댓글 수정 -->
+	<insert id="replyUpdate" parameterType="infoReply">
+		UPDATE INFOBOARD_REPLY SET INR_CONTENT= #{inr_content} WHERE INR_NUM = #{inr_num}
+	</insert>
 	
 	
 	<!-- 댓글 삭제 -->
@@ -71,7 +79,7 @@
 		DELETE FROM INFOBOARD_REPLY WHERE INR_NUM=#{num}
 	</delete>
 	
-	<!-- 댓글 삭제 -->
+	<!-- 댓글 삭제(게시판 삭제) -->
 	<delete id="replyBoardDelete" parameterType="Integer">
 		DELETE FROM INFOBOARD_REPLY WHERE INR_INNUM=#{num}
 	</delete>

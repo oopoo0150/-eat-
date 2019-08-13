@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.closet.test2.dao.SBoardDao">
+
+	<!-- insert -->
+	<insert id="writeInsert" parameterType="share">
+			INSERT INTO SHAREBOARD(SB_NUM, SB_SYSNAME, SB_ORINAME, SB_CONTENT, SB_SID, SB_TITLE) VALUES (SHAREBOARD_SEQ.NEXTVAL, #{sb_sysname}, #{sb_oriname}, #{sb_content}, #{sb_sid}, #{sb_title})
+	</insert>
+
+	<!-- 게시판 총 수 -->
+	<select id="getBoardCount" resultType="int">
+		SELECT COUNT(*) FROM SHAREBOARD
+	</select>
+	
+	<!-- 게시판 리스트 불러오기 -->
+	<select id="getBoardList" resultType="share"
+		parameterType="int">
+	<![CDATA[
+		SELECT * FROM SHAREBO WHERE SB_RONUM>=#{num}*10-9
+		AND SB_RONUM<=#{num}*10
+	]]>
+	</select>
+	
+	<select id="getContents" resultType="share" parameterType="Integer">
+		SELECT * FROM SHAREBOARD WHERE SB_NUM=#{num}
+	</select>
+	
+	<update id="ClickBoard">
+		UPDATE SHAREBOARD SET SB_VIEWS = SB_VIEWS + 1 WHERE SB_NUM = #{num}
+	</update>
+	
+	<!-- 게시글 update -->
+	<insert id="updateInsert" parameterType="share">
+			UPDATE SHAREBOARD SET SB_TITLE = #{sb_title}, SB_SYSNAME = #{sb_sysname}, SB_ORINAME = #{sb_oriname}, SB_CONTENT = #{sb_content} WHERE SB_NUM = #{sb_num}
+	</insert>
+	
+	<!-- 게시글 delete -->
+	<insert id="delete" parameterType="Integer">
+			DELETE FROM SHAREBOARD WHERE SB_NUM = #{num}
+	</insert>
+	
+	<!-- 댓글 출력 -->
+	<select id="getReplyList" parameterType="int" resultType="shareReply">
+		SELECT * FROM SHAREBOARD_REPLY WHERE SBR_SBNUM=#{num}
+	</select>
+	
+	<!-- 댓글 입력 -->
+	<insert id="replyInsert" parameterType="infoReply">
+		INSERT INTO SHAREBOARD_REPLY(SBR_NUM, SBR_CONTENT, SBR_SBNUM, SBR_SID) VALUES(SHAREBOARD_REPLY_SEQ.NEXTVAL, #{sbr_content}, ${sbr_sbnum}, #{sbr_sid})
+	</insert>
+
+</mapper>

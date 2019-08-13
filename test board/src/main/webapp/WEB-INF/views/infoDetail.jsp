@@ -2,8 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
+
+
 <html>
 <head>
+<link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<link type="text/css" rel="stylesheet"
+	href="resources/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet"
+	href="resources/css/bootstrap-theme.min.css">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <title>Home</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 <script>
@@ -47,8 +58,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="#" title="Share">자랑게시판</a></li>
-								<li><a href="#" title="info">정보게시판</a></li>
+								<li><a href="./share" title="Share">자랑게시판</a></li>
+								<li><a href="./info" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
@@ -65,9 +76,40 @@
 	<section>
 
 		<h1>요청 게시판 상세</h1>
-		
-		${compare}
-		<br><a href="./info">목록으로</a>
+
+		${compare} <br> <a href="./info">목록으로</a>
+
+
+		<!-- Modal -->
+		<form action="./replyUpdate" name="reply" id="reply">
+			<div class="modal fade" id="replyUpdate" name="replyUpdate" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">수정할 정보를 입력하세요</h5>
+						</div>
+						<div class="modal-body">
+							<input hidden="num" id="inr_num" name="inr_num"> 
+							<input hidden="rnum" id="inr_innum" name="inr_innum">
+
+							<textarea rows="2" cols="70" id="inr_content" name="inr_content"></textarea>
+
+						</div>
+						<div class="modal-footer">
+
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">닫기</button>
+							<button type="button" class="btn btn-primary"
+								onclick="replyUpdateInsert();" data-dismiss="modal">확인</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+
 
 		<table id="table">
 			<tr height="30">
@@ -78,7 +120,7 @@
 				<td width="100" bgcolor="black" align="center">cate</td>
 				<td width="300" bgcolor="white">${info.in_cate}</td>
 			</tr>
-			
+
 			<tr height="30">
 				<td width="100" bgcolor="black" align="center">date</td>
 				<td width="300" bgcolor="white">${info.in_date}</td>
@@ -92,21 +134,21 @@
 				<td width="300" bgcolor="white">${info.in_sid}</td>
 			</tr>
 		</table>
-		
+
 		<table>
-		<tr height="50">
+			<tr height="50">
 				<th width="100" bgcolor="black" align="center">title</th>
 				<td width="300" bgcolor="white">${info.in_title}</td>
 			</tr>
 		</table>
-		
+
 		<table>
-		<tr height="300">
+			<tr height="300">
 				<th width="100" bgcolor="black" align="center">contents</th>
 				<td width="300" bgcolor="white">${info.in_content}</td>
 			</tr>
 		</table>
-		
+
 		<!-- 댓글 -->
 		<h2>댓글</h2>
 		<!-- 
@@ -117,53 +159,55 @@
 			<tr>
 		</table>
 		 -->
-		
-		 
-		
+
+
+
 		<!-- 댓글 입력-->
 		<form name="rFrm" id="rFrm">
 			<table>
 				<tr height="30">
 					<td width="100" bgcolor="black" align="center">댓글</td>
-					<td><textarea type="text" name="inr_content"
-							rows="2" cols="70" required="required">
+					<td><textarea type="text" name="inr_content" rows="2"
+							cols="70" required="required">
 				</textarea><br></td>
 				</tr>
 			</table>
-			
+
 			<br> <input id="log" type="button"
 				onclick="replyInsert(${info.in_num})" value="write"><br>
-			<br><br><br>
-			
-			 
+			<br> <br> <br>
+
+
 		</form>
 		<br>
-		
+
 		<!-- 댓글 출력 -->
-		
+
 		<div align="center">
-		<table>
-			<tr align="center" height="30" bgcolor="black">
-				<th width="100">글쓴이</th>
-				<th width="500">내용</th>
-				<th width="200">날짜</th>
-				<th width="200"></th>
-			</tr>
-		</table>
-		<table class="mediatext-muted pt-3" id="rTable">
-			<c:forEach var="r" items="${rList}">
-				<tr height="40" align="center">
-					<td width="100">${r.inr_sid}</td>
-					<td width="500">${r.inr_content}</td>
-					<td width="200">${r.inr_date}</td>
-					<td width="100">
-					${r.compare}<br>
-					 </td>
+			<table>
+				<tr align="center" height="30" bgcolor="black">
+					<th width="100">글쓴이</th>
+					<th width="500">내용</th>
+					<th width="200">날짜</th>
+					<th width="200"></th>
 				</tr>
-			</c:forEach>
-		</table>
-	</div>
-		
+			</table>
+			<table class="mediatext-muted pt-3" id="rTable">
+				<c:forEach var="r" items="${rList}">
+					<!-- ---------------------------------------------------------------------------- -->
+					<div id="up" , name="up">
+						<tr height="40" align="center">
+							<td width="100">${r.inr_sid}</td>
+							<td width="500">${r.inr_content}</td>
+							<td width="200">${r.inr_date}</td>
+							<td width="100">${r.compare}<br>
+							</td>
+						</tr>
+					</div>
+				</c:forEach>
+			</table>
+		</div>
+
 
 	</section>
 	<footer>
@@ -187,6 +231,84 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="resources/js/jquery.serializeObject.js"></script>
 <script>
+/*
+$(document).on("click", ".AddBookDialog", function () { 
+	var myBookId = $(this).data('id');
+	$(".modal-body #bookId").val( myBookId ); 
+	});
+	*/
+	
+	
+	
+	function replyUpdateInsert()
+    {
+		/*
+		var obj=$("#reply").serializeObject();
+		obj.inr_num=$(this).data('inr_num');
+		obj.inr_innum=$(this).data('inr_innum');
+		obj.inr_content=$(this).data('inr_content');
+		*/
+		var obj=$("#reply").serializeObject();
+		
+		var inr_num = $('#inr_num').val();
+		var inr_innum = $('#inr_innum').val();
+		var inr_content = $('#inr_content').val();
+		obj.inr_num = inr_num;
+		obj.inr_innum = inr_innum;
+		obj.inr_content = inr_content;
+		
+		
+		
+		/*if(inr_content == null){
+			alert("내용을 입력해주세요")
+			return false;
+		}else{
+			*/
+        $.ajax({
+    		url: 'replyUpdateIn',
+    		data: obj,
+    		dataType: 'json',
+    		success: function(data, status, xhr){
+    			console.log(status)
+    			console.log(xhr); // XMLHttpRequest(객체의 폼형식 관련 API)
+    			console.log(data);
+    			
+    			var rlist ='';
+    		
+    			for(var i=0; i < data.rList.length ; i++){
+    				rlist += '<tr height="40" align="center">'
+    				+ '<td width="100">' + data.rList[i].inr_sid + '</td>'
+    				+ '<td width="500">' + data.rList[i].inr_content + '</td>'
+    				+ '<td width="200">' + data.rList[i].inr_date + '</td>'
+    				+ '<td width="100">' + data.rList[i].compare + '</td></tr>';
+    				
+    			}
+    			$('#rTable').html(rlist);
+    			alert("success!");
+    		},
+    		error: function(xhr, status){
+    			alert("fail");
+    			console.log(xhr);
+    			console.log(status);
+    		}
+    	});
+	
+    }
+	
+
+$(document).on("click", ".replyUpdate", 
+		function () {
+		
+		var num = $(this).data('num');
+		var rnum = $(this).data('rnum');
+		var content = $(this).data('content');
+		$(".modal-body #inr_innum").val( num ); 
+		$(".modal-body #inr_num").val( rnum ); 
+		$(".modal-body #inr_content").val( content ); 
+});
+
+
+
 function replyInsert(num){
 	// form의 데이터를 javascript 객체화.
 	// -> json 객체
@@ -266,13 +388,15 @@ function replyDelete(num){
 	});
 }
 
+/*
 
-
-function fn_editReply(id){
+function editReply(id){
 
 	var htmls = "";
+	
+	
 
-	htmls += '<div class="media text-muted pt-3" id="rTable">';
+	//htmls += '<div class="media text-muted pt-3" id="rTable">';
 
 	//htmls += '<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:32x32">';
 
@@ -310,17 +434,61 @@ function fn_editReply(id){
 
 	//htmls += '</p>';
 
-	htmls += '</div>';
+	//htmls += '</div>';
 
 	
 
-	$('#rTable').replaceWith(htmls);
+	$('#up').replaceWith(htmls);
 
-	$('#rTable').focus();
+	$('#up').focus();
 	
 
 }
+*/
 
+/*
+
+function updateChangeReply(reply_num,reply_content){
+
+ $('#replyUpdate_content').replaceWith('<input type="text" id="reply_text" value='+reply_content+'>');
+
+ $('#updateReply').replaceWith('<input type="button" id="reply_reply" value="댓글 수정">');
+
+ $('#reply_reply').on('click',function(){
+
+  $.ajax({
+
+   url:"updateReply",
+
+   method:"post",
+
+   data:{
+
+    "reply_num":reply_num,
+
+    "reply_content":$("#reply_text").val(),
+
+    "board_num":${board.board_num}
+
+   },
+
+   success:function(board_num){
+
+    alert('댓글이 성공적으로 수정되었습니다.');
+
+    //location.href = "${pageContext.request.contextPath}/boards/get?board_num="+board_num;
+
+   }
+
+  });
+
+  
+
+ });
+
+}
+
+*/
 
 </script>
 </html>
