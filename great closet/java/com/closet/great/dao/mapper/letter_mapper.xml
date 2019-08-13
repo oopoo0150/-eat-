@@ -1,0 +1,10 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.closet.great.dao.LetterDao">
+
+	<select id="getlblist" parameterType="String" resultType="letterbox">
+		SELECT * FROM letterboxv where box_seller=#{id} ORDER BY box_date
+	</select>
+
+</mapper>

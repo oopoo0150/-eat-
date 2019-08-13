@@ -47,7 +47,7 @@ public class SBoardManagement {
 		//DB에 글 내용 저장 후 게시글 번호를 얻어와서
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map = fileProc.upFile(multi);
+		map = fileProc.boardupFile(multi);
 		share.setSb_oriname(map.get("oriFileName"));
 		share.setSb_sysname(map.get("sysFileName"));
 		
@@ -212,7 +212,7 @@ public class SBoardManagement {
 		//DB에 글 내용 저장 후 게시글 번호를 얻어와서
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map = fileProc.upFile(multi);
+		map = fileProc.boardupFile(multi);
 		share.setSb_oriname(map.get("oriFileName"));
 		share.setSb_sysname(map.get("sysFileName"));
 		mav.addObject("num", share.getSb_num());

@@ -4,21 +4,24 @@ import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 //중고 거래 댓글 bean
 @Alias("productReply")
 public class ProductReply {
-	private int dbr_no; //중고 게시글 댓글 번호
+	private int dbr_num; //중고 게시글 댓글 번호
 	private String dbr_content; //중고 게시글 댓글 내용
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
 	private Timestamp dbr_date; //중고 게시글 댓글작성 날짜
-	private int dbr_complain; //중고 게시글 신고 수
-	private int dbr_sbno; //중고 게시글 번호
+	private int dbr_complain; //중고 게시글 댓글 신고 수
+	private int dbr_dbnum; //중고 게시글 번호
 	private String dbr_sid; //중고 게시글 댓글 작성자 아이디
 	
-	public int getDbr_no() {
-		return dbr_no;
+	public int getDbr_num() {
+		return dbr_num;
 	}
-	public void setDbr_no(int dbr_no) {
-		this.dbr_no = dbr_no;
+	public void setDbr_num(int dbr_num) {
+		this.dbr_num = dbr_num;
 	}
 	public String getDbr_content() {
 		return dbr_content;
@@ -38,11 +41,11 @@ public class ProductReply {
 	public void setDbr_complain(int dbr_complain) {
 		this.dbr_complain = dbr_complain;
 	}
-	public int getDbr_sbno() {
-		return dbr_sbno;
+	public int getDbr_dbnum() {
+		return dbr_dbnum;
 	}
-	public void setDbr_sbno(int dbr_sbno) {
-		this.dbr_sbno = dbr_sbno;
+	public void setDbr_dbnum(int dbr_dbnum) {
+		this.dbr_dbnum = dbr_dbnum;
 	}
 	public String getDbr_sid() {
 		return dbr_sid;
@@ -50,4 +53,5 @@ public class ProductReply {
 	public void setDbr_sid(String dbr_sid) {
 		this.dbr_sid = dbr_sid;
 	}
+	
 }

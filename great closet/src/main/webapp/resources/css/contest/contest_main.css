@@ -1,10 +1,20 @@
 /*전체 구성요소 설정*/
  section{width: 1000px; margin: 0 auto;}
  
- /*콘테스트 메인 배너 이미지*/
+ /*콘테스트 메인 배너 이미지
  .cmain_img{width: 500px; height: 200px;}
- .product_img > img{ max-width: 100%; max-height:  100%;}
+ .product_img > img{ max-width: 100%; max-height:  100%;}*/
+ 
+ /*콘테스트 참가 콘텐츠 하나 공간*/
+ div.one_content{width: 300px; height: 500px;}
  
  /*콘테스트 메인에서 참여자 프로필 사진*/
  .contestU_img{width: 30px; height: 30px; margin-right: 800px;}
  .contestU_img > img{max-width:100%; border-radius: 15px;}
+ 
+ /*콘테스트 메인 > 작성자 프로필 사진*/
+ .contestP_img{width: 30px; height: 30px;}
+ .contestP_img > img{max-width:100%; max-height:100%; border-radius: 15px;}
+ 
+ /*콘테스트 좋아요 아이콘*/
+ .contest_heart > img{width: 30px; height: 30px;}

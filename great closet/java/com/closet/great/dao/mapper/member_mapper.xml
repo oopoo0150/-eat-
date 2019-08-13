@@ -1,0 +1,75 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.closet.great.dao.MemberDao">
+
+    <!-- 회원가입 중복 -->
+    <insert id="MemberInsert" parameterType="member">
+        INSERT INTO sign VALUES (#{s_id}, #{s_name}, #{s_nick}, #{s_pass}, #{s_mail}, #{s_birth}, DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+    </insert>
+    
+    <insert id="UserInsert" parameterType="user">
+    	INSERT INTO uVo VALUES (#{u_id}, #{u_name}, #{u_nick}, #{u_pass}, #{u_mail}, #{u_birth}, DEFAULT, DEFAULT)
+    </insert>
+    
+    <!-- 회원 탈퇴 -->
+    
+    <delete id="MemberDelete" parameterType="String">
+    	DELETE FROM sign WHERE u_id = #{s_id}
+    </delete>
+
+	<!-- 아이디 찾기 -->
+	<select id="Seletefindid" parameterType="HashMap" resultType="member">
+		SELECT * FROM sign WHERE S_NAME = #{NAME} and S_MAIL = #{MAIL}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="Seletefindpass" parameterType="HashMap" resultType="member">
+		SELECT * FROM sign WHERE S_NAME = #{name} and s_id=#{id} and s_mail=#{mail}
+	</select>
+	
+	<!-- 비밀번호 업데이트 -->
+	<update id="updatepass" parameterType="HashMap">
+		UPDATE sign SET s_pass = #{pass} WHERE S_ID = ${id}
+	</update>
+	
+    <!-- 아이디 중복 -->
+    <select id="checkOverId" parameterType="String" resultType="int">
+        SELECT count(*) FROM sign WHERE S_ID = #{u_id}
+    </select>
+    
+     <!-- 아이디 중복2 -->
+    <select id="checkOverId2" parameterType="String" resultType="int">
+        SELECT count(*) FROM uVo WHERE U_ID = #{u_id}
+    </select>
+    
+    <!-- 닉네임 중복 -->
+    <select id="checkOvernick" parameterType="String" resultType="int">
+        SELECT count(*) FROM sign WHERE S_NICK = #{u_nick}
+    </select>
+    
+    <!-- 닉네임 중복2 -->
+    <select id="checkOvernick2" parameterType="String" resultType="int">
+        SELECT count(*) FROM uVo WHERE U_NICK = #{u_nick}
+    </select>
+    
+    <!-- 메일 중복 -->
+    <select id="checkOvermail" parameterType="String" resultType="int">
+        SELECT count(*) FROM sign WHERE S_MAIL = #{u_mail}
+    </select>
+    
+    <!-- 메일 중복2 -->
+    <select id="checkOvermail2" parameterType="String" resultType="int">
+        SELECT count(*) FROM uVo WHERE U_MAIL = #{u_mail}
+    </select>
+    
+    <!-- 암호화 비번 확인 -->
+	<select id="getSecurityPwd" parameterType="String" resultType="String">
+		SELECT S_PASS FROM SIGN WHERE S_ID = #{s_id}
+	</select>
+    
+    <select id="getMemberInfo" resultType="member" parameterType="String" >
+		SELECT * FROM SIGN WHERE S_ID = #{s_id}
+	</select>
+    
+</mapper>

@@ -1,22 +1,20 @@
 package com.closet.great;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.closet.great.service.MPFollowManagement;
 
 @Controller
 public class MPMainController {
 	//Main Mypage에서 세부 패이지로 이동하기 위한 Controller
 	
 	ModelAndView mav;
-	
-	//페이지 구현을 위한 임시 페이지 넘김
-	@RequestMapping(value = "/mypage")
-	public String mypage(Model model) {
-			
-		return "mypage";
-	}
+		
+
 	
 	//관리자 페이지 구현을 위한 임시 페이지 넘김
 	 //관리자
@@ -97,17 +95,9 @@ public class MPMainController {
 		return "mp_statistics";
 	}
 	
-	@RequestMapping(value = "/mSale")
-	public String moveSale(Model modle) {
-		
-		return "mp_sale";
-	}
+
 	
-	@RequestMapping(value = "/mSupport")
-	public String moveSupport(Model modle) {
-		
-		return "mp_support";
-	}
+
 	
 
 	

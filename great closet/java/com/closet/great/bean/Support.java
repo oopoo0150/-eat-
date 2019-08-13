@@ -5,60 +5,66 @@ import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("suport")
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Alias("support")
 public class Support {
-  //고객지원 게시판 관리를 위한 bean
-	private int no_num;
-	private String no_title;
-	private String no_content;
-	private Timestamp no_date;
-	private int no_views;
-	private String no_cate;
-	private String no_sid;
+  //고객지원 게시판 관리를 위한 bean(SPLIST_1을 기준)
+	private int spnum;
+	private String sptitle;
+	private String spcontent;
+	@JsonFormat(pattern = "yyyymmdd")
+	private Timestamp spdate;
+	private int spviews;
+	private String spcate;
+	private String spsid;
 	
-	public int getNo_num() {
-		return no_num;
+	public int getSpnum() {
+		return spnum;
 	}
-	public void setNo_num(int no_num) {
-		this.no_num = no_num;
+	public void setSpnum(int spnum) {
+		this.spnum = spnum;
 	}
-	public String getNo_title() {
-		return no_title;
+	public String getSptitle() {
+		return sptitle;
 	}
-	public void setNo_title(String no_title) {
-		this.no_title = no_title;
+	public void setSptitle(String sptitle) {
+		this.sptitle = sptitle;
 	}
-	public String getNo_content() {
-		return no_content;
+	public String getSpcontent() {
+		return spcontent;
 	}
-	public void setNo_content(String no_content) {
-		this.no_content = no_content;
+	public void setSpcontent(String spcontent) {
+		this.spcontent = spcontent;
 	}
-	public Timestamp getNo_date() {
-		return no_date;
+	public Timestamp getSpdate() {
+		return spdate;
 	}
-	public void setNo_date(Timestamp no_date) {
-		this.no_date = no_date;
+	public void setSpdate(Timestamp spdate) {
+		this.spdate = spdate;
 	}
-	public int getNo_views() {
-		return no_views;
+	public int getSpviews() {
+		return spviews;
 	}
-	public void setNo_views(int no_views) {
-		this.no_views = no_views;
+	public void setSpviews(int spviews) {
+		this.spviews = spviews;
 	}
-	public String getNo_cate() {
-		return no_cate;
+	public String getSpcate() {
+		return spcate;
 	}
-	public void setNo_cate(String no_cate) {
-		this.no_cate = no_cate;
+	public void setSpcate(String spcate) {
+		this.spcate = spcate;
 	}
-	public String getNo_sid() {
-		return no_sid;
+	public String getSpsid() {
+		return spsid;
 	}
-	public void setNo_sid(String no_sid) {
-		this.no_sid = no_sid;
+	public void setSpsid(String spsid) {
+		this.spsid = spsid;
 	}
 	
+	
+	
+
 	
 	
 }
