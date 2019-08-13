@@ -1,6 +1,6 @@
 package com.closet.great.util;
 
-public class Paging {
+public class mpPaging {
 	private int maxNum;//전체 글 갯수
 	private int pageNum;//현재 페이지 번호
 	private int listCount;//20
@@ -8,7 +8,7 @@ public class Paging {
 	private String boardName;//게시판 종류
 	private String spcate; //카테고리
 	
-	public Paging(int maxNum, int pageNum, int listCount, int pageCount, String boardName, String cate) {
+	public mpPaging(int maxNum, int pageNum, int listCount, int pageCount, String boardName, String cate) {
 		this.maxNum = maxNum;
 		this.pageNum = pageNum;
 		this.listCount = listCount;

@@ -116,7 +116,7 @@
  		</table>
  	</div>
  	<div id="product_bottom">
- 		<div align="center">${paging}</div>	
+ 		<div align="center">${mppaging}</div>	
  		<div>			
  				<input type="submit" value="삭제" name="mp_sale" onclick="checkedDel()">
  			</form>

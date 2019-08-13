@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.closet.great.bean.Product;
 import com.closet.great.dao.MypageDao;
-import com.closet.great.util.Paging;
+import com.closet.great.util.mpPaging;
 
 
 @Service
@@ -60,7 +60,7 @@ public class MPSaleManagement {
 		view = "mp_sale";
 			
 		mav.addObject("mpList",mpList);
-		mav.addObject("paging",getPaging(num,table,cate,id));
+		mav.addObject("mppaging",getPaging(num,table,cate,id));
 		mav.addObject("cate",cate);
 		mav.addObject("id",id);
 		mav.setViewName(view);
@@ -83,7 +83,7 @@ public class MPSaleManagement {
 		int pageCnt = 5;
 		//게시판이 여러종류가 있을 경우 대비	
 		String boardName = "SaleList" ;
-		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName, cate);
+		mpPaging paging = new mpPaging(maxNum, num, listCnt, pageCnt, boardName, cate);
 			
 		return paging.makeHtmlpaging();
 

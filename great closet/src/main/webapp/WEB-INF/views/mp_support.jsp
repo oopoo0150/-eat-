@@ -103,7 +103,7 @@
  		</table>
  	</div>
  	<div id="support_bottom">
- 		<div align="center">${paging}</div>	
+ 		<div align="center">${mppaging}</div>	
  		<div>
  		
  		<% 

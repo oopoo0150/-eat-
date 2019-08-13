@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.closet.great.bean.Support;
 import com.closet.great.dao.MypageDao;
-import com.closet.great.util.Paging;
+import com.closet.great.util.mpPaging;
 
 @Service
 public class MPSupportManagement {
@@ -79,7 +79,7 @@ public class MPSupportManagement {
 		int pageCnt = 5;
 		//게시판이 여러종류가 있을 경우 대비	
 		String boardName = "supportList" ;
-		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName, spcate);
+		mpPaging paging = new mpPaging(maxNum, num, listCnt, pageCnt, boardName, spcate);
 			
 		return paging.makeHtmlpaging();
 	}
@@ -207,7 +207,7 @@ public ModelAndView sboxSelList(String spcate, Integer pageNum, String id) {
 	view = "mp_support";
 			
 	mav.addObject("spList",spList);	
-	mav.addObject("paging",getPaging(num,table,spcate));
+	mav.addObject("mppaging",getPaging(num,table,spcate));
 	mav.addObject("spcate",spcate);
 	mav.addObject("id", id);
 	
