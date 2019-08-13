@@ -29,8 +29,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="#" title="Share">자랑게시판</a></li>
-								<li><a href="#" title="info">정보게시판</a></li>
+								<li><a href="./share" title="Share">자랑게시판</a></li>
+								<li><a href="./info" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>

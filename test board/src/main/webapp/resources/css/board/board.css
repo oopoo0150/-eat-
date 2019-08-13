@@ -1,6 +1,0 @@
-
-/* 전체 구성 요소 설정 클레스 샵*/
-section{width: 1000px;}
-
-#img{width:200px;}
-#img > img{max-width:100%; height:auto !important;}

@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.closet.great">
+	<logger name="com.closet.test2">
 		<level value="info" />
 	</logger>
 	

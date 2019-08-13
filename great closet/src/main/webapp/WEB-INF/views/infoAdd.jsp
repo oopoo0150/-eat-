@@ -6,7 +6,7 @@
 <head>
 <title>info add</title>
 <!-- ckediter -->
-<script src="/bbs/resources/ckeditor/ckeditor.js"></script>
+<script src="resources/ckeditor/ckeditor.js"></script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
@@ -31,8 +31,8 @@
 						<li class="parent"><a href="#" title="게시판">Board</a>
 							<ul class="child">
 								<li><a href="./request" title="Request">요청게시판</a></li>
-								<li><a href="#" title="Share">자랑게시판</a></li>
-								<li><a href="#" title="info">정보게시판</a></li>
+								<li><a href="./share" title="Share">자랑게시판</a></li>
+								<li><a href="./info" title="info">정보게시판</a></li>
 							</ul></li>
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="#" title="중고거래">Deal</a>
@@ -50,15 +50,17 @@
 		<h1 align="center">글쓰기</h1>
 		<br> <br>
 		<div align="center">
-			<form action="iwriteInsert" method="post" enctype="multipart/form-data">
+			<form action="iwriteInsert" method="post" name="infoAdd">
+			<!-- enctype="multipart/form-data">  -->
 				<table>
 					<tr height="35">
 						<td width="100">카테고리</td>
-						<td width="700" name="in_cate"><select>
+						<td width="700">
+						<select name="in_cate">
 								<option value="도움">도움</option>
 								<option value="정보">정보</option>
 								<option value="기타">기타</option>
-						</select></td>
+						</select></td> 
 					</tr>
 					<tr height="35">
 						<td>제목</td>
@@ -69,17 +71,14 @@
 					<tr>
 						<td>내용</td>
 						<td><textarea id="in_content" name="in_content" rows="15"
-								cols="80" required="required"></textarea> 
-								<!-- 해당 에디터 적용 -->
-								<script>
+								cols="80" required="required"></textarea> <!-- 해당 에디터 적용 --> <script>
 									CKEDITOR.replace('in_content');
-								</script>
-						</td>
+								</script></td>
 					</tr>
 
 				</table>
-
-				<input type="button" value="저장">
+				<br><br>
+				<input type="submit" value="저장">
 			</form>
 		</div>
 
