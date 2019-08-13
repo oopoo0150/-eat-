@@ -24,7 +24,7 @@ public class FileProcess {
 	@Autowired
 	private ImgDao iDao;//파일 정보 저장을 위해 사용
 	
-	public HashMap<String, String> upFile(MultipartHttpServletRequest multi) {
+	public HashMap<String, String> closetupFile(MultipartHttpServletRequest multi) {
 		//파일을 저장할 절대 경로 찾기
 		String root = multi.getSession().
 				getServletContext().getRealPath("/");
@@ -75,31 +75,6 @@ public class FileProcess {
 		}
 
 		return fMap;
-
-	}
-
-	public void downFile(String path, String oriFileName, HttpServletResponse resp) throws Exception {
-		//한글 깨짐 방지
-		String downFile = URLEncoder.encode(oriFileName, "UTF-8");
-
-		File file = new File(path);
-
-		InputStream is = new FileInputStream(file);
-		resp.setContentType("application/octet-stream");
-		resp.setHeader("content-Disposition", "attachment; filename=\"" + downFile + "\"");
-
-		OutputStream os = resp.getOutputStream();
-
-		//출력은 바이트 단위로
-		byte[] buffer = new byte[1024];
-		int length;
-		while((length = is.read(buffer))!= -1) {
-			os.write(buffer, 0, length);
-		}
-
-		os.flush();
-		os.close();
-		is.close();
 
 	}
 

@@ -80,7 +80,7 @@ public class ImageManagement {
 		HashMap<String, String> f = new HashMap<String, String>();
 
 		if(check.equals("1")) {
-			f = fileProc.upFile(multi);
+			f = fileProc.closetupFile(multi);
 		}
 
 		cd.setCld_oriname(f.get("oriFileName"));
@@ -168,7 +168,7 @@ public class ImageManagement {
 		HashMap<String, String> f = new HashMap<String, String>();
 
 		if(check.equals("1")) {
-			f = fileProc.upFile(multi);
+			f = fileProc.closetupFile(multi);
 			
 			cd.setCld_oriname(f.get("oriFileName"));
 			cd.setCld_sysname(f.get("sysFileName"));
