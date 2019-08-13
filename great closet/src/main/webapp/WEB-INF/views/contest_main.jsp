@@ -7,9 +7,47 @@
 <head>
 <meta charset="UTF-8">
 <title>중고 거래 메인</title>
+<!-- 헤더 풋터 관련 -->
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet" href="resources/css/contest/contest_main.css">
+
+<!-- 메인 css -->
+<link type="text/css" rel="stylesheet"
+	href="resources/css/contest/contest_main.css">
+
+<!--   jquery 기본 -->
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<!-- 슬라이더 관련 -->
+<link type="text/css" rel="stylesheet"
+	href="resources/css/contest/flexslider.css" />
+
+<!-- 이미지슬라이더 관련 -->
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/f_slider.js"></script>
+
+<!-- Place in the <head>, after the three links -->
+<!-- 이미지 슬라이더 관련
+<script type="text/javascript" charset="UTF-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider();
+  });
+  
+  
+  ----
+  $('.flexslider').flexslider({
+ 		animation: 'slide'
+ 	});
+</script>
+ -->
+
+<script type="text/javascript" charset="UTF-8">
+ 	$(window).load(function() {
+ 		$('.flexslider').flexslider();
+ 	});
+ </script>
+
 </head>
+
 <body>
 	<header>
 		<!-- 헤더로고 -->
@@ -38,7 +76,7 @@
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
-								<li><a href="#" title="Contest">거래공간</a></li>
+								<li><a href="./product_mainGo" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
 							</ul></li>
 						<li><a href="#" title="Mypage">My page</a></li>
@@ -48,30 +86,45 @@
 		</center>
 	</header>
 	<section>
-		<div class="cmain_img">
+		<!-- 배너 슬라이드 -->
+		<div class="flexslider">
+			<ul class="slides">
+				<li><img src="resources/image/contest/conImg1.jpg"
+					alt="이미지슬라이더1" /></li>
+				<li><img src="resources/image/contest/conImg2.jpg"
+					alt="이미지슬라이더2" /></li>
+			</ul>
+		</div>
+
+		<!-- <div class="cmain_img">
 			<a href="./contest_infoGo" title="콘테스트 참가 안내 바로가기"><img
 				src="resources/image/contest/banner.png" alt="배너" />
+		</div> -->
+
+		<div class="add_btn">
+			<a href="./contest_infoGo"><button>참가 안내</button></a>
 		</div>
 
-		<div>
-			<div class="add_btn">
-				<a href="./contest_infoGo"><button>참가 안내</button></a>
-
-			</div>
-
-			<div> <!-- 여기는 콘테스트에 참여한 룩북이 하나가 보이는 거 -->
-				<div>
-					<div  class="contestU_img"><img src="resources/image/product/cebu.jpg"/></div>
-					<div>2019-08-08</div>
-				</div>
-				<div>
-					<a href="./contest_detailGo">아이디입니다아아</a>
-				</div>
-				<div>좋아요랑 신고랑 그런ㄱ 있는 자리</div>
-				<div>#해시태그#자리#임</div>
-			</div>
+		<div class="one_content">
+			<!-- 여기는 콘테스트에 참여한 룩북이 하나가 보이는 거(반복) -->
+			<table>
+				<tr>
+					<td  class="contestP_img"><img src="resources/image/contest/k.jpg"></td>
+					<td>hyeon</td>
+				</tr>
+			</table>
+			<hr>
+			<img alt="콘테스트 참여 이미지" src="resources/image/product/one.jpg">
+			<hr>
+			<table>
+				<tr>
+					<td class="contest_heart"><img src="resources/image/contest/heart.png"></td>
+					<td width="150px;">Like 12</td>
+					<td><input type="button" value="신고"></td>
+				</tr>
+				<tr>#해시태그들</tr>
+			</table>
 		</div>
-
 
 	</section>
 
@@ -92,4 +145,5 @@
 		</div>
 	</footer>
 </body>
+
 </html>

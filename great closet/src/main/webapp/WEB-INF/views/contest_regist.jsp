@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>중고 거래 메인</title>
+<title>콘테스트 참가</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
-								<li><a href="#" title="Contest">거래공간</a></li>
+								<li><a href="./product_mainGo" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
 							</ul></li>
 						<li><a href="#" title="Mypage">My page</a></li>
@@ -47,24 +47,26 @@
 		</center>
 	</header>
 	<section>
-	<center>
-		<div>여기는 빈 이미지일때는 그냥 아이콘이고 이미 추가하기 버튼을 눌러서 생긴다면 이미지가 채워지겠지</div>
-		<div>
-			<button>이미지 추가 하기</button>
-		</div>
-		<div>해시태그(필수 #가을_데읕)</div>
-		<div>
-			<input value="해시태그를 입력해">
-		</div>
-		<div>
-			<div class="ccancel_btn">
-				<a href="./contest_mainGo"><button>참가 취소</button></a>
+		<center>
+			<!-- 전체 공간 -->
+			<div>
+				<div><img src="resources/image/contest/img.png"></div>
+				<div><input type="button" value="이미지 추가"></div>
+				<table>
+					<tr>
+						<td>해시태그</td>
+						<td>(필수 # + 콘테스트마다 수정될 해시태그 공간 + )</td>
+					</tr>
+					<tr>
+						<td><input type="text" width="500px;"></td>
+					</tr>
+					<tr>
+						<button>취소</button>
+						<button>참가</button>
+					</tr>
+				</table>
 			</div>
-			<div class="cregist_btn">
-				<a href="./contest_mainGo"><button>참가 하기</button></a>
-			</div>
-		</div>
-</center>
+		</center>
 	</section>
 
 	<footer>

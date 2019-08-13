@@ -53,7 +53,21 @@
 		<center>
 			<div>
 				<div class="top">
-					<a href="#">
+					<table class="toptable">
+						<tr>
+							<a href="#" />
+							<td class="productR_img" width="60px;"><img
+								src="resources/image/product/cebu.jpg" /></td>
+							<td width="500px;">${product.db_sid}</td>
+							<td width="35px;"><a><input type="button" value="신고"></a></td>
+							<td width="35px;"><a href="./product_UpdateGo?db_num=${product.db_num}">
+									<input type="button" value="수정"></a></td>
+							<td width="35px;"><a href="productDelete?db_num=${product.db_num}"> <input
+									type="submit" value="게시글 삭제"></a></td>
+						</tr>
+					</table>
+					<!-- 
+					<a href="#">					
 						<div class="productR_img">
 							<img src="resources/image/product/cebu.jpg" />
 						</div>
@@ -61,7 +75,7 @@
 						<div>
 							<div>${product.db_date}</div>
 							<div>
-								<!-- 신고는 모달창으로 할거임 -->
+								
 								<a><input type="button" value="신고"></a>
 							</div>
 							<div id="up">
@@ -70,85 +84,142 @@
 							</div>
 							<div id="delete">
 								<a href="productDelete?db_num=${product.db_num}"> <input
-									type="submit" value="삭제"></a>
+									type="submit" value="게시글 삭제"></a>
 							</div>
 						</div>
 				</div>
-				<hr>
+				 -->
+					<hr>
 
-				<!-- 중간 -->
-				<div class="middle">
-					<div class="mtitle">
-						<div>${product.db_cate}</div>
-						<div>제목 : ${product.db_title}</div>
-					</div>
-					<div>${product.db_content}</div>
-					<div><img src="resources/image/product/of.jpg" /></div>
-					<div>가격 : ${product.db_price}</div>
-					<div>조회수 ${product.db_views}</div>
-				</div>
+					<!-- 중간 -->
 
-				<!-- 하단 -->
-				<hr>
-				<div class="replyWrite">
-				<div><a href="./product_mainGo"><input type="button" value="목록으로 돌아가기2"></a></div>
-					<div class="replyW">
-						<div class="productR_img">
-							<img src="resources/image/product/cebu.jpg" />
-						</div>
-						<div>session아이디 받아오기</div>
-					</div>
-					<!-- 댓글 입력 폼 -->
-					<div class="insert_title">
+					<table class="middle">
+						<tr>
+							<td>${product.db_cate}</td>
+							<td id="title_font"><h1>제목 : ${product.db_title}</h1></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><img src="resources/image/product/of.jpg" /></td>
+						</tr>
+						<tr>
+							<td>이미지 보여주는 공간</td>
+						</tr>
+						<tr>
+							<td><img src="./resources/files/${productImg.dbi_sysname}"></td>
+						</tr>
+						<tr>
+							<td>가격 : </td>
+							<td>${product.db_price}</td>
+						</tr>
+						<tr>
+							<td>내용 : </td>
+							<td>${product.db_content}</td>
+						</tr>
+						<tr>
+							<td>조회수 : </td>
+							<td>${product.db_views}</td>
+						</tr>
+						<!-- <tr>
+						<td>첨부파일 : </td>
+						<td><c:set var="dealboard_img" value="${pfList}"/><c:if test="${empty file}">첨부파일 없음</c:if><c:if
+						test="${!empty file}"> 
+						<c:forEach var="pf" items="${pfList}">
+							<a href="./downloadP?dbi_oriName=${productImg.dbi_oriName}&dbi_sysName=${productImg.dbi_sysName}">
+							${dealboard_img.dbi_oriName}</a>
+						</c:forEach></c:if>
+						</td>
+						</tr> -->
+					</table>
+					<br>
+
+					<!-- 하단 -->
+					<hr>
+					<br>
+					<div class="replyWrite">
 						<div>
-							<form name="productR_insert" id="productR_insert">
-								<input type="hidden" name="dbr_dbnum" value="${product.db_num}">
-								<table>
-									<tr height="20">
-										<td width="100" bgcolor="#f5f5f5" align="center">댓글</td>
-										<td><textarea type="text" name="dbr_content" rows="1"
-												cols="100" required="required">
-									</textarea></td>
-										<td><input type="button" onclick="pReplyInsert()"
-											value="입력"></td>
-								</table>
-							</form>
+							
+						</div>
+						
+						<table>
+							<tr>
+								<td class="productR_img">
+								<img src="resources/image/product/cebu.jpg"/></td>
+								<td width="500px;">session아이디 받아오기</td>
+								<td><a href="./product_mainGo"><input type="button"
+								value="목록으로 돌아가기" onclick="pviewsUp(${product.db_views})"></a></td>
+							</tr>
+						</table>
+						
+						<!-- 
+						<div class="replyW">
+							<div class="productR_img">
+								<img src="resources/image/product/cebu.jpg" />
+							</div>
+							<div>session아이디 받아오기</div>
+						</div>
+						 -->
+						<!-- 댓글 입력 폼 -->
+						<div class="insert_reply">
+							<div>
+								<form name="productR_insert" id="productR_insert">
+									<input type="hidden" name="dbr_dbnum" value="${product.db_num}">
+									<table>
+										<tr height="20">
+											<td width="100" bgcolor="#f5f5f5" align="center">댓글</td>
+											<td><input type="text" name="dbr_content" required="required"></td>
+											<!-- <td><textarea type="text" name="dbr_content" rows="1"
+													cols="100" required="required">
+									</textarea></td> -->
+											<td><input type="button" onclick="pReplyInsert()" width="250px;"
+												value="입력"></td>
+									</table>
+								</form>
+							</div>
+						</div>
+
+						<!-- 추가된 댓글 출력 부분 -->
+						<div id="comment">
+							<table>
+								<tr align="center" height="30">
+									<th width="300">Writer</th>
+									<th width="500">Contents</th>
+									<th width="400">Date</th>
+									<th width="200">Etc</th>
+								</tr>
+							</table>
 						</div>
 					</div>
-
-					<!-- 추가된 댓글 출력 부분 -->
 					<div id="comment">
-						<table>
-							<tr align="center" height="30">
-								<th width="300">Writer</th>
-								<th width="500">Contents</th>
-								<th width="400">Date</th>
-								<th width="200">Etc</th>
-							</tr>
+						<table id="prTable">
+							<c:forEach var="productReply" items="${prList}">
+								<tr height="25" align="center">
+									<td width="300"><img alt="쪽지 보내기" 
+									src="resources/image/product/note_resize.png">
+									${productReply.dbr_sid}</td>
+									<td width="500">${productReply.dbr_content}</td>
+									<td width="400">${productReply.dbr_date}</td>
+
+									<form name="productR_delete" id="productR_delete">
+										<input type="hidden" name="dbr_num"
+											value="${productReply.dbr_num}">
+										<td width="200">
+											<!-- 신고는 모달창으로 할거임 -->
+											<a><input type="button" value="신고"></a>
+											<!-- 댓글 작성자랑 관리자만 수정 삭제 가능 
+										<c:if test="${productReply.dbr_sid == sessionScope.sessionID}">
+										</c:if>
+										--> 
+										<input type="button" value="수정">
+										<input type="button" value="삭제"
+											onclick="deleted(${productReply.dbr_num})">
+										</td>
+									</form>
+								</tr>
+							</c:forEach>
 						</table>
 					</div>
 				</div>
-				<div id="comment">
-					<table id="prTable">
-						<c:forEach var="productReply" items="${prList}">
-							<tr height="25" align="center">
-								<td width="300">${productReply.dbr_sid}</td>
-								<td width="500">${productReply.dbr_content}</td>
-								<td width="400">${productReply.dbr_date}</td>
-								<form name="productR_delete" id="productR_delete">
-									<input type="hidden" name="dbr_num"
-										value="${productReply.dbr_num}">
-									<td width="200">
-										<!-- 신고는 모달창으로 할거임 --> <a><input type="button" value="신고"></a>
-										<a href="./productR_delete?dbr_num=${productReply.dbr_num}"><input type="submit" value="삭제"></a>
-									</td>
-								</form>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-			</div>
-
 		</center>
 	</section>
 
@@ -197,12 +268,16 @@
 				for (var i = 0; i < data.prList.length; i++) {
 					//댓글 출력을 위한 html 작성
 					prlist += '<tr height="25" align="center">'
-							+ '<td width="300">' + data.prList[i].dbr_sid
+							+ '<td width="300">'
+							+ '<img alt="쪽지 보내기" src="resources/image/product/note_resize.png">'
+							+ data.prList[i].dbr_sid
 							+ '</td>' + '<td width="500">'
 							+ data.prList[i].dbr_content + '</td>'
 							+ '<td width="400">' + data.prList[i].dbr_date
 							+ '</td>' + '<td width="200">' 
 							+ '<a><input type="button" value="신고"></a>'
+							+ '<a href="./product_UpdateGo?db_num=${product.db_num}">'
+							+ '<input type="button" value="수정"></a>'
 							+ '<a href="./productR_delete?dbr_num=${productReply.dbr_num}">'
 							+ '<input type="submit" value="삭제"></a></td></tr>';
 				}
@@ -216,14 +291,48 @@
 			}
 		});
 	}
-
+	
 	//댓글 삭제
-	function productR_delete(no){
+	function deleted(num){
+		//form의 데이터를 javascript 객체화.
+		// -> json 객체로 변환.
+		//var obj = $("#productR_insert").serializeObject();
+		//console.log(obj);
+		var no = {'num': num};
+
 		$.ajax({
-			url : 'productR_delete?result=' + result,
-			type : 'post',
-			success : function(data){
-				if(data) prList(dbr_num);
+			url : 'productR_delete',
+			data : no,
+			dataType : 'json',
+			success : function(data, status, xhr) {
+				console.log(status);
+				console.log(xhr); //XMLHttpRequest(객체의 폼 형식 관련 API)
+				console.log(data);
+
+				var prlist = '';
+				for (var i = 0; i < data.prList.length; i++) {
+					//댓글 출력을 위한 html 작성
+					prlist += '<tr height="25" align="center">'
+							+ '<td width="300">' 
+							+ '<img alt="쪽지 보내기" src="resources/image/product/note_resize.png">'
+							+ data.prList[i].dbr_sid
+							+ '</td>' + '<td width="500">'
+							+ data.prList[i].dbr_content + '</td>'
+							+ '<td width="400">' + data.prList[i].dbr_date
+							+ '</td>' + '<td width="200">' 
+							+ '<a><input type="button" value="신고"></a>'
+							+ '<a href="./product_UpdateGo?db_num=${product.db_num}">'
+							+ '<input type="button" value="수정"></a>'
+							+ '<a href="./productR_delete?dbr_num=${productReply.dbr_num}">'
+							+ '<input type="submit" value="삭제"></a></td></tr>';
+				}
+				$('#prTable').html(prlist);
+				alert("삭제 성공");
+			},
+			error : function(xhr, status) {
+				alert("댓글 삭제에 실패했습니다");
+				console.log(xhr + " 오류입니다");
+				console.log(status);
 			}
 		});
 	}

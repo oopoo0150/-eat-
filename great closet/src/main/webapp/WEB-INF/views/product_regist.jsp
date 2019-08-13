@@ -9,6 +9,11 @@
 <title>중고거래 상품 등록</title>
 <!-- ckediter -->
 <script src="resources/ckeditor/ckeditor.js"></script>
+<!-- 
+<script src="<c:url value="/resources/js/jquery-1.11.3.min.js"/>"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 
@@ -54,18 +59,18 @@
 		<h1 align="center">글쓰기</h1>
 		<br> <br>
 		<div align="center">
-			<form action="product_regist" method="post" name="product_regist">
-				<!-- enctype="multipart/form-data"> -->
+
+			<form action="product_regist" method="post" enctype="multipart/form-data">
 				<table>
 					<tr height="35">
 						<td>제목</td>
-						<td><input type="text" name="db_title" placeholder="제목 입력"
-							required="requred"></td>
+						<td><input type="text" id="db_title" name="db_title"
+							placeholder="제목 입력" required="requred" width="5008""></td>
 					</tr>
 					<tr height="35">
 						<td>가격</td>
-						<td><input type="number" name="db_price" placeholder="숫자만 입력하세요"
-							required="requred"></td>
+						<td><input type="number" id="db_price" name="db_price"
+							placeholder="숫자만 입력하세요" required="requred"></td>
 					</tr>
 					<tr>
 						<td>내용</td>
@@ -74,12 +79,24 @@
 									CKEDITOR.replace('db_content');
 								</script></td>
 					</tr>
-
+					<tr height="35">
+						<td>파일추가</td>
+						<td><a><input type="file" name="files" id="files" onchange="fileChk(this)" multiple></a></td>
+						<input type="hidden" id="fileCheck" value="0" name="fileCheck">
+					</tr>
 				</table>
-				
-				<div class="btn">
-					<div><a href="./product_mainGo"><input type="button" value="취소"></a></div>
-					<div><a href="./product_regist?db_num=${db_num}"><input type="submit" value="저장"></a></div>
+				<div>
+					<div class="btn">
+						<a href="./product_mainGo"><input type="button" value="취소"></a>
+					</div>
+
+					<div>
+						<!-- 파일까지 저장 버튼
+						<input id="log" type="submit" value="파일저장" onclick="formData()">
+						<input type="button" value="저장" onclick="formData()">-->
+						<input id="log" type="button" value="저장" onclick="formData()">
+					</div>
+					
 				</div>
 			</form>
 		</div>
@@ -103,53 +120,143 @@
 		</div>
 	</footer>
 </body>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 이미지 프리뷰 -->
+<script>
 <!-- 
+	//이미지 프리뷰
+	function previewImage(targetObj, View_area) {
+	var preview = document.getElementById(View_area); //div id
+	var ua = window.navigator.userAgent;
+
+  //ie일때(IE8 이하에서만 작동)
+	if (ua.indexOf("MSIE") > -1) {
+		targetObj.select();
+		try {
+			var src = document.selection.createRange().text; // get file full path(IE9, IE10에서 사용 불가)
+			var ie_preview_error = document.getElementById("ie_preview_error_" + View_area);
+
+
+			if (ie_preview_error) {
+				preview.removeChild(ie_preview_error); //error가 있으면 delete
+			}
+
+			var img = document.getElementById(View_area); //이미지가 뿌려질 곳
+
+			//이미지 로딩, sizingMethod는 div에 맞춰서 사이즈를 자동조절 하는 역할
+			img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+src+"', sizingMethod='scale')";
+		} catch (e) {
+			if (!document.getElementById("ie_preview_error_" + View_area)) {
+				var info = document.createElement("<p>");
+				info.id = "ie_preview_error_" + View_area;
+				info.innerHTML = e.name;
+				preview.insertBefore(info, null);
+			}
+		}
+  //ie가 아닐때(크롬, 사파리, FF)
+	} else {
+		var filess = targetObj.files;
+		for ( var i = 0; i < filess.length; i++) {
+			var filep = filess[i];
+			var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+			if (!file.type.match(imageType))
+				continue;
+			var prevImg = document.getElementById("prev_" + View_area); //이전에 미리보기가 있다면 삭제
+			if (prevImg) {
+				preview.removeChild(prevImg);
+			}
+			var img = document.createElement("img"); 
+			img.id = "prev_" + View_area;
+			img.classList.add("obj");
+			img.file = filep;
+			img.style.width = '100px'; 
+			img.style.height = '100px';
+			preview.appendChild(img);
+			if (window.FileReader) { // FireFox, Chrome, Opera 확인.
+				var reader = new FileReader();
+				reader.onloadend = (function(aImg) {
+					return function(e) {
+						aImg.src = e.target.result;
+					};
+				})(img);
+				reader.readAsDataURL(file);
+			} else { // safari is not supported FileReader
+				//alert('not supported FileReader');
+				if (!document.getElementById("sfr_preview_error_"
+						+ View_area)) {
+					var info = document.createElement("p");
+					info.id = "sfr_preview_error_" + View_area;
+					info.innerHTML = "not supported FileReader";
+					preview.insertBefore(info, null);
+				}
+			}
+		}
+	}
+}
+-->	
+</script>
+ 
+ 
+ 
+<!-- 파일저장 -->
 <script>
 	function fileChk(elem) {
 		console.dir(elem.value);
-		if(elem.value ==""){
-			console.log("empty");
-			$("#fileCheck").val(0); //파일첨부 안한 글
+		if(elem.value == "") {
+			console.log("파일없음");
+			$("#fileCheck").val(0);
 		}
-		else{
-			console.log("not empty");
-			$("#fileCheck").val(1); //파일첨부 한 글
+		else {
+			console.log("파일있음");
+			$("#fileCheck").val(1);
 		}
 	}
 	
-	function formData(){
-		var $obj = $("#files"); //파일 배열
+	function formData() {
+		var $obj = $("#files");
 		
+		console.log(CKEDITOR.instances.db_content.getData());
+		//form data 가져오기
 		var fData = new FormData();
 		fData.append("db_title", $("#db_title").val());
-		fData.append("db_content", $("#db_content").val());
-		fData.append("db_cate", $("#db_cate").val());
+		fData.append("db_content", CKEDITOR.instances.db_content.getData());
+		//fData.append("db_cate", $("#db_cate").val());
 		fData.append("db_price", $("#db_price").val());
+		fData.append("fileCheck", $("#fileCheck").val());
 		
 		var files = $obj[0].files;
-		for(var i = 0; i < files.length; i++){
+		for(var i = 0; i < files.length; i++) {
 			fData.append("files" + i, files[i]);
 		}
 		
+		//ajax전송
 		$.ajax({
-			type: "post", //multipart 전송은 post로
-			url: "product_regist?cnt="+files.length,
+			type: "post",
+			url: "writeInsertProduct?cnt="+files.length,
 			data: fData,
-			processData: false, //application/x-www-form-urlencoded(쿼리 스트링)형식으로 처리되지 않도록 막는 속성.
-			contentType: false, //multipart일 경우 false로 지정
-			dataType: "html", //생략가능
+			processData:false,
+			contentType: false,
+			dataType: "html",
 			success: function(data){
-				alert("성공");
-				location.href="./product_main";
+				alert("상품 등록 완료");
+				location.href="./product_mainGo";
 				console.log(data);
 			},
 			error: function(error){
-				alert("실패");
-				console.log(error);
-			}			
+				alert(error);
+				console.log("이게 나라냐 : " + error);
+			}
 		});
 	}
 </script>
- -->
+
+<!-- multiple 이미지 미리보기 -->
+
 
 </html>
+
+
+
+

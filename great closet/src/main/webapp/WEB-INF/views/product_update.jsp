@@ -75,7 +75,11 @@
 								CKEDITOR.replace('db_content');
 							</script></td>
 					</tr>
-
+					<tr height="35">
+						<td>파일추가</td>
+						<td><a><input type="file" name="files" id="files" onchange="fileChk(this)" multiple></a></td>
+						<input type="hidden" id="fileCheck" value="0" name="fileCheck">
+					</tr>
 				</table>
 				<div class="btn">
 					<div>
@@ -109,6 +113,60 @@
 		</div>
 	</footer>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- 파일저장 -->
+<script>
+	function fileChk(elem) {
+		console.dir(elem.value);
+		if(elem.value == "") {
+			console.log("파일없음");
+			$("#fileCheck").val(0);
+		}
+		else {
+			console.log("파일있음");
+			$("#fileCheck").val(1);
+		}
+	}
+	
+	function formData() {
+		var $obj = $("#files");
+		
+		console.log(CKEDITOR.instances.db_content.getData());
+		//form data 가져오기
+		var fData = new FormData();
+		fData.append("db_title", $("#db_title").val());
+		fData.append("db_content", CKEDITOR.instances.db_content.getData());
+		//fData.append("db_cate", $("#db_cate").val());
+		fData.append("db_price", $("#db_price").val());
+		fData.append("fileCheck", $("#fileCheck").val());
+		
+		var files = $obj[0].files;
+		for(var i = 0; i < files.length; i++) {
+			fData.append("files" + i, files[i]);
+		}
+		
+		//ajax전송
+		$.ajax({
+			type: "post",
+			url: "writeInsertProduct?cnt="+files.length,
+			data: fData,
+			processData:false,
+			contentType: false,
+			dataType: "html",
+			success: function(data){
+				alert("상품 등록 완료");
+				location.href="./product_mainGo";
+				console.log(data);
+			},
+			error: function(error){
+				alert(error);
+				console.log("이게 나라냐 : " + error);
+			}
+		});
+	}
+</script>
 
 <script>
 CKEDITOR.replace( 'editor', {
@@ -116,5 +174,7 @@ CKEDITOR.replace( 'editor', {
     cloudServices_tokenUrl: 'https://example.com/cs-token-endpoint',
     cloudServices_uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
 } );
-</script> 
+</script>
+
+
 </html>

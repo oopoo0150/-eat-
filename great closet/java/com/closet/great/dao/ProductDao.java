@@ -1,8 +1,10 @@
 package com.closet.great.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.closet.great.bean.Product;
+import com.closet.great.bean.ProductImg;
 import com.closet.great.bean.ProductReply;
 
 public interface ProductDao {
@@ -25,6 +27,18 @@ public interface ProductDao {
 
 	boolean productR_delete(Integer no);
 
+	int getBnum(Integer no);
 	
+	//게시글 삭제 시 댓글 전체 삭제
+	boolean productR_deleteA(Integer db_num);
+
+	void Pviews(Integer bnum);
+
+	boolean fileInsert(Map<String, String> pfMap);
+
+	boolean productF_deleteA(Integer db_num);
+
+	List<ProductImg> getPfList(Integer db_num);
+
 
 }

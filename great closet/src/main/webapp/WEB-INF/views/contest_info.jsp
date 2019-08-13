@@ -38,7 +38,7 @@
 						<li><a href="#" title="팔로잉">Following</a></li>
 						<li class="parent"><a href="./product_mainGo" title="중고거래">Deal</a>
 							<ul class="child">
-								<li><a href="#" title="Contest">거래공간</a></li>
+								<li><a href="./product_mainGo" title="Contest">거래공간</a></li>
 								<li><a href="#" title="Contest"> 쪽지함</a></li>
 							</ul></li>
 						<li><a href="#" title="Mypage">My page</a></li>
@@ -50,8 +50,8 @@
 	<section>
 	<center>
 		<div class="cmain_img">
-			<a href="./contest_infoGo" title="콘테스트 참가 안내 바로가기"><img
-				src="resources/image/contest/banner.png" alt="배너" /></a>
+			<a href="./contest_infoGo" title="콘테스트 참가 바로가기"><img
+				src="resources/image/contest/conImg2.jpg" alt="배너" /></a>
 		</div>
 
 		<div class="add_btn">

@@ -1,26 +1,28 @@
 /*전체 구성요소 설정*/
- section{width: 1000px; margin: 0 auto;}
+ section{width: 1000px; margin: 0 auto; height: 1500px;}
  
  /*상세보기 상단 프로필 아이디, 날짜*/
- .top > div{float: left;} 
+ .top > div{float: left; margin-bottom: 5px;} 
  
  /*말머리, 제목 공간*/
  .mtitle > div{float: left;}
+ 
+ /*일단 상단 프로필이랑 3개 버튼 마진 주기*/
+ .toptable > td {margin-right: 5px;}
  
  /*중고거래 상세 보기에 등록한 이미지*/
  .productD_img{width: 300px;}
  .productD_img > img{ max-width: 100%; height: auto !important;}
  
- /*중고거래 상세 보기 > 댓글을 작성자 프로필 사진*/
+ /*게시글 제목 글씨 조정*/
+ #title_font{font-size: 20px;}
+ 
+ /*중고거래 상세 보기 > 댓글 작성자 프로필 사진*/
  .productR_img{width: 30px; height: 30px; margin-right: 800px;}
  .productR_img > img{max-width:100%; border-radius: 15px;}
  
  /*하단 댓글 날짜 아이디*/
  .bottom > div {float: left;}
- 
- /*중고거래 상세보기 댓글에 있는 쪽지 보내기 아이콘*/
- .note_img{width: 30px; height: 30px;}
- .note_img > img{max-width: 100%; max-height: 100%;}
 
 /*로그인 한 사람의 아이디 출력 공간*/
 .replyW > div{float: left;}

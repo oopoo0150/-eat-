@@ -68,6 +68,10 @@
 					<div><h3>마감 날짜 : </h3>
 					<input type="date"></div>
 				</div>
+				<div>
+					<div>필수 해시태그 생성</div>
+					<div><input type="text"></div>
+				</div>
 				<div><!-- 취소 등록 버튼 공간 -->
 					<button>취소</button>
 					<button>확인</button>

@@ -3,17 +3,21 @@ package com.closet.great.service;
 import java.io.IOException;
 import java.util.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.closet.great.bean.Product;
+import com.closet.great.bean.ProductImg;
 import com.closet.great.bean.ProductReply;
 import com.closet.great.dao.ProductDao;
-import com.closet.great.util.Paging;
+import com.closet.great.util.FileProcess;
+import com.closet.great.util.PagingP;
 
 @Service
 public class ProductManagement {
@@ -24,6 +28,9 @@ public class ProductManagement {
 
 	@Autowired
 	HttpSession session;
+	
+	@Autowired
+	FileProcess fileProc;
 
 	//상품 게시글 등록
 	public ModelAndView setProductWrite(Product product) {
@@ -53,7 +60,7 @@ public class ProductManagement {
 		productList = pDao.getProductList(num);
 
 		mav.addObject("productList", productList);
-		mav.addObject("paging", getPaging(num));
+		mav.addObject("pagingP", getPagingP(num));
 		view = "product_main";
 		mav.setViewName(view);
 
@@ -61,15 +68,15 @@ public class ProductManagement {
 	}
 
 	//페이징 처리
-	private Object getPaging(int num) {
+	private Object getPagingP(int num) {
 		int maxNum = pDao.getProductCount();
 		int listCnt = 10; //나중에 계산해서 33개로 바꾸기
 		int pageCnt = 5; //나중에 5개로 계산
 
 		String boardName = "product_mainGo";
-		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName);
+		PagingP pagingP = new PagingP(maxNum, num, listCnt, pageCnt, boardName);
 
-		return paging.makeHtmlpaging();
+		return pagingP.makeHtmlpaging();
 	}
 
 	//상품 게시글 상세보기
@@ -79,7 +86,11 @@ public class ProductManagement {
 
 		Product product = pDao.getDetail(db_num);
 		mav.addObject("product", product);
-
+		
+		//파일 리스트
+		List<ProductImg> pfList = pDao.getPfList(db_num);
+		mav.addObject("pfList", pfList);
+		
 		//댓글 리스트
 		List<ProductReply> prList = pDao.getPReplyList(db_num);
 		mav.addObject("prList", prList);
@@ -95,7 +106,11 @@ public class ProductManagement {
 		mav = new ModelAndView();
 
 		//댓글 먼저 삭제
-		boolean prd;
+		boolean prd = pDao.productR_deleteA(db_num);
+		//파일삭제
+		boolean pfd = pDao.productF_deleteA(db_num);
+		
+		//게시글 삭제
 		boolean pd = pDao.productDelete(db_num);
 
 		if(pd == false) {
@@ -138,29 +153,12 @@ public class ProductManagement {
 		if(pDao.writeUpdate(product)) {
 			view = "redirect:product_detailGo?db_num="+product.getDb_num();
 			mav.addObject("check", 2);
-//			mav.addObject("num", product.getDb_num());
 		}
 		else {
 			view = "product_main";
 		}
 		mav.setViewName(view);
 		
-		return mav;
-	}
-
-	//신고 (모달창으로 바꿀거임)
-	public ModelAndView productNotifyGo(Integer db_num) {
-		mav = new ModelAndView();
-
-		String view = null;
-
-		Product product = pDao.getDetail(db_num);
-
-		mav.addObject("product", product);
-
-		view = "notify";
-		mav.setViewName(view);
-
 		return mav;
 	}
 
@@ -194,25 +192,91 @@ public class ProductManagement {
 	public Map<String, List<ProductReply>> productR_delete(Integer no) {
 		Map<String, List<ProductReply>> jMap = null;
 		
-		boolean pr = pDao.productR_delete(no);
+		int Bnum = pDao.getBnum(no);
 		
-		if(pr == false) {
-			mav.addObject("result", 2);
-			throw new RuntimeException();
-		}
-		else {
-			List<ProductReply> prList = pDao.getPReplyList(no);
-			mav.addObject("result", 1);
+		if(pDao.productR_delete(no)) {
+			List<ProductReply> prList = pDao.getPReplyList(Bnum);
 			
 			jMap = new HashMap<String, List<ProductReply>>();
 			jMap.put("prList", prList);
+			
 		}
-
+		else {
+			mav.addObject("result", 2);
+			throw new RuntimeException();
+			
+		}
 		return jMap;
 	}
 
+	//게시글 조회수 보여주기
+	public ModelAndView Pviews(Integer db_num) {
+		mav = new ModelAndView();
+		pDao.Pviews(db_num);
+		mav.setViewName("redirect:product_mainGo");
+		
+		return mav;
+	}
 	
+	//게시글 조회수 올리기
+	public ModelAndView pviewsUp(Integer pageNum) throws Exception {
+		mav = new ModelAndView();
+		String view = null;	
+		
+		mav.setViewName(view);
+		
+		return mav;
+	}
 
-
-
+	
+	//게시글 작성(파일)
+	public ModelAndView setWriteProduct(MultipartHttpServletRequest multi) {
+		mav = new ModelAndView();
+		String view = null;
+		String title = multi.getParameter("db_title");
+		int price = Integer.parseInt(multi.getParameter("db_price"));
+		String content = multi.getParameter("db_content");
+		
+		//파일 유무
+		String check = multi.getParameter("fileCheck");
+		String id = "hyeon"; //임시아이디
+		
+		Product product = new Product();
+		product.setDb_title(title);
+		product.setDb_price(price);
+		product.setDb_content(content);
+		product.setDb_sid(id);
+		
+		boolean p = pDao.writeInsert(product);
+		int db_num = product.getDb_num();
+		
+		//게시글 번호로 파일 저장
+		boolean pf = false;
+		
+		if(check.equals("1")) {
+			pf = fileProc.upFile(multi, db_num);
+			view = "redirect:product_mainGo";
+		}
+		else {
+			
+			view = "product_regist";
+		}
+		mav.setViewName(view);
+		
+		return mav;
+	}
+	
+	//파일 다운로드
+	public void downLoadP(Map<String, Object> params) throws Exception{
+		String dbi_oriName = (String)params.get("dbi_oriName");
+		String dbi_sysName = (String)params.get("dbi_sysName");
+		String root = (String)params.get("root");
+		String path = root + "/resources/files/" + dbi_sysName;
+		
+		HttpServletResponse resp = (HttpServletResponse)params.get("resp");
+		
+		fileProc.downFileP(path, dbi_oriName, resp);
+	}
+		
+	
 }

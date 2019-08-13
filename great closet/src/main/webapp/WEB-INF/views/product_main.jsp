@@ -22,8 +22,7 @@ window.onload=function(){
 </script>
 
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
-<link type="text/css" rel="stylesheet"
-	href="resources/css/product/product_main.css">
+<link type="text/css" rel="stylesheet" href="resources/css/product/product_main.css">
 </head>
 <body>
 	<header>
@@ -62,7 +61,8 @@ window.onload=function(){
 			</div>
 		</center>
 	</header>
-	<section width="1000">
+	<section>
+	<center>
 		<!-- 전체 공간 -->
 		<div>
 			<div class="add_btn">
@@ -74,18 +74,30 @@ window.onload=function(){
 			<div class="product_list">
 				<!-- 상품 게시글 목록 나타내는 공간 -->
 				<c:forEach var="product" items="${productList}">
-					<div>
-						${product.db_cate} <a
-							href="./product_detailGo?db_num=${product.db_num}">${product.db_title}</a>
+					<div id="list_place">
+						<table>
+							<tr>
+								<img alt="상품사진" src=""
+								 id="product_img">								
+							</tr>
+							<tr>
+								<td id="head">${product.db_cate}</td>
+								<td><a
+							href="./product_detailGo?db_num=${product.db_num}">${product.db_title}</a></td>
+							</tr>
+							<tr>
+								<td id="head">가격 : </td>
+								<td>${product.db_price}</td>
+							</tr>
+						</table>					
 					</div>
-					<div>가격 ${product.db_price}</div>
-					<div>${product.db_content}</div>
-
 				</c:forEach>
 			</div>
-			<div align="center">${paging}</div>
+			<br><br><br>
+			<div align="center">${pagingP}</div>
 			</center>
 		</div>
+		</center>
 	</section>
 
 	<footer>
