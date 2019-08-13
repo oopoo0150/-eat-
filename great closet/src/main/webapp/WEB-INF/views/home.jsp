@@ -33,27 +33,41 @@
 				</ul>
 			</li>
 			<li><a href="#" title= "팔로잉" >Following</a></li>
+<<<<<<< HEAD
 			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
 			
 			<li class="parent"><a href="#" title= "중고거래">Deal</a>
+=======
+
+			<li class="parent"><a href="./product_main" title= "중고거래">Deal</a>
+>>>>>>> 2b73898a3833355ae14398257d1e9e42829b1d5e
 				<ul class="child">
-					<li><a href="#" title="Contest">거래공간</a></li>
+					<li><a href="./product_main" title="Contest">거래공간</a></li>
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
+<<<<<<< HEAD
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
 		</ul>
+=======
+
+>>>>>>> 2b73898a3833355ae14398257d1e9e42829b1d5e
 			<li  class="parent"><a href="#" title= "Mypage">My page</a>
 				<ul class="child">
 					<li><a href="./closetList" title="Contest">Closet</a></li>
 				</ul>
 				</li>
+<<<<<<< HEAD
+=======
+		</ul>
+>>>>>>> 2b73898a3833355ae14398257d1e9e42829b1d5e
 	</nav>
 </div>
 </center>
 </header>
 <section>
 
+<<<<<<< HEAD
 <!-- 이부분은 화면구성 -->
 <div class="">
     <input type="button" value="회원가입" onclick="location.href='./signup'">
@@ -61,6 +75,10 @@
     
 </div>
 
+=======
+		
+내용을 입력해 주세요
+>>>>>>> 2b73898a3833355ae14398257d1e9e42829b1d5e
 </section>
 <footer>
 <!-- 풋터로고 -->
