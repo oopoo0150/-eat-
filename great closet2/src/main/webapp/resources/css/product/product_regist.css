@@ -1,0 +1,5 @@
+/*전체 구성요소 설정*/
+ section{width: 1000px; margin: 0 auto;}
+ 
+ /*작성,취소 버튼 공간*/
+.btn > div{float: left;}

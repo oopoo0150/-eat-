@@ -1,0 +1,12 @@
+/*전체 구성요소 설정*/
+ section{width: 1000px; margin: 0 auto;}
+ 
+ /* 상품 등록하기 버튼*/
+ .add_btn{align-items: right;}
+ 
+ /*상품 게시글 리스트 정렬*/
+ .product_list{width:300px; margin-right:100px; float: left;}
+ 
+ /*상품 게시글 하나의 이미지 크기 조절*/
+ .product_img{width: 300px;}
+ .product_img > img{ max-width: 100%; height: auto !important;}

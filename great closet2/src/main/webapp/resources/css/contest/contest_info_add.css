@@ -1,0 +1,4 @@
+/*전체 구성요소 설정*/
+ section{width: 1000px; margin: 0 auto;}
+ 
+ .date > div{float: left;}
