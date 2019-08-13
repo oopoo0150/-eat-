@@ -4,9 +4,12 @@ import java.sql.Date;
 
 import org.apache.ibatis.type.Alias;
 
+
+/*
 // 게시판
 @Alias("request")
 public class RequestBoard {
+	// 게시판 저장
 	private int reb_num;
 	private String reb_cate;
 	private String reb_title;
@@ -18,6 +21,11 @@ public class RequestBoard {
 	private int reb_views;
 	private int reb_complain;
 	private String reb_sid;
+	
+	// 게시판 파일 저장
+	private int rebi_num;
+	private int rebi_rebnum;
+	private int rebi_cldnum;
 	
 	
 	public int getReb_num() {
@@ -85,10 +93,26 @@ public class RequestBoard {
 	}
 	public void setReb_sid(String reb_sid) {
 		this.reb_sid = reb_sid;
+	}
+	public int getRebi_num() {
+		return rebi_num;
+	}
+	public void setRebi_num(int rebi_num) {
+		this.rebi_num = rebi_num;
+	}
+	public int getRebi_rebnum() {
+		return rebi_rebnum;
+	}
+	public void setRebi_rebnum(int rebi_rebnum) {
+		this.rebi_rebnum = rebi_rebnum;
+	}
+	public int getRebi_cldnum() {
+		return rebi_cldnum;
+	}
+	public void setRebi_cldnum(int rebi_cldnum) {
+		this.rebi_cldnum = rebi_cldnum;
 	}	
 	
+	
 }
-
-
-// 댓글
-// 파일
+*/
