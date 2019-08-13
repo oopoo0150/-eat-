@@ -7,8 +7,6 @@
  /*말머리, 제목 공간*/
  .mtitle > div{float: left;}
  
-
- 
  /*중고거래 상세 보기에 등록한 이미지*/
  .productD_img{width: 300px;}
  .productD_img > img{ max-width: 100%; height: auto !important;}
@@ -23,7 +21,19 @@
  /*중고거래 상세보기 댓글에 있는 쪽지 보내기 아이콘*/
  .note_img{width: 30px; height: 30px;}
  .note_img > img{max-width: 100%; max-height: 100%;}
- 
+
+/*로그인 한 사람의 아이디 출력 공간*/
+.replyW > div{float: left;}
+
+/*댓글 작성이랑 댓글출력되는 테이블의 제목 공간*/
+/*.insert_title > div{float: left; margin-bottom: 10px;}*/
+.replyWrite > div{float: left; margin-bottom: 10px;}
+
  /*댓글 작성하는 공간*/
  .replyWrite > div{float: left;}
+ 
+ /*댓글 리스트 출력*/
+ th {
+	background-color: #f5f5f5
+}
  

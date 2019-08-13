@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 공통 환경 설정 -->
+<configuration>
+	<typeAliases>
+		<package name="com.closet.great.bean"/>
+		<!-- <typeAlias type="com.lgy.board.bean.Member" alias="member"/>
+		<typeAlias type="com.lgy.board.bean.Board" alias="board"/> -->
+		<!-- 더추가하고싶을때 주소와 얼리어스 만 바꾸어 사용 
+		ex)<typeAlias type="com.lgy.Board.bean.Board" alias="bord"/>
+		-->
+	</typeAliases>
+</configuration> 	

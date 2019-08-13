@@ -11,6 +11,7 @@
 <script src="resources/ckeditor/ckeditor.js"></script>
 
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+
 </head>
 <body>
 	<header>
@@ -78,8 +79,7 @@
 				
 				<div class="btn">
 					<div><a href="./product_mainGo"><input type="button" value="취소"></a></div>
-					<!-- <div><input id="log" type="button" value="저장" onclick="formdata()"></div> -->
-					<div><input type="submit" value="저장"></div>
+					<div><a href="./product_regist?db_num=${db_num}"><input type="submit" value="저장"></a></div>
 				</div>
 			</form>
 		</div>

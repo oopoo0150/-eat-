@@ -46,13 +46,26 @@
 		</center>
 	</header>
 	<section>
-		<input type="radio">
+	<center>
+	<h1>신고 하기</h1>
+	<h3>신고사유</h3>
+		<input name="notify" type="radio" value=""> 영리목적/홍보성
+		<input type="radio"> 불법정보
+		<input type="radio"> 음란성/선정성
+		<br>
+		<input type="radio"> 욕설/인신공격
+		<input type="radio"> 개인정보노출
+		<input type="radio"> 같은 내용의 반복 게시(도배)
+		<br>
+		<input type="radio"> 기타
+		<br>
+		<textarea rows="20" cols="50"></textarea>
 		
 		<input type="text">
 		
-		<button>신고 취소</button>
-		<button>신고 하기</button>
-	
+		<div><a href="./product_mainGo"><input type="button" value="신고 취소"></a></div>
+		<div><a href="./product_notify?db_num=${db_num}"><input type="submit" value="신고 하기"></a></div>
+	</center>
 	</section>
 
 	<footer>

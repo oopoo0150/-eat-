@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.closet.great.dao.ProductDao">
+
 	<!-- 상품 게시글 쓰기 -->
 	<insert id="writeInsert" parameterType="product"><!-- 파라미터 타입은 bean alias -->
 	INSERT INTO DEALBOARD (db_num, db_title, db_content, db_cate, db_sid, db_price) VALUES 
@@ -28,4 +29,45 @@
 	<delete id="productDelete" parameterType="Integer">
 		DELETE FROM DEALBOARD WHERE DB_NUM=#{DB_NUM}
 	</delete>
+	
+	<!-- 상품 게시글 수정(작성자, 관리자) -->
+	<update id="writeUpdate" parameterType="product">
+		UPDATE DEALBOARD SET DB_TITLE=#{db_title}, DB_CONTENT=#{db_content}, 
+		DB_VIEWS=#{db_views}, DB_SID=#{db_sid}, DB_PRICE=#{db_price},
+		DB_COMPLAIN=#{db_complain} WHERE DB_NUM=#{db_num}
+	</update>
+	
+	<!-- 상품 게시글 댓글 추가 -->
+	<insert id="productR_insert" parameterType="productReply">
+		INSERT INTO DEALBOARD_REPLY VALUES 
+		(DEALBOARD_REPLY_SEQ.NEXTVAL, #{dbr_content}, default, #{dbr_complain}, 
+		#{dbr_dbnum}, #{dbr_sid})
+	</insert>
+	
+	<!-- 상품 게시글 댓글 리스트 출력 -->
+	<select id="getPReplyList" parameterType="int" resultType="productReply">
+		SELECT * FROM DEALBOARD_REPLY WHERE DBR_DBNUM=#{DB_NUM}
+	</select>
+	
+	<!-- 상품 게시글 댓글 삭제 -->
+	<delete id="productR_delete" parameterType="Integer">
+		DELETE FROM DEALBOARD_REPLY WHERE DBR_NUM=#{dbr_num}
+	</delete>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

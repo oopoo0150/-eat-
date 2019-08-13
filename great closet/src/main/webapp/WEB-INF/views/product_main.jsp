@@ -7,6 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>중고 거래 메인</title>
+
+<script>
+window.onload=function(){
+	var chk=${param.check};
+	
+	if(chk==1){
+		alert("삭제 성공!");
+	}
+	else if(chk==2){
+		alert("삭제 실패!");
+	}
+}
+</script>
+
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 <link type="text/css" rel="stylesheet"
 	href="resources/css/product/product_main.css">
@@ -56,7 +70,7 @@
 					<button>상품 등록</button>
 				</form>
 			</div>
-
+			<center>
 			<div class="product_list">
 				<!-- 상품 게시글 목록 나타내는 공간 -->
 				<c:forEach var="product" items="${productList}">
@@ -70,6 +84,7 @@
 				</c:forEach>
 			</div>
 			<div align="center">${paging}</div>
+			</center>
 		</div>
 	</section>
 
