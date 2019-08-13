@@ -7,4 +7,18 @@
 		SELECT * FROM closet where c_sid = #{user}
 	</select>
 
+	<insert id="closetInsert" parameterType="closet">
+		INSERT INTO CLOSET VALUES(CLOSET_SEQ.NEXTVAL, #{c_name}, #{c_open}, #{c_sid})
+	
+	</insert>
+	
+		<delete id="closetDelete" parameterType="String">
+		DELETE FROM closet WHERE c_NUM = #{string}
+	</delete>
+	
+	<update id="closetUpdate" parameterType="closet">
+		UPDATE closet SET c_name = #{c_name}, c_open = #{c_open} WHERE c_num = #{c_num}
+	</update>
+
 </mapper>
+

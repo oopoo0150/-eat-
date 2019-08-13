@@ -40,30 +40,20 @@
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<li class="parent"><a href="./mypage" title= "Mypage">My page</a></li>
-		</ul>
-=======
+
 			<li  class="parent"><a href="#" title= "Mypage">My page</a>
 				<ul class="child">
 					<li><a href="./closetList?user=tami" title="Contest">Closet</a></li>
 				</ul>
 				</li>
->>>>>>> 5680ad82a28d9989aacb2db86c122a1a81957759
-=======
-			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
-			<ul class="child">
-					<li><a href="./closetList" title="Contest">Closet</a></li>
-			</ul>
-			</li>
 		</ul>
->>>>>>> 3dcdae22a848467227bd58498dc9e1b90ad7304d
 	</nav>
 </div>
 </center>
 </header>
 <section>
+
+		
 내용을 입력해 주세요
 </section>
 <footer>

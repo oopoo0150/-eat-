@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.closet.great.dao.ImgDao">
+
+	<select id="getImgList" resultType="clothes_detail" parameterType="int" >
+		SELECT * FROM clothes_detail where cld_clnum = #{cl_num}
+	</select>
+	
+		<insert id="clothesimgInsert" parameterType="clothes_detail">
+		INSERT INTO clothes_detail VALUES(clothes_detail_SEQ.NEXTVAL, #{cld_color}, #{cld_size}, #{cld_amount}, #{cld_content}, #{cld_oriname}, #{cld_sysname},#{cld_season},#{cld_clnum})
+	
+	</insert>
+	
+	<select id="getimgDetail" resultType="clothes_detail" parameterType="int" >
+		SELECT * FROM clothes_detail where cld_num = #{cld_num}
+	</select>
+	
+	<delete id="imgDelete" parameterType="int">
+		DELETE FROM clothes_detail WHERE cld_NUM = #{cld_num}
+	</delete>
+	
+	
+		<update id="clothesoriUpdate" parameterType="clothes_detail">
+		UPDATE clothes_detail SET cld_color = #{cld_color}, cld_size = #{cld_size}, cld_content = #{cld_content}, cld_season = #{cld_season}, cld_amount = #{cld_amount}, cld_sysname = #{cld_sysname}, cld_oriname = #{cld_oriname} WHERE cld_num = #{cld_num}
+	</update>
+	
+		<update id="clothessysUpdate" parameterType="clothes_detail">
+		UPDATE clothes_detail SET cld_color = #{cld_color}, cld_size = #{cld_size}, cld_content = #{cld_content}, cld_season = #{cld_season}, cld_amount = #{cld_amount} WHERE cld_num = #{cld_num}
+	</update>
+	
+	
+	
+	</mapper>
+	
