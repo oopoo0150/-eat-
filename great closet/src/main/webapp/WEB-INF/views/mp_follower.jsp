@@ -51,18 +51,21 @@
 	<div><h1>팔로워</h1></div>
 	<div>
 		<table>
-			<c:forEach var="follow" items="${followList}">			
-				<tr>
-					<td align="center">프로필 이미지</td>
-					<td align="center">${follow.f_following}</td>
-					<td align="center"><input type="button" value="팔로잉"></td>
+			<c:forEach var="follow" items="${ferList}">			
+				<tr bgcolor="white" height="40">
+					<form action="unfollow" method="post">
+						<td align="center">프로필 이미지</td>
+						<td align="center"><a href="./urpage?uid=${follow.f_following}">${follow.f_following}</a></td>
+						<td align="center">				
+						<input type="submit" value="팔로우">
+						<input type="hidden" name ="uid" value="${follow.f_following}">
+					</td>
+					</form>
 				<tr>
 			</c:forEach>		
-		</table>
-	
+		</table>	
 	</div>
 </div>
-
 </section>
 <footer>
 <!-- 풋터로고 -->

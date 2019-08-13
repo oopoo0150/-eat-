@@ -4,7 +4,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>info add</title>
+<title>고객지원 수정</title>
 <!-- ckediter -->
 <script src="resources/ckeditor/ckeditor.js"></script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
@@ -50,8 +50,8 @@
 		<h1 align="center">글쓰기</h1>
 		<br> <br>
 		<div align="center">
-			<form action="spBoardInsert" name="mp_support_write" method="post">
-			<!-- enctype="multipart/form-data">  -->
+			<form action="spUpdate" name="mp_support_update" method="post">
+	
 				<table>
 					<tr height="35">
 						<td width="100">카테고리</td>
@@ -70,10 +70,7 @@
 							<c:if test="${support.spcate != '콘테스트'}">
 								<option value="콘테스트">콘테스트</option>
 							</c:if>					
-						</select></td> 
- 								
-								
-						</select></td> 
+						</select></td> 							
 					</tr>
 					<tr height="35">
 						<td>제목</td>
@@ -90,8 +87,8 @@
 					</tr>
 
 				</table>
-					<a href="spUpdate?spnum=${support.spnum}">
-				<input type="submit" value="수정하기"></a>
+				<input 	type="hidden" name="spnum" value="${support.spnum}">
+				<input type="submit" value="수정하기">
 			</form>
 		</div>
 

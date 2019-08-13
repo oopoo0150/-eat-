@@ -55,11 +55,31 @@
  	</div>
  	<div id="support_lisg">
  		<div>
- 			<select>
- 				<option value="전체">전체</option>
- 				<option value="공지사항">공지사항</option>
-				<option value="콘테스트">콘테스트</option>
- 			</select>
+ 		 	<form action="supportList" name="mp_support">
+ 		 	<select name="spcate">
+ 		 		           <c:if test="${support.spcate == '전체'}">
+								<option value="전체" selected>전체</option>
+							</c:if>
+							<c:if test="${support.spcate != '전체'}">
+								<option value="전체">전체</option>
+							</c:if>	 	
+ 							<c:if test="${support.spcate == '공지사항'}">
+								<option value="공지사항" selected>공지사항</option>
+							</c:if>
+							<c:if test="${support.spcate != '공지사항'}">
+								<option value="공지사항">공지사항</option>
+							</c:if>
+							
+							<c:if test="${support.spcate == '콘테스트'}">
+								<option value="콘테스트" selected>콘테스트</option>
+							</c:if>
+							<c:if test="${support.spcate != '콘테스트'}">
+								<option value="콘테스트">콘테스트</option>
+							</c:if>					
+				</select></td> 							
+	 		<input type="submit" value="선택">
+ 		</form>
+ 		
  		</div>
  		<table>
  			<tr>
@@ -84,6 +104,19 @@
  	</div>
  	<div id="support_bottom">
  		<div align="center">${paging}</div>	
+ 		<div>
+ 		
+ 		<% 
+ 			String id = session.getAttribute("id").toString();
+ 			if(id.equals("ADMIN")){			
+ 		%>
+ 			 <form action="spWrite">
+  				<input type="button" value="글쓰기">
+  			</form>
+  		<%
+ 			}
+  		%>	
+ 		</div>
  	</div> 
  </div> 
 </section>

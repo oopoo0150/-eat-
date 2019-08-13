@@ -50,7 +50,7 @@
 		</center>
 	</header>
 	<section>
-		<center>
+
 			<div id="mypage_total">
 				<!-- mypage profile -->
 				<div id="mypage_top">
@@ -64,7 +64,7 @@
 					<div id="uinfo">
 						<div id="uinfo_top">
 							<div class="access_id">
-								<p>아이디</p>
+								<p>${id}</p>
 							</div>
 							<div class="move_editprofile">
 								<form action="./mEditProfile">
@@ -82,13 +82,13 @@
 								<p>채택</p>
 								<p>count</p>
 							</div></a>
-							<a href="./mFollower"><div class="follwer_count">
+							<a href="./followerList"><div class="follwer_count">
 								<p>팔로워</p>
 								<p>count</p>
 							</div></a>
-							<a href="./mFollowing"><div class="following_count">
+							<a href="./followingList"><div class="following_count">
 								<p>팔로잉</p>
-								<p>count</p>
+								<p>${fingCnt}</p>
 							</div></a>
 						</div>
 					</div>
@@ -98,29 +98,30 @@
 						<a href="./mCloset"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box2">
-						<a href="./mCal"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mCal"><img src="resources/image/mypage/s_box2.png"></a>
 					</div>
 					<div class="s_box3">
-						<a href="./mBoard"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mBoard"><img src="resources/image/mypage/s_box3.png"></a>
 					</div>
 					<div class="s_box4">
-						<a href="./mLookbook"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mLookbook"><img src="resources/image/mypage/s_box4.png"></a>
 					</div>
 					<div class="s_box5">
-						<a href="./mlog"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mlog"><img src="resources/image/mypage/s_box5.png"></a>
 					</div>
 					<div class="s_box6">
-						<a href="./mStatistics"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./mStatistics"><img src="resources/image/mypage/s_box6.png"></a>
 					</div>
 					<div class="s_box7">
-						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
+					
+						<a href="./saleList"><img src="resources/image/mypage/s_box7.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./supportList"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./supportList"><img src="resources/image/mypage/s_box_8.png"></a>
 					</div>
 				</div>
 			</div>
-		</center>
+
 	</section>
 	<footer>
 		<!-- 풋터로고 -->

@@ -4,8 +4,6 @@
 <!-- 공통 환경 설정 -->
 <configuration>
 	<typeAliases>
-		<package name="com.closet.great.bean"/>
-	
-		
+		<package name="com.closet.great.bean"/>		
 	</typeAliases>
 </configuration> 	

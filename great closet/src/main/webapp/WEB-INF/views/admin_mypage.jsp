@@ -112,12 +112,17 @@
 						<a href="./mSale"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box8">
-						<a href="./adminSpList"><img
+						<a href="./supportList"><img
 							src="resources/image/mypage/s_box1.png"></a>
+							
+						<input type="hidden" name="id" value="ADMIN">	
 					</div>
 				</div>
 			</div>
 		</center>
+		
+		
+		
 	</section>
 	<footer>
 		<!-- 풋터로고 -->

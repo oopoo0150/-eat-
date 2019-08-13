@@ -1,14 +1,25 @@
 package com.closet.great;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.closet.great.bean.Support;
 import com.closet.great.service.MPSupportManagement;
+
+import sun.print.resources.serviceui;
 
 @Controller
 public class MPSupportController {
@@ -20,18 +31,9 @@ public class MPSupportController {
 	@Autowired
 	MPSupportManagement spm;
 	
+	@Autowired
+	HttpSession session;
 	
-	/*사용자*/ 
-	
-	//spList출력용
-	@RequestMapping(value = "/supportList")
-	public ModelAndView supportList(Integer pageNum) {
-	
-		
-		mav = spm.getSupportList(pageNum,"supportList");
-		
-		return mav;
-	}
 	
 	//게시글 상세보기
 	@RequestMapping(value = "/spcontents")
@@ -42,23 +44,7 @@ public class MPSupportController {
 		return mav;
 	}
 	
-	
-	
-	
-	
-	
-	/*관리자*/
-	
-	//관리자 화면 리스트 출력
-	@RequestMapping(value = "/adminSpList")
-	public ModelAndView adminSpList(Integer pageNum) {
-		
-		mav = spm.getAdminSupList(pageNum, "adminSpList");
-		
-		return mav;
-	}
-	
-	
+
 	//관리자 작성페이지 이동
 	@RequestMapping(value = "/spWrite")
 	public String MoveSupWrite(Model model) {
@@ -94,7 +80,7 @@ public class MPSupportController {
 		
 	}
 	
-	//게시물 수정하기
+	//게시물 수정하기 이동
 	@RequestMapping(value = "/mspUpdate")
 	public ModelAndView moveSpUpdate(Integer spnum) {
 		
@@ -102,6 +88,30 @@ public class MPSupportController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/spUpdate", method = RequestMethod.POST)
+	public ModelAndView updateSpBoard(Support support) {
+		// TODO Auto-generated method stub
+		
+		mav = spm.spBoardUpdate(support);
+
+		return mav;
+	}
+	
+	//select box 선택값에 따른 리스트 재출력
+	@RequestMapping(value = "/supportList")
+	public ModelAndView sboxSelList(String spcate, Integer pageNum, String id) {
+		
+		String cid = session.getAttribute("id").toString();
+		
+		mav = spm.sboxSelList(spcate, pageNum, cid);
+		
+		return mav;
+	}
+
+	
+	
+	
 	
 	
 	

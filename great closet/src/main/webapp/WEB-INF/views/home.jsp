@@ -1,10 +1,20 @@
+<%@page import="org.springframework.web.bind.annotation.SessionAttributes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <html>
 <head>
 <title>Home</title>
+<script>
+	window.onload = function() {
+		var chk=${check};
+		if (chk==1) {
+			alert("가입 성공.")
+		}
+
+	}
+</script>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
@@ -12,7 +22,7 @@
 <header>
 <!-- 헤더로고 -->
 <div id="h_top">
-	<h1><a href="./"><img src="resources/image/common/panda.png"/></a></h1>
+	<h1><img src="resources/image/common/panda.png"/></h1>
 </div>
 <!-- 메인/서브네비게이션 -->
 <center>
@@ -21,7 +31,7 @@
 		<ul>
 			<li class="parent"><a href="#" title= "LookBook">LookBook</a>
 				<ul class="child">
-					<li><a href="#" title="lookbook">Look Book</a></li>
+					<li><a href="./lookbook_main" title="lookbook">Look Book</a></li>
 					<li><a href="./contest_main" title="Contest">Contest</a></li>
 				</ul>
 			</li>
@@ -40,21 +50,74 @@
 					<li><a href="#" title="Contest"> 쪽지함</a></li>
 				</ul>
 			</li>
-
 			<li class="parent"><a href="./mypage" title= "Mypage">My page</a>
-				<ul class="child">
+			<ul class="child">
 					<li><a href="./closetList" title="Contest">Closet</a></li>
-				</ul>
+			</ul>
 			</li>
-			
 		</ul>
 	</nav>
 </div>
 </center>
 </header>
-<section>
-내용을 입력해 주세요
-</section>
+	<c:set var="id" value="${id}"/>
+	<c:if test="${empty id}">
+		<center>
+		<div class="main" style="text-align: center;">
+			<table border="1" style="margin: auto;">
+				<tr>
+					<th>메인 페이지</th>
+				</tr>
+			</table>
+		</div>
+		<a href="./findid">아이디/비밀번호 찾기</a>
+		<div class="loginbox">
+			<input class="login" type="button" value="로그인" onclick="location.href='./login'">
+		    <input class="signup" type="button" value="회원가입" onclick="location.href='./signup2'">	
+	    </div>
+	    </center>
+	</c:if>
+	<c:if test="${!empty id}">
+		<center>
+		<div>
+		<img alt="" src="">
+		<table border="1">
+			<tr height="30">
+				<td width="80" bgcolor="pink" align="center">아이디</td>
+				<td>${mb.s_id},${id}</td>
+			</tr>
+			<tr height="30">
+				<td width="80" bgcolor="pink" 
+				align="center">이름</td>
+				<td>${mb.s_name}</td>
+			</tr>
+			<tr height="30">
+				<td width="80" bgcolor="pink" 
+				align="center">닉네임</td>
+				<td>${mb.s_nick}</td>
+			</tr>
+			<tr height="30">
+				<td width="80" bgcolor="pink" 
+				align="center">이메일</td>
+				<td>${mb.s_mail}</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<form id="logoutFrm" action="./logout" method="post">
+							<a href="./logout">로그아웃</a>	
+						</form>
+						<button id="return checkid()">아이디 확인</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</div>
+		</center>
+	</c:if>
+	
+	
+
 <footer>
 <!-- 풋터로고 -->
 	<div id="f_top">

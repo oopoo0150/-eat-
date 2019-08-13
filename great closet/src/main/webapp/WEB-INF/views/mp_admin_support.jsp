@@ -68,11 +68,14 @@ window.onload=function(){
  	</div>
  	<div id="support_lisg">
  		<div>
- 			<select>
+ 		<form action="mp_admin_support" name="mp_admin_support">
+ 			<select name="spcate">
  				<option value="전체">전체</option>
  				<option value="공지사항">공지사항</option>
 				<option value="콘테스트">콘테스트</option>
  			</select>
+ 			<input type="submit" value="선택">
+ 		</form>
  		</div>
  		<table>
  			<tr>

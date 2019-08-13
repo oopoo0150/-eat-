@@ -6,13 +6,15 @@ public class Paging {
 	private int listCount;//20
 	private int pageCount;//3
 	private String boardName;//게시판 종류
+	private String spcate; //카테고리
 	
-	public Paging(int maxNum, int pageNum, int listCount, int pageCount, String boardName) {
+	public Paging(int maxNum, int pageNum, int listCount, int pageCount, String boardName, String cate) {
 		this.maxNum = maxNum;
 		this.pageNum = pageNum;
 		this.listCount = listCount;
 		this.pageCount = pageCount;
 		this.boardName = boardName;
+		this.spcate = cate;
 	}
 	
 	public String makeHtmlpaging() {
@@ -41,14 +43,14 @@ public class Paging {
 		//이전 그룹으로 이동
 		if(start != 1) {
 			sb.append("<a href='" + boardName 
-					+ "?pageNum=" + (start - 1) + "'>");
+					+ "?pageNum=" + (start - 1) + " & spcate= "+ spcate + "'>");
 			sb.append("[이전]</a>");
 		}
 		//페이지 번호들에 대한 처리
 		for(int i = start; i <= end; i++) {
 			if(pageNum != i) {//현재 페이지가 아니면 링크 설정
 				sb.append("<a href='" + boardName 
-						+ "?pageNum=" + i + "'>");
+						+ "?pageNum=" + i +" & spcate= "+ spcate + "'>");
 				sb.append(" [ " + i + " ]</a>");
 			}
 			else {
@@ -59,7 +61,7 @@ public class Paging {
 		//다음 그룹으로 이동
 		if(end != totalPage) {
 			sb.append("<a href='" + boardName 
-					+ "?pageNum=" + (end + 1) + "'>");
+					+ "?pageNum=" + (end + 1) + " & spcate= "+ spcate +"'>");
 			sb.append("[다음]</a>");
 		}
 		

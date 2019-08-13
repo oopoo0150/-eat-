@@ -3,13 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.closet.great.dao.MypageDao">
-	<select id="getSupportList" resultType="support" parameterType="int">
+
+	<select id="sboxSelList" resultType="support" parameterType="HashMap">
 		<![CDATA[
-			SELECT * FROM SPLIST_1 WHERE RONUM>=#{num}*10-9 AND RONUM<=#{num}*10
+			SELECT * FROM ${table} WHERE RONUM>=#{num}*10-9 AND RONUM<=#{num}*10
 		]]>
 	</select>
-	<select id="getSpBoardCount" resultType="int">
-		SELECT COUNT(*) FROM SPLIST_1
+	<select id="getSpBoardCount" resultType="int" parameterType="HashMap">
+		SELECT COUNT(*) FROM ${table}
 	</select>
 	<insert id="spBoardInsert" parameterType="support">
 		INSERT INTO NOTICE (no_num, no_title, no_content, no_date, no_views, no_cate, no_sid)
@@ -22,12 +23,30 @@
 		DELETE FROM NOTICE WHERE NO_NUM=#{spnum}
 	</delete>
 	<update id="spBoardUpdate" parameterType="support">
-		UPDATE NOTICE SET NO_TITLE = {sptitle}, NO_CONTENT = {spcontent}, NO_CATE ={spcate} WHERE NO_NUM=#{spnum} 
+		UPDATE NOTICE SET NO_TITLE=#{sptitle}, NO_CONTENT=#{spcontent}, NO_CATE=#{spcate} WHERE NO_NUM=#{spnum} 
 	</update>
-	<update id="profileUpdate" parameterType="hashmap">
-		UPDATE SIGN SET S_SYSNAME = {ssysname}, S_ORINAME = {soriname} WHERE S_ID=#{sid}
-	</update>
-	<select id="getFollowingList" resultType="follow" parameterType="String">
-		SELECT * FROM FOLLOW WHERE F_FOLLOWING=#{id}
+	<select id="getFollowingList" resultType="follow" parameterType="HashMap">
+		SELECT * FROM FOLLOW WHERE F_FOLLOWING=#{id} 
 	</select>
+	<delete id="doUnfollow" parameterType="String">
+		DELETE FROM FOLLOW WHERE F_FOLLOWER=#{uid}
+	</delete>
+	<select id="followingCnt" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM FOLLOW WHERE F_FOLLOWING=#{id};
+	</select>
+	<select id="getFollowerList" resultType="follow" parameterType="HashMap">
+		SELECT * FROM FOLLOW WHERE F_FOLLOWER=#{id} 
+	</select>
+	<select id="getSaleList" resultType="product" parameterType="HashMap">
+		<![CDATA[
+			SELECT * FROM ${table} WHERE DB_SID=#{id} AND ROWNUM>=#{num}*10-9 AND ROWNUM<=#{num}*10
+		]]>
+	</select>
+	<select id="getSpeUserCount" resultType="int" parameterType="HashMap">
+		SELECT COUNT(*) FROM ${table} WHERE DB_SID=#{id}
+	</select>
+	<delete id="saleListDel" parameterType="String">
+		DELETE FROM DEALBOARD WHERE DB_NUM =#{string}
+	</delete>
+	
 </mapper> 

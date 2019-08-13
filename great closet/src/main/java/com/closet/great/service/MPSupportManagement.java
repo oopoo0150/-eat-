@@ -1,6 +1,8 @@
 package com.closet.great.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class MPSupportManagement {
 	@Autowired
 	private MypageDao myDao;
 	
-	
+	/*
 	public ModelAndView getSupportList(Integer pageNum, String url) {
 		
 		mav = new ModelAndView();
@@ -40,41 +42,44 @@ public class MPSupportManagement {
 				
 		return mav;
 	}
-	
-	//관리자용
-	public ModelAndView getAdminSupList(Integer pageNum, String url) {
-		
-	mav = new ModelAndView();
-		
-		String view = null;
-		List<Support> spList = null;
-		
-		int num = (pageNum == null) ? 1 : pageNum;
-		
-		spList = myDao.getSupportList(num);
-		
-		mav.addObject("spList",spList);
-		mav.addObject("paging",getPaging(num, url));
-		
-		view="mp_admin_support";
-		mav.setViewName(view);
-				
-		return mav;	
-	}
+//	*/
+//	
+//	//관리자용
+//	public ModelAndView getAdminSupList(Integer pageNum, String url) {
+//		
+//	mav = new ModelAndView();
+//		
+//		String view = null;
+//		List<Support> spList = null;
+//		
+//		int num = (pageNum == null) ? 1 : pageNum;
+//		
+//		spList = myDao.getSupportList(num);
+//		
+//		mav.addObject("spList",spList);
+//		mav.addObject("paging",getPaging(num, url));
+//		
+//		view="mp_admin_support";
+//		mav.setViewName(view);
+//				
+//		return mav;	
+//	}
 
 	//게시판 하단에 페이지 표시를 위한 처리용 메소드
-	private String getPaging(int num, String url) {		
+	private String getPaging(int num, String table, String spcate) {
+		
+		HashMap<String, String> tbl = new HashMap<String, String>();
+		tbl.put("table", table);
+	
 		//전체 글 수
-		int maxNum = myDao.getSpBoardCount();
+		int maxNum = myDao.getSpBoardCount(tbl);
 		//페이지당 글 수
 		int listCnt = 10;
 		//그룹당 페이지 수 
 		int pageCnt = 5;
-		//게시판이 여러종류가 있을 경우 대비
-		
-		
-		String boardName = url;
-		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName);
+		//게시판이 여러종류가 있을 경우 대비	
+		String boardName = "supportList" ;
+		Paging paging = new Paging(maxNum, num, listCnt, pageCnt, boardName, spcate);
 			
 		return paging.makeHtmlpaging();
 	}
@@ -150,27 +155,68 @@ public class MPSupportManagement {
 	}
 	
 	//게시물 업데이트 하기
-	@RequestMapping(value = "/spUpdate")
-	public ModelAndView spBoardUpdate(Integer spnum) {
+	
+	public ModelAndView spBoardUpdate(Support support) {
 		
 		mav = new ModelAndView();
 		String view = null;
 		
 	
-		if(myDao.spBoardUpdate(spnum)) {
+		if(myDao.spBoardUpdate(support)) {
 			//성공		
-			view ="redirect:adminSpList";
+			view ="redirect:adminSpList";	
 			mav.addObject("update",1);
+			
 		}else {
 			
 			view="mp_support_update";
 			
-		}			
+		}	
+		mav.setViewName(view);
 		return mav;
 	
 	}
 
+public ModelAndView sboxSelList(String spcate, Integer pageNum, String id) {
+		
+	mav = new ModelAndView();
+		
+	String view = null;	
+	List<Support> spList = null;
+	int num = (pageNum == null) ? 1 : pageNum;
+	String table = null;
 	
+	if(spcate==null) {
+		table="SPLIST_ALL";
+		spcate = "전체";
+	}else {	
+	if(spcate.equals("전체")) {
+		table="SPLIST_ALL";
+	}else if(spcate.equals("공지사항")) {
+		table="SPLIST_NO";
+	}else {
+		table="SPLIST_CON";
+	}
+	}
+		
+	Map<String, String> map = new HashMap<String, String>(); // MAP을 이용해 담기		 
+	map.put("table", table);
+	map.put("num", String.valueOf(num));
+		
+	spList = myDao.sboxSelList(map);
+	view = "mp_support";
+			
+	mav.addObject("spList",spList);	
+	mav.addObject("paging",getPaging(num,table,spcate));
+	mav.addObject("spcate",spcate);
+	mav.addObject("id", id);
+	
+	mav.setViewName(view);	
+		
+	return mav;
+	}
+
+
 	
 
 }
