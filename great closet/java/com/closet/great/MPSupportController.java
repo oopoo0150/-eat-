@@ -56,6 +56,9 @@ public class MPSupportController {
 	@RequestMapping(value = "/spBoardInsert", method = RequestMethod.POST)
 	public ModelAndView spBoardInsert(Support support) {
 		
+		String sid = session.getAttribute("id").toString();
+		support.setSpsid(sid);
+		
 		mav = spm.spBoardInsert(support);
 		
 		return mav;

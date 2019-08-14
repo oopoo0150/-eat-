@@ -47,6 +47,7 @@
 </center>
 </header>
 <section>
+<center>
 	<div><h1>내용 출력</h1></div>
 	<div id="sp_contents">
 		<div>
@@ -59,9 +60,15 @@
 			<div><h2>작성자</h2> <p>${support.spsid}</p></div>		
 		</div>	
 	</div>
-			
 	</div>
-			
+			<div id="forAdmin">
+			<a href="spDel?spnum=${support.spnum}">
+	 			<input type="submit" value="삭제"></a>
+	 		
+	 		<a href="./mspUpdate?spnum=${support.spnum}">
+	 			<input type="button" value="수정" ></a>
+	 	</div>
+	</center>		
 </section>
 <footer>
 <!-- 풋터로고 -->
