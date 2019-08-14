@@ -75,8 +75,7 @@
 								</script></td>
 					</tr>
 
-				</table>
-				
+				</table>	
 				<input type="submit" value="저장">
 			</form>
 		</div>

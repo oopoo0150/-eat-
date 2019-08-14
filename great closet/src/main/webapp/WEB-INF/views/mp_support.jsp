@@ -7,6 +7,19 @@
 <meta charset="UTF-8">
 <title>고객지원</title>
 <link type="text/css" rel="stylesheet" href="resources/css/common.css">
+<script>
+window.onload=function(){
+	var chk=${param.check};
+	
+	if(chk==1){
+		alert("삭제 성공");
+	}
+	if(chk==2){
+		alert("삭제 실패");
+	}
+	history.replaceState({}, null, location.pathname);
+}
+</script>
 </head>
 <body>
 <header>
@@ -105,17 +118,11 @@
  	<div id="support_bottom">
  		<div align="center">${mppaging}</div>	
  		<div>
- 		
- 		<% 
- 			String id = session.getAttribute("id").toString();
- 			if(id.equals("ADMIN")){			
- 		%>
- 			 <form action="spWrite">
-  				<input type="button" value="글쓰기">
-  			</form>
-  		<%
- 			}
-  		%>	
+ 	
+<form action="./spWrite">
+  <button>글쓰기</button>
+</form>
+  			 
  		</div>
  	</div> 
  </div> 

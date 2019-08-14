@@ -88,20 +88,16 @@ public class MPSupportManagement {
 	public ModelAndView spBoardInsert(Support support) {
 		
 		mav = new ModelAndView();
-		String view = null;
-		String spid = "ADMIN";
-		
-		support.setSpsid(spid);
-		 		
+		String view = null;		 		
 		//DB insert
+		
 		if(myDao.spBoardInsert(support)) {
 			//성공
-			view ="redirect:adminSpList";
+			view ="redirect:supportList";
 			mav.addObject("write",1);
 		}else {
 			
-			view="mp_support_write";
-			
+			view="mp_support_write";			
 		}
 		
 		mav.setViewName(view);
@@ -133,7 +129,7 @@ public class MPSupportManagement {
 		}else {
 			mav.addObject("check",1);
 		}
-		mav.setViewName("redirect:adminSpList");
+		mav.setViewName("redirect:supportList");
 		
 		return mav;
 	}
@@ -164,7 +160,7 @@ public class MPSupportManagement {
 	
 		if(myDao.spBoardUpdate(support)) {
 			//성공		
-			view ="redirect:adminSpList";	
+			view ="redirect:supportList";	
 			mav.addObject("update",1);
 			
 		}else {
