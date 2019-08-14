@@ -7,7 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ import com.closet.great.service.ClosetManagement;
 @Controller
 public class ClosetController {
 	
+
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	ModelAndView mav;
 	
 	boolean result = false;
@@ -37,8 +41,12 @@ public class ClosetController {
 	HttpSession session;
 	
 	@RequestMapping(value = "/closetList")
-	public ModelAndView closetList(String user) {
-		mav = cm.closetList(user);
+	public ModelAndView closetList() {
+		
+		System.out.println(session.getAttribute("id"));
+		logger.info("옷장 페이지를 열었음");
+		String cid = session.getAttribute("id").toString();
+		mav = cm.closetList(cid);
 		
 		return mav;
 	} 

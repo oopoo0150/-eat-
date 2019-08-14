@@ -25,14 +25,14 @@ public class ClosetManagement {
 	String id = "";
 	
 
-	public ModelAndView closetList(String user) {
+	public ModelAndView closetList(String cid) {
 		mav = new ModelAndView();
 		String view = null;
 		List<Closet> cList = null;
 			
-		cList = cDao.getClosetList(user);
+		cList = cDao.getClosetList(cid);
 		
-		id = cList.get(0).getC_sid();
+		id = cid;
 		
 		mav.addObject("cList", cList);
 		mav.addObject("c_sid", id);

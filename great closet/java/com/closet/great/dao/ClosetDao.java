@@ -6,7 +6,7 @@ import com.closet.great.bean.Closet;
 
 public interface ClosetDao {
 
-	List<Closet> getClosetList(String user);
+	List<Closet> getClosetList(String cid);
 
 	boolean closetInsert(Closet closet);
 

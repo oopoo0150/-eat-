@@ -4,7 +4,7 @@
 
 <mapper namespace="com.closet.great.dao.ClosetDao">
 	<select id="getClosetList" resultType="closet" parameterType="String" >
-		SELECT * FROM closet where c_sid = #{user}
+		SELECT * FROM closet where c_sid = #{cid}
 	</select>
 
 	<insert id="closetInsert" parameterType="closet">

@@ -95,7 +95,7 @@
 				</div>
 				<div id="mypage_bottom">
 					<div class="s_box1">
-						<a href="./mCloset"><img src="resources/image/mypage/s_box1.png"></a>
+						<a href="./closetList"><img src="resources/image/mypage/s_box1.png"></a>
 					</div>
 					<div class="s_box2">
 						<a href="./mCal"><img src="resources/image/mypage/s_box2.png"></a>

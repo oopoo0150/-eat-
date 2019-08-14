@@ -30,7 +30,7 @@
 	
 	<!-- 비밀번호 업데이트 -->
 	<update id="updatepass" parameterType="HashMap">
-		UPDATE sign SET s_pass = #{pass} WHERE S_ID = ${id}
+		UPDATE sign SET s_pass = #{pass} WHERE S_ID = #{id}
 	</update>
 	
     <!-- 아이디 중복 -->

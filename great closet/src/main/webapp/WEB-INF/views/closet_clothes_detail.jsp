@@ -110,7 +110,7 @@
 
 
 								옷분류명을 입력해주세요. <input type="text" name="cl_name" required></br>
-								<input type="hidden" name="cl_num" value="${cl_cnum}">
+								<input type="hidden" name="cl_cnum" value="${cl_cnum}">
 								<input type="hidden" name="cl_style" value="${cl_style}">
 
 							</div>
@@ -141,7 +141,7 @@
 						</div>
 						<!-- body -->
 						<center>
-
+ 
 							<div class="modal-body">
 
 								옷분류명을 입력해주세요. <input type="text" name="cl_name" id="cl_name" required value= ""></br>
